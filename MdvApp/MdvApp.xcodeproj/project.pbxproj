@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
 		3F6B598624981BB000B9C90D /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Entities.swift */; };
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
 		3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4BF248EDD4300E62366 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
 		3F6B598524981BB000B9C90D /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementTableViewCell.swift; sourceTree = "<group>"; };
 		3FADD4BC248EDD4300E62366 /* MdvApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MdvApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				3FADD4CD248EDD4C00E62366 /* Info.plist */,
 				3F6B598524981BB000B9C90D /* Entities.swift */,
 				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
+				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */,
 				3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */,
 				3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */,
+				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Entities.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,
 			);

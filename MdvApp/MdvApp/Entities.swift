@@ -16,3 +16,4 @@ struct Announcement {
 struct Tag {
     var name: String
 }
+

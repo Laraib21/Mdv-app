@@ -18,6 +18,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="945-Vo-1FX" kind="relationship" relationship="viewControllers" id="uLV-e2-US8"/>
+                        <segue destination="xw6-Bx-e0T" kind="relationship" relationship="viewControllers" id="tAq-Fo-Oz8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1g-6v-v0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="1297" y="-354"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Item-->
         <scene sceneID="zwG-fe-XQb">
             <objects>
                 <collectionViewController id="xw6-Bx-e0T" sceneMemberID="viewController">
@@ -120,19 +121,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fiR-mB-sob">
-                            <size key="itemSize" width="128" height="128"/>
+                            <size key="itemSize" width="296" height="672"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8mJ-ab-vhI">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="59" y="0.0" width="296" height="672"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aKh-Xr-JD8">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="296" height="672"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="296" height="672"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -140,10 +142,11 @@
                             <outlet property="delegate" destination="xw6-Bx-e0T" id="gLx-Ko-7Kc"/>
                         </connections>
                     </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="Wb2-aB-Wpe"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogf-FS-D6H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="516"/>
+            <point key="canvasLocation" x="486.95652173913049" y="515.625"/>
         </scene>
         <!--Announcements-->
         <scene sceneID="PAo-BN-WzO">

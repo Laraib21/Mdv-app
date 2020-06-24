@@ -5,7 +5,7 @@ DEPENDENCIES:
   - JTAppleCalendar (~> 7.1)
 
 SPEC REPOS:
-  trunk:
+  https://cdn.cocoapods.org/:
     - JTAppleCalendar
 
 SPEC CHECKSUMS:

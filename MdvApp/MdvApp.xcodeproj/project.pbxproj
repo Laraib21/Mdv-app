@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
 		3F6B598624981BB000B9C90D /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Entities.swift */; };
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
-		3F7A26DB24A312E60067A37B /* CalendarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26DA24A312E60067A37B /* CalendarCollectionView.swift */; };
+		3F7A26E024A4029E0067A37B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
+		3F7A26E324A40D500067A37B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E224A40D500067A37B /* CalendarView.swift */; };
+		3F7A26E524A40DBE0067A37B /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E424A40DBE0067A37B /* DateCell.swift */; };
 		3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4BF248EDD4300E62366 /* AppDelegate.swift */; };
 		3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */; };
 		3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */; };
 		3FADD4C7248EDD4300E62366 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4C5248EDD4300E62366 /* Main.storyboard */; };
 		3FADD4C9248EDD4C00E62366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4C8248EDD4C00E62366 /* Assets.xcassets */; };
 		3FADD4CC248EDD4C00E62366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4CA248EDD4C00E62366 /* LaunchScreen.storyboard */; };
+		80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A11EFC3A2705157CB4397EF /* Pods-MdvApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.release.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.release.xcconfig"; sourceTree = "<group>"; };
+		241107622B932BE5709839BE /* Pods_MdvApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MdvApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
 		3F6B598524981BB000B9C90D /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementTableViewCell.swift; sourceTree = "<group>"; };
-		3F7A26DA24A312E60067A37B /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionView.swift; sourceTree = "<group>"; };
+		3F7A26DF24A4029E0067A37B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3F7A26E124A40A910067A37B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3F7A26E224A40D500067A37B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		3F7A26E424A40DBE0067A37B /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		3FADD4BC248EDD4300E62366 /* MdvApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MdvApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FADD4BF248EDD4300E62366 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +40,7 @@
 		3FADD4C8248EDD4C00E62366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FADD4CB248EDD4C00E62366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FADD4CD248EDD4C00E62366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.debug.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +48,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7A26E024A4029E0067A37B /* WebKit.framework in Frameworks */,
+				80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F7A26DE24A4029D0067A37B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F7A26DF24A4029E0067A37B /* WebKit.framework */,
+				241107622B932BE5709839BE /* Pods_MdvApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3FADD4B3248EDD4200E62366 = {
 			isa = PBXGroup;
 			children = (
 				3FADD4BE248EDD4300E62366 /* MdvApp */,
 				3FADD4BD248EDD4300E62366 /* Products */,
+				3F7A26DE24A4029D0067A37B /* Frameworks */,
+				7AB5525A2077A6B2776DED3D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +86,7 @@
 		3FADD4BE248EDD4300E62366 /* MdvApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F7A26E124A40A910067A37B /* Podfile */,
 				3FADD4BF248EDD4300E62366 /* AppDelegate.swift */,
 				3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */,
 				3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */,
@@ -74,9 +97,19 @@
 				3F6B598524981BB000B9C90D /* Entities.swift */,
 				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
 				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
-				3F7A26DA24A312E60067A37B /* CalendarCollectionView.swift */,
+				3F7A26E224A40D500067A37B /* CalendarView.swift */,
+				3F7A26E424A40DBE0067A37B /* DateCell.swift */,
 			);
 			path = MdvApp;
+			sourceTree = "<group>";
+		};
+		7AB5525A2077A6B2776DED3D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */,
+				0A11EFC3A2705157CB4397EF /* Pods-MdvApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FADD4D0248EDD4C00E62366 /* Build configuration list for PBXNativeTarget "MdvApp" */;
 			buildPhases = (
+				7EACF868B69708E6F23DE262 /* [CP] Check Pods Manifest.lock */,
 				3FADD4B8248EDD4200E62366 /* Sources */,
 				3FADD4B9248EDD4200E62366 /* Frameworks */,
 				3FADD4BA248EDD4200E62366 /* Resources */,
+				BF045348FB0D15A108AE9732 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,18 +179,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7EACF868B69708E6F23DE262 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MdvApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF045348FB0D15A108AE9732 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MdvApp/Pods-MdvApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MdvApp/Pods-MdvApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MdvApp/Pods-MdvApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3FADD4B8248EDD4200E62366 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */,
+				3F7A26E324A40D500067A37B /* CalendarView.swift in Sources */,
 				3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */,
 				3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
-				3F7A26DB24A312E60067A37B /* CalendarCollectionView.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Entities.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,
+				3F7A26E524A40DBE0067A37B /* DateCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +375,7 @@
 		};
 		3FADD4D1248EDD4C00E62366 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,6 +393,7 @@
 		};
 		3FADD4D2248EDD4C00E62366 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A11EFC3A2705157CB4397EF /* Pods-MdvApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

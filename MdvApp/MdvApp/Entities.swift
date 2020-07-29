@@ -7,13 +7,16 @@
 
 import Foundation
 
-struct Announcement {
+struct Announcement: Codable {
    var title: String
    var body: String
-   var tags: [Tag]
+   var tags: [Tag] = []
+   enum CodingKeys: String, CodingKey {
+        case title
+        case body
+    }
 }
 
 struct Tag {
     var name: String
 }
-

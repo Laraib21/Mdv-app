@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O84-gX-Gh5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O84-gX-Gh5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +18,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="945-Vo-1FX" kind="relationship" relationship="viewControllers" id="uLV-e2-US8"/>
-                        <segue destination="f14-No-5lk" kind="relationship" relationship="viewControllers" id="Cbh-aA-v9v"/>
+                        <segue destination="i6r-Mv-W35" kind="relationship" relationship="viewControllers" id="kec-z5-LyX"/>
+                        <segue destination="KMc-g4-Z1c" kind="relationship" relationship="viewControllers" id="y5G-zM-RZl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1g-6v-v0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -27,69 +27,20 @@
             <point key="canvasLocation" x="-461" y="-3"/>
         </scene>
         <!--Item-->
-        <scene sceneID="XYJ-nI-0Hb">
+        <scene sceneID="I03-8W-LIW">
             <objects>
-                <viewController id="f14-No-5lk" customClass="CalendarView" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XFb-9n-jUR">
+                <viewController id="i6r-Mv-W35" customClass="ScannerViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ro4-ev-gan">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-BY-sMP" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r4C-3e-nNI">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="Lt2-T0-irj" customClass="DateCell" customModule="MdvApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ySB-qW-BHu">
-                                            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVk-co-hcQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="hVk-co-hcQ" secondAttribute="trailing" id="FXU-02-fGm"/>
-                                                <constraint firstAttribute="bottom" secondItem="hVk-co-hcQ" secondAttribute="bottom" id="VVt-3R-aLz"/>
-                                                <constraint firstItem="hVk-co-hcQ" firstAttribute="leading" secondItem="ySB-qW-BHu" secondAttribute="leading" id="XvX-ma-oPo"/>
-                                                <constraint firstItem="hVk-co-hcQ" firstAttribute="top" secondItem="ySB-qW-BHu" secondAttribute="top" id="sDm-uo-adT"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="dateLabel" destination="hVk-co-hcQ" id="Hrn-p5-TTv"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="ibCalendarDataSource" destination="f14-No-5lk" id="sP2-M3-MTe"/>
-                                    <outlet property="ibCalendarDelegate" destination="f14-No-5lk" id="EsW-8W-Dxs"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="NMy-jC-BVD" firstAttribute="trailing" secondItem="FRq-BY-sMP" secondAttribute="trailing" id="8rB-3M-UB8"/>
-                            <constraint firstItem="FRq-BY-sMP" firstAttribute="top" secondItem="NMy-jC-BVD" secondAttribute="top" id="Abm-ea-Ggh"/>
-                            <constraint firstItem="FRq-BY-sMP" firstAttribute="leading" secondItem="NMy-jC-BVD" secondAttribute="leading" id="OOg-le-285"/>
-                            <constraint firstItem="NMy-jC-BVD" firstAttribute="bottom" secondItem="FRq-BY-sMP" secondAttribute="bottom" id="UAU-7P-YfG"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="NMy-jC-BVD"/>
+                        <viewLayoutGuide key="safeArea" id="Bqg-Kk-mqz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="oma-M7-BNL"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="tqC-4I-OZo"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7gc-eB-S4n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ty6-7M-NTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="487" y="748"/>
+            <point key="canvasLocation" x="3907" y="777"/>
         </scene>
         <!--Announcements-->
         <scene sceneID="cli-md-JFL">
@@ -196,6 +147,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hsH-tv-8jA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="486.95652173913049" y="-354.24107142857139"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="koB-a8-mYa">
+            <objects>
+                <viewController id="4mI-Xh-tol" customClass="CalendarViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SCd-9H-mmi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRs-Rj-dpV" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="88" width="414" height="356"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="356" id="Fyd-O7-lDJ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="4mI-Xh-tol" id="lks-Lk-ILa"/>
+                                    <outlet property="delegate" destination="4mI-Xh-tol" id="oaf-Tz-mKJ"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oRs-Rj-dpV" firstAttribute="top" secondItem="xk7-d9-CIL" secondAttribute="top" id="3bx-06-HJv"/>
+                            <constraint firstItem="oRs-Rj-dpV" firstAttribute="leading" secondItem="xk7-d9-CIL" secondAttribute="leading" id="dyd-Dn-iAx"/>
+                            <constraint firstItem="xk7-d9-CIL" firstAttribute="trailing" secondItem="oRs-Rj-dpV" secondAttribute="trailing" id="zfE-jr-KQ0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xk7-d9-CIL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="n4a-fI-1s8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="0UN-Rg-voM"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Nl-eC-7h8">
+                            <connections>
+                                <segue destination="mXa-l9-DSF" kind="presentation" id="Q1c-8u-54K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xNC-0D-w5D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992.75362318840587" y="776.78571428571422"/>
+        </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="iBh-1w-iLe">
+            <objects>
+                <hostingController id="mXa-l9-DSF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xkS-Hb-qbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1694" y="777"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="PXn-yF-4ev">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KMc-g4-Z1c" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" id="ZHH-8m-dck"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="67I-tj-7AE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4mI-Xh-tol" kind="relationship" relationship="rootViewController" id="02o-ry-57K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zM-RL-kg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82.608695652173921" y="776.78571428571422"/>
         </scene>
     </scenes>
     <resources>

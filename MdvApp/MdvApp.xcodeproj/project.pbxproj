@@ -7,31 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F45A89124B6B9E700B4EF74 /* barcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F45A89024B6B9E700B4EF74 /* barcodeScanner.swift */; };
+		3F45A89324B6BA1400B4EF74 /* barcodeCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F45A89224B6BA1400B4EF74 /* barcodeCreater.swift */; };
 		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
 		3F6B598624981BB000B9C90D /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Entities.swift */; };
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
 		3F7A26E024A4029E0067A37B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
-		3F7A26E324A40D500067A37B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E224A40D500067A37B /* CalendarView.swift */; };
-		3F7A26E524A40DBE0067A37B /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E424A40DBE0067A37B /* DateCell.swift */; };
+		3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* announcementsLoader.swift */; };
+		3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F869CDD24C6457F004A2252 /* EventPopup.swift */; };
 		3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4BF248EDD4300E62366 /* AppDelegate.swift */; };
 		3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */; };
 		3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */; };
 		3FADD4C7248EDD4300E62366 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4C5248EDD4300E62366 /* Main.storyboard */; };
 		3FADD4C9248EDD4C00E62366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4C8248EDD4C00E62366 /* Assets.xcassets */; };
 		3FADD4CC248EDD4C00E62366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4CA248EDD4C00E62366 /* LaunchScreen.storyboard */; };
+		3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */; };
+		3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */; };
+		3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD88124BFCBB600346768 /* EventsDirectory.swift */; };
 		80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A11EFC3A2705157CB4397EF /* Pods-MdvApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.release.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.release.xcconfig"; sourceTree = "<group>"; };
 		241107622B932BE5709839BE /* Pods_MdvApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MdvApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F45A89024B6B9E700B4EF74 /* barcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barcodeScanner.swift; sourceTree = "<group>"; };
+		3F45A89224B6BA1400B4EF74 /* barcodeCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barcodeCreater.swift; sourceTree = "<group>"; };
 		3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
 		3F6B598524981BB000B9C90D /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementTableViewCell.swift; sourceTree = "<group>"; };
 		3F7A26DF24A4029E0067A37B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3F7A26E124A40A910067A37B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3F7A26E224A40D500067A37B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		3F7A26E424A40DBE0067A37B /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		3F7A26E624AE89A10067A37B /* announcementsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementsLoader.swift; sourceTree = "<group>"; };
+		3F869CDD24C6457F004A2252 /* EventPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopup.swift; sourceTree = "<group>"; };
 		3FADD4BC248EDD4300E62366 /* MdvApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MdvApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FADD4BF248EDD4300E62366 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +47,9 @@
 		3FADD4C8248EDD4C00E62366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FADD4CB248EDD4C00E62366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FADD4CD248EDD4C00E62366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
+		3FDDD88124BFCBB600346768 /* EventsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDirectory.swift; sourceTree = "<group>"; };
 		9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.debug.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,8 +107,13 @@
 				3F6B598524981BB000B9C90D /* Entities.swift */,
 				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
 				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
-				3F7A26E224A40D500067A37B /* CalendarView.swift */,
-				3F7A26E424A40DBE0067A37B /* DateCell.swift */,
+				3F7A26E624AE89A10067A37B /* announcementsLoader.swift */,
+				3F45A89024B6B9E700B4EF74 /* barcodeScanner.swift */,
+				3F45A89224B6BA1400B4EF74 /* barcodeCreater.swift */,
+				3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */,
+				3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */,
+				3FDDD88124BFCBB600346768 /* EventsDirectory.swift */,
+				3F869CDD24C6457F004A2252 /* EventPopup.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -226,14 +241,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */,
 				3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */,
-				3F7A26E324A40D500067A37B /* CalendarView.swift in Sources */,
+				3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */,
 				3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */,
+				3F45A89124B6B9E700B4EF74 /* barcodeScanner.swift in Sources */,
 				3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Entities.swift in Sources */,
+				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
+				3F45A89324B6BA1400B4EF74 /* barcodeCreater.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,
-				3F7A26E524A40DBE0067A37B /* DateCell.swift in Sources */,
+				3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */,
+				3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

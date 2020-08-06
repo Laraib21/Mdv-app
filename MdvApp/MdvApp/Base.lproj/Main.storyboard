@@ -180,7 +180,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="compose" id="0UN-Rg-voM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Nl-eC-7h8">
                             <connections>
-                                <segue destination="mXa-l9-DSF" kind="presentation" id="Q1c-8u-54K"/>
+                                <action selector="addEvent:" destination="4mI-Xh-tol" id="uZP-SM-yB9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -188,14 +188,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNC-0D-w5D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.75362318840587" y="776.78571428571422"/>
-        </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="iBh-1w-iLe">
-            <objects>
-                <hostingController id="mXa-l9-DSF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xkS-Hb-qbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1694" y="777"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="PXn-yF-4ev">

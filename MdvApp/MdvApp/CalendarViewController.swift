@@ -11,9 +11,17 @@ import FSCalendar
 import SwiftUI
 
 class CalendarViewController : UIViewController {
+    @IBAction func addEvent(_ sender: Any) {
+        let event = EventPopup(dismiss: dismissHostingController)
+         present(event)
+    }
+    let calendar = CalendarViewController()
     
+    func dismissHostingController(newEvent: Event) -> Void {
+    presentedViewController?.dismiss(animated: true, completion: nil)
 }
 
+}
 extension CalendarViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return 1
@@ -33,6 +41,9 @@ extension UIViewController {
          present(hostingController, animated: true, completion: nil)
     }
 }
+
+
+
 
 
 let eventList = [String]()

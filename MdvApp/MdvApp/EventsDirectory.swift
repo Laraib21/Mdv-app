@@ -8,7 +8,12 @@
 import Foundation
 
 struct Event {
-    let date: Date
     let title: String
     let body: String
+    let startDate : Date
+    let endDate: Date
+}
+
+class EventsDirectory {
+    var events: [Event] = []
 }

@@ -13,6 +13,8 @@ import SwiftUI
             @State var start = Date()
             @State var end = Date()
             @State var title = ""
+            @State var description = ""
+            var dismiss: ((Event) -> Void)?
             var saveButton: some View {
                 Button(action: SaveEvent) {
                     Text("Save")
@@ -21,19 +23,22 @@ import SwiftUI
             var body: some View{
                 NavigationView {
                     Form {
-                        TextField("Placeholder", text: $title)
+                        TextField("Title", text: $title)
                         DatePicker(selection: $start, displayedComponents: [.date, .hourAndMinute]) {
                             Text("Start")
                         }
                         DatePicker(selection: $end, displayedComponents: [.date, .hourAndMinute]) {
                             Text("End")
                         }
+                        TextField("Description of Event", text: $description)
+                        .frame(height: 200)
                     }
                     .navigationBarItems(trailing: saveButton)
                     
                 }
             }
             func SaveEvent () {
+                /*
                 let str = "Super long string here"
                 let filename = getDocumentsDirectory().appendingPathComponent("output.txt")
 
@@ -43,6 +48,9 @@ import SwiftUI
                     // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
                     print(error)
                 }
+                */
+                let newEvent = Event(title: title, body: description, startDate: start, endDate: end)
+                self.dismiss?(newEvent)
             }
             func getDocumentsDirectory() -> URL {
                 let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

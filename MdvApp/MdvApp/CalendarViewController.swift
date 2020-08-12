@@ -17,13 +17,12 @@ class CalendarViewController : UIViewController {
 
     // MARK: - Properties
     let eventsDirectory = EventsDirectory()
-    var calendarDetailView = CalendarDetailView(events: [])
+    let hostingController = UIHostingController(rootView: CalendarDetailView(events: []))
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let hostingController = UIHostingController(rootView: calendarDetailView)
         addChildViewController(hostingController, intoContainer: containerViewController)
     }
 
@@ -36,8 +35,16 @@ class CalendarViewController : UIViewController {
     // MARK: - Helper Functions
     func dismissHostingController(newEvent: Event) -> Void {
         eventsDirectory.addEvents(newEvent)
+        let selectedDate = calendarView.selectedDate
         presentedViewController?.dismiss(animated: true){[weak self] in
             self?.calendarView.reloadData()
+            let events: [Event]
+            if let selectedDate = selectedDate {
+                events = self?.eventsDirectory.events(on: selectedDate) ?? []
+            } else {
+                events = []
+            }
+            self?.hostingController.rootView = CalendarDetailView(events: events)
         }
     }
 
@@ -50,6 +57,6 @@ extension CalendarViewController: FSCalendarDataSource {
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        calendarDetailView.events = eventsDirectory.events(on: date)
+        hostingController.rootView = CalendarDetailView(events: eventsDirectory.events(on: date))
     }
 }

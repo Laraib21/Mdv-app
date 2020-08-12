@@ -22,7 +22,7 @@ class CalendarViewController : UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        calendarView.select(Date())
         addChildViewController(hostingController, intoContainer: containerViewController)
     }
 

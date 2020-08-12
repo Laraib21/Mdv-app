@@ -146,6 +146,27 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oez-Xi-awZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
+                                    <textField hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="27V-t2-zWv">
+                                        <rect key="frame" x="8" y="367.5" width="360" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Jv5-pr-U1l"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVQ-ic-989">
+                                        <rect key="frame" x="376" y="369.5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="6DD-Gf-QcG"/>
+                                            <constraint firstAttribute="width" constant="30" id="ZWa-hg-8nJ"/>
+                                        </constraints>
+                                        <state key="normal" title="GO"/>
+                                        <connections>
+                                            <action selector="goButtonAction:" destination="DiB-a6-hC5" eventType="touchUpInside" id="QNn-yY-zRy"/>
+                                        </connections>
+                                    </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lru-Po-URs">
                                         <rect key="frame" x="16" y="369.5" width="382" height="30"/>
                                         <constraints>
@@ -158,6 +179,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="27V-t2-zWv" firstAttribute="leading" secondItem="oez-Xi-awZ" secondAttribute="leading" constant="8" id="GEh-T8-V2o"/>
+                                    <constraint firstAttribute="trailing" secondItem="LVQ-ic-989" secondAttribute="trailing" constant="8" id="L7y-cJ-z4P"/>
+                                    <constraint firstItem="27V-t2-zWv" firstAttribute="centerY" secondItem="oez-Xi-awZ" secondAttribute="centerY" id="bZG-gJ-h6J"/>
+                                    <constraint firstItem="LVQ-ic-989" firstAttribute="leading" secondItem="27V-t2-zWv" secondAttribute="trailing" constant="8" id="e3G-BQ-3k7"/>
+                                    <constraint firstItem="LVQ-ic-989" firstAttribute="centerY" secondItem="27V-t2-zWv" secondAttribute="centerY" id="iXj-Ye-HWf"/>
                                     <constraint firstAttribute="trailing" secondItem="lru-Po-URs" secondAttribute="trailing" constant="16" id="to9-bF-gny"/>
                                     <constraint firstItem="lru-Po-URs" firstAttribute="leading" secondItem="oez-Xi-awZ" secondAttribute="leading" constant="16" id="yrl-Js-dSz"/>
                                     <constraint firstItem="lru-Po-URs" firstAttribute="centerY" secondItem="oez-Xi-awZ" secondAttribute="centerY" id="zRb-DV-bu5"/>
@@ -182,6 +208,8 @@
                     <connections>
                         <outlet property="barcodeImageView" destination="0cR-jF-Yit" id="AuS-qO-EVT"/>
                         <outlet property="barcodeScanningView" destination="oez-Xi-awZ" id="ouc-ZM-60E"/>
+                        <outlet property="barcodeValueTextField" destination="27V-t2-zWv" id="HEZ-do-Mms"/>
+                        <outlet property="goButton" destination="LVQ-ic-989" id="trJ-it-Mqt"/>
                         <outlet property="messageLabel" destination="lru-Po-URs" id="awm-G6-u4Q"/>
                     </connections>
                 </viewController>

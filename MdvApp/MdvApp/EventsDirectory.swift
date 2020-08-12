@@ -28,9 +28,4 @@ class EventsDirectory {
    func events(on date: Date) -> [Event] {
         return events.filter { $0.startDate.hasSame(.day, as: date) }
     }
-    
-    
-    
-    
-    
 }

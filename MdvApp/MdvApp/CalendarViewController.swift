@@ -46,18 +46,3 @@ extension UIViewController {
          present(hostingController, animated: true, completion: nil)
     }
 }
-
-struct CalendarDetailView: View {
-    let events : [Event]
-    var body: some View {
-        List(events,id: \.self) { event in
-            Text(event.title)
-        }
-    }
-    var startDate: Date
-    var endDate: Date
-}
-
-
-
-

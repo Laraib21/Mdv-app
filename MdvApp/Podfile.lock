@@ -5,7 +5,7 @@ DEPENDENCIES:
   - FSCalendar
 
 SPEC REPOS:
-  trunk:
+  https://cdn.cocoapods.org/:
     - FSCalendar
 
 SPEC CHECKSUMS:

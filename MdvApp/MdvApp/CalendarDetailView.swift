@@ -14,8 +14,6 @@ struct CalendarDetailView: View {
             Text(event.title)
         }
     }
-    var startDate: Date
-    var endDate: Date
 }
 
 struct CalendarDetailView_Previews: PreviewProvider {

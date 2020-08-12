@@ -40,6 +40,7 @@ class AnnouncementsTableViewController: UITableViewController {
         let announcementDetailsView = AnnouncementDetailsView(announcement: announcements[indexPath.row])
         let hostingController = UIHostingController(rootView: announcementDetailsView)
         present(hostingController, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

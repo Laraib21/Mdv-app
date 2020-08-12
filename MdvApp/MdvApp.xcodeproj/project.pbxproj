@@ -14,6 +14,7 @@
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
 		3F7A26E024A4029E0067A37B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
 		3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* announcementsLoader.swift */; };
+		3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */; };
 		3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F869CDD24C6457F004A2252 /* EventPopup.swift */; };
 		3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4BF248EDD4300E62366 /* AppDelegate.swift */; };
 		3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */; };
@@ -38,6 +39,7 @@
 		3F7A26DF24A4029E0067A37B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3F7A26E124A40A910067A37B /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3F7A26E624AE89A10067A37B /* announcementsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementsLoader.swift; sourceTree = "<group>"; };
+		3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateExtensions.swift; sourceTree = "<group>"; };
 		3F869CDD24C6457F004A2252 /* EventPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopup.swift; sourceTree = "<group>"; };
 		3FADD4BC248EDD4300E62366 /* MdvApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MdvApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FADD4BF248EDD4300E62366 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */,
 				3FDDD88124BFCBB600346768 /* EventsDirectory.swift */,
 				3F869CDD24C6457F004A2252 /* EventPopup.swift */,
+				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */,
+				3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */,
 				3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */,
 				3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */,
 				3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */,

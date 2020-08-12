@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct CalendarDetailView: View {
-    let events : [String]
+    let events : [Event]
     var body: some View {
         List(events,id: \.self) { event in
-            Text(event)
+            Text(event.title)
         }
     }
+    var startDate: Date
+    var endDate: Date
 }
 
 struct CalendarDetailView_Previews: PreviewProvider {

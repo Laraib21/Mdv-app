@@ -15,22 +15,27 @@ class CalendarViewController : UIViewController {
         let event = EventPopup(dismiss: dismissHostingController)
          present(event)
     }
-    let calendar = CalendarViewController()
+    @IBOutlet weak var calendarView: FSCalendar!
+    
+    let eventsDirectory = EventsDirectory()
     
     func dismissHostingController(newEvent: Event) -> Void {
-    presentedViewController?.dismiss(animated: true, completion: nil)
-}
+        eventsDirectory.addEvents(newEvent)
+        presentedViewController?.dismiss(animated: true){[weak self] in
+            self?.calendarView.reloadData()
+        }
+    }
 
 }
 extension CalendarViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return 1
+        return eventsDirectory.events(on: date).count
     }
 }
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let calendarDetailView = CalendarDetailView(events: ["event1", "event2", "event3"])
+        let calendarDetailView = CalendarDetailView(events: eventsDirectory.events(on: date))
         present(calendarDetailView)
     }
 }
@@ -42,8 +47,17 @@ extension UIViewController {
     }
 }
 
+struct CalendarDetailView: View {
+    let events : [Event]
+    var body: some View {
+        List(events,id: \.self) { event in
+            Text(event.title)
+        }
+    }
+    var startDate: Date
+    var endDate: Date
+}
 
 
 
 
-let eventList = [String]()

@@ -11,14 +11,29 @@ import FSCalendar
 import SwiftUI
 
 class CalendarViewController : UIViewController {
+    // MARK: - IBOutlets
+    @IBOutlet var containerViewController: UIView!
+    @IBOutlet weak var calendarView: FSCalendar!
+
+    // MARK: - Properties
+    let eventsDirectory = EventsDirectory()
+    var calendarDetailView = CalendarDetailView(events: [])
+
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let hostingController = UIHostingController(rootView: calendarDetailView)
+        addChildViewController(hostingController, intoContainer: containerViewController)
+    }
+
+    // MARK: - IBActions
     @IBAction func addEvent(_ sender: Any) {
         let event = EventPopup(dismiss: dismissHostingController)
          present(event)
     }
-    @IBOutlet weak var calendarView: FSCalendar!
-    
-    let eventsDirectory = EventsDirectory()
-    
+
+    // MARK: - Helper Functions
     func dismissHostingController(newEvent: Event) -> Void {
         eventsDirectory.addEvents(newEvent)
         presentedViewController?.dismiss(animated: true){[weak self] in
@@ -35,14 +50,6 @@ extension CalendarViewController: FSCalendarDataSource {
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let calendarDetailView = CalendarDetailView(events: eventsDirectory.events(on: date))
-        present(calendarDetailView)
-    }
-}
-
-extension UIViewController {
-    func present<V: View>(_ view: V) {
-         let hostingController = UIHostingController(rootView: view)
-         present(hostingController, animated: true, completion: nil)
+        calendarDetailView.events = eventsDirectory.events(on: date)
     }
 }

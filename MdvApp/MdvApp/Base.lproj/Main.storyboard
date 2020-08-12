@@ -208,12 +208,19 @@
                                     <outlet property="delegate" destination="4mI-Xh-tol" id="oaf-Tz-mKJ"/>
                                 </connections>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwB-BW-5nS">
+                                <rect key="frame" x="0.0" y="444" width="414" height="369"/>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="xk7-d9-CIL" firstAttribute="trailing" secondItem="MwB-BW-5nS" secondAttribute="trailing" id="0nN-xf-oZn"/>
                             <constraint firstItem="oRs-Rj-dpV" firstAttribute="top" secondItem="xk7-d9-CIL" secondAttribute="top" id="3bx-06-HJv"/>
+                            <constraint firstItem="MwB-BW-5nS" firstAttribute="leading" secondItem="xk7-d9-CIL" secondAttribute="leading" id="B7y-AE-WcD"/>
                             <constraint firstItem="oRs-Rj-dpV" firstAttribute="leading" secondItem="xk7-d9-CIL" secondAttribute="leading" id="dyd-Dn-iAx"/>
+                            <constraint firstItem="xk7-d9-CIL" firstAttribute="bottom" secondItem="MwB-BW-5nS" secondAttribute="bottom" id="qgy-9f-aun"/>
                             <constraint firstItem="xk7-d9-CIL" firstAttribute="trailing" secondItem="oRs-Rj-dpV" secondAttribute="trailing" id="zfE-jr-KQ0"/>
+                            <constraint firstItem="MwB-BW-5nS" firstAttribute="top" secondItem="oRs-Rj-dpV" secondAttribute="bottom" id="zwS-WJ-G32"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xk7-d9-CIL"/>
                     </view>
@@ -227,6 +234,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="oRs-Rj-dpV" id="7Zr-Wc-Xuc"/>
+                        <outlet property="containerViewController" destination="MwB-BW-5nS" id="W5S-UE-1QM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNC-0D-w5D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

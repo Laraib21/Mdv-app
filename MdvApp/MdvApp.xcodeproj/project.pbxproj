@@ -26,6 +26,7 @@
 		80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
 		FB81973024E486E600765A27 /* UIImage+Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972F24E486E600765A27 /* UIImage+Barcode.swift */; };
+		FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81973124E4960600765A27 /* UIViewController+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.debug.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FB81972D24E470DD00765A27 /* StudentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDViewController.swift; sourceTree = "<group>"; };
 		FB81972F24E486E600765A27 /* UIImage+Barcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Barcode.swift"; sourceTree = "<group>"; };
+		FB81973124E4960600765A27 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
 				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
 				FB81972F24E486E600765A27 /* UIImage+Barcode.swift */,
+				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				3F6B598624981BB000B9C90D /* Entities.swift in Sources */,
 				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,
+				FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */,
 				3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */,
 				FB81973024E486E600765A27 /* UIImage+Barcode.swift in Sources */,
 				3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */,

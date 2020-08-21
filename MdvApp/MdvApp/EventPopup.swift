@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-
-
-         
+    // MARK: - event configuration
         struct EventPopup: View {
             @State var start = Date()
             @State var end = Date()
@@ -37,6 +35,7 @@ import SwiftUI
                     
                 }
             }
+    // MARK: - saving the event
             func SaveEvent () {
                 /*
                 let str = "Super long string here"
@@ -58,6 +57,7 @@ import SwiftUI
             }
         }
 
+    // MARK: - showing the event below the calendar
 struct EventPopup_Previews: PreviewProvider {
     static var previews: some View {
         EventPopup()

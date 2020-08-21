@@ -16,7 +16,7 @@ class AnnouncementLoader {
         Announcement(title: "Test 123", body: "Testing 123, this is a sample announcement", tags: []),
     ]
     
-    
+    // MARK: - gets announcements from the internet
     func announcmentGetter(completion: @escaping ([Announcement]) -> Void) {
         completion(announcements)
         /*

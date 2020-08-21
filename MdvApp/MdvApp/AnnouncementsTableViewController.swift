@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 
+    // MARK: - Helpers
 class AnnouncementsTableViewController: UITableViewController {
     let announcementLoader = AnnouncementLoader()
     override func viewDidLoad() {
@@ -19,9 +20,12 @@ class AnnouncementsTableViewController: UITableViewController {
         }
     }
     
+        // MARK: - Helpers
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return announcements.count
     }
+    
+        // MARK: - Helpers
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let announcement = announcements[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! announcementTableViewCell
@@ -29,13 +33,14 @@ class AnnouncementsTableViewController: UITableViewController {
         cell.announcementBodyLabel?.text = announcement.body
         return cell
     }
-    
+        // MARK: - Helpers
     var announcements: [Announcement] = []
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 240
     }
     
+        // MARK: - Helpers
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let announcementDetailsView = AnnouncementDetailsView(announcement: announcements[indexPath.row])
         let hostingController = UIHostingController(rootView: announcementDetailsView)

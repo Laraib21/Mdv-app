@@ -12,6 +12,7 @@ struct Event: Hashable{
     let body: String
     let startDate : Date
     let endDate: Date
+   // let alert: 
 }
 
     // MARK: - shows events body, start and end date

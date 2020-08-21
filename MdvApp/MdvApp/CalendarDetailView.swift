@@ -16,6 +16,7 @@ struct CalendarDetailView: View {
     }
 }
 
+    // MARK: - sample list of events for calendar
 struct CalendarDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarDetailView(events: ["event1", "event2", "event3"])

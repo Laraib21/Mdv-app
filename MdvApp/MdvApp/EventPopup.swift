@@ -114,6 +114,7 @@ struct EventPopup: View {
     }
 }
 
+    // MARK: - showing the event below the calendar
 struct EventPopup_Previews: PreviewProvider {
     static var previews: some View {
         EventPopup()

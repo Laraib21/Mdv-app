@@ -256,7 +256,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="compose" id="0UN-Rg-voM"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Nl-eC-7h8">
                             <connections>
-                                <action selector="addEvent:" destination="4mI-Xh-tol" id="uZP-SM-yB9"/>
+                                <action selector="addEvent:" destination="4mI-Xh-tol" id="XbY-BA-3SL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

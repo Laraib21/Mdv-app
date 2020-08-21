@@ -17,7 +17,7 @@ final class StudentIDViewController: UIViewController {
     @IBOutlet var goButton: UIButton!
 
     // MARK: - Properties
-    private var studentID: String?
+    private var studentID: String? = "1234567890"
     private var captureSession: AVCaptureSession?
 
     // MARK: - UIViewController Overrides

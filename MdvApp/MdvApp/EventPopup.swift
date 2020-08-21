@@ -32,6 +32,7 @@ import SwiftUI
                         .frame(height: 200)
                     }
                     .navigationBarItems(trailing: saveButton)
+                    .navigationBarTitle("New Event")
                     
                 }
             }

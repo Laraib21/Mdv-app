@@ -20,22 +20,17 @@ struct CalendarDetailView: View {
 struct CalendarDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarDetailView(events: ["event1", "event2", "event3"])
-}
-}
-/*
-if events.isEmpty == true {
-    VStack {
-        Text("No Events Today")
-    }
-} else {
-    VStack {
-        List(...) {
-            // ...
-        }
     }
 }
 
-    
-}
-}
- /**/*/
+//if events.isEmpty == true {
+//    VStack {
+//        Text("No Events Today")
+//    }
+//} else {
+//    VStack {
+//        List(...) {
+//            // ...
+//        }
+//    }
+//}

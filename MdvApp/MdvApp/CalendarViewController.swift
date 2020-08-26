@@ -31,6 +31,10 @@ class CalendarViewController : UIViewController {
         let event = EventPopup(dismiss: dismissHostingController)
          present(event)
     }
+    
+    func createNotification(date: Date) {
+        
+    }
 
     // MARK: - Helper Functions
     func dismissHostingController(newEvent: Event) -> Void {

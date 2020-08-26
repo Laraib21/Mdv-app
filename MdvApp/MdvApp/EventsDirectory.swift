@@ -26,6 +26,13 @@ extension Event: ExpressibleByStringLiteral {
 // MARK: - List of events
 class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     var events: [Event] = []
+
+    lazy var center: UNUserNotificationCenter = {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        return center
+    }()
+
     func addEvents(_ event: Event){
         events.append(event)
         center.getNotificationSettings { settings in
@@ -50,10 +57,10 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
 
 
     // MARK: - Notification Center
-    let center = UNUserNotificationCenter.current()
     func getUserPermission(success: @escaping () -> Void, failure: @escaping () -> Void) {
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
+                self.registerCategories()
                 success()
             } else {
                 failure()
@@ -62,8 +69,6 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
 
     func scheduleNotification() {
-        let center = UNUserNotificationCenter.current()
-
         let content = UNMutableNotificationContent()
         content.title = "Late wake up call"
         content.body = "The early bird catches the worm, but the second mouse gets the cheese."
@@ -74,16 +79,13 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         var dateComponents = DateComponents()
         dateComponents.hour = 10
         dateComponents.minute = 30
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 8, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)
     }
 
     func registerCategories() {
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-
         let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
         let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
 
@@ -116,5 +118,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         completionHandler()
     }
 
-
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
+    }
 }

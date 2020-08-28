@@ -79,7 +79,7 @@ extension StudentIDViewController {
             return
         }
 
-        barcodeImageView.image = barcodeImage
+        barcodeImageView.image = barcodeImage.rotate(radians: .pi / 2)
         barcodeImageView.isHidden = false
     }
 }

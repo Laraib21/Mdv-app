@@ -141,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0cR-jF-Yit">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="80" y="244" width="254" height="369"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oez-Xi-awZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
@@ -190,15 +190,15 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oez-Xi-awZ" firstAttribute="top" secondItem="j2Y-2S-E0j" secondAttribute="top" id="78u-fi-bHJ"/>
-                            <constraint firstItem="j2Y-2S-E0j" firstAttribute="bottom" secondItem="0cR-jF-Yit" secondAttribute="bottom" id="97M-VD-Bhu"/>
-                            <constraint firstItem="0cR-jF-Yit" firstAttribute="top" secondItem="j2Y-2S-E0j" secondAttribute="top" id="J2c-xD-YGE"/>
-                            <constraint firstItem="j2Y-2S-E0j" firstAttribute="trailing" secondItem="0cR-jF-Yit" secondAttribute="trailing" id="OPF-6F-l3N"/>
+                            <constraint firstItem="j2Y-2S-E0j" firstAttribute="bottom" secondItem="0cR-jF-Yit" secondAttribute="bottom" constant="200" id="97M-VD-Bhu"/>
+                            <constraint firstItem="0cR-jF-Yit" firstAttribute="top" secondItem="j2Y-2S-E0j" secondAttribute="top" constant="200" id="J2c-xD-YGE"/>
+                            <constraint firstItem="j2Y-2S-E0j" firstAttribute="trailing" secondItem="0cR-jF-Yit" secondAttribute="trailing" constant="80" id="OPF-6F-l3N"/>
                             <constraint firstItem="j2Y-2S-E0j" firstAttribute="trailing" secondItem="oez-Xi-awZ" secondAttribute="trailing" id="RfF-F7-i9S"/>
                             <constraint firstItem="j2Y-2S-E0j" firstAttribute="bottom" secondItem="oez-Xi-awZ" secondAttribute="bottom" id="b99-uF-zym"/>
-                            <constraint firstItem="0cR-jF-Yit" firstAttribute="leading" secondItem="j2Y-2S-E0j" secondAttribute="leading" id="pXf-XH-Qw5"/>
+                            <constraint firstItem="0cR-jF-Yit" firstAttribute="leading" secondItem="j2Y-2S-E0j" secondAttribute="leading" constant="80" id="pXf-XH-Qw5"/>
                             <constraint firstItem="oez-Xi-awZ" firstAttribute="leading" secondItem="j2Y-2S-E0j" secondAttribute="leading" id="rEj-OP-dfJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j2Y-2S-E0j"/>

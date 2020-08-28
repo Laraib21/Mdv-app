@@ -106,7 +106,7 @@ struct EventPopup: View {
         //    SwiftUI lets you use statements like this:
         //    .foregroundColor(isValidated ? Color.white : Color.red)
         func isEmpty(event: Event){
-            if event isEmpty{
+            if event.title == ""{
                 
             }
         }

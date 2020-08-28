@@ -10,8 +10,23 @@ import SwiftUI
 struct CalendarDetailView: View {
     var events : [Event]
     var body: some View {
-        List(events,id: \.self) { event in
-            Text(event.title)
+        VStack{
+            if events.isEmpty{
+                List{
+                    Text("")
+                    Text("")
+                    Text("")
+                    HStack {
+                        Spacer()
+                        Text("No Events")
+                        Spacer()
+                    }
+                }
+            } else {
+                List(events,id: \.self) { event in
+                    Text(event.title)
+                }
+            }
         }
     }
 }
@@ -19,7 +34,7 @@ struct CalendarDetailView: View {
     // MARK: - sample list of events for calendar
 struct CalendarDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarDetailView(events: ["event1", "event2", "event3"])
+        CalendarDetailView(events: [])
     }
 }
 

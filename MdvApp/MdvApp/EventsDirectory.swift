@@ -52,9 +52,8 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - shows event on the date that user identified
     func events(on date: Date) -> [Event] {
-        return [] // return events.filter { $0.startDate.fullDistance(from: date, resultIn: [.day]).value(for: .day) == 0 }
+        return events.filter { $0.startDate.hasSame(.day, as: date) }
     }
-
 
     // MARK: - Notification Center
     func getUserPermission(success: @escaping () -> Void, failure: @escaping () -> Void) {

@@ -27,6 +27,7 @@ extension Event: ExpressibleByStringLiteral {
 class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     var events: [Event] = []
 
+    lazy var calendar = Calendar.autoupdatingCurrent
     lazy var center: UNUserNotificationCenter = {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
@@ -52,7 +53,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - shows event on the date that user identified
     func events(on date: Date) -> [Event] {
-        return events.filter { $0.startDate.hasSame(.day, as: date) }
+        return events.filter { calendar.isDate($0.startDate, inSameDayAs: date) }
     }
 
     // MARK: - Notification Center

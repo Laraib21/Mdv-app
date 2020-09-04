@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CalendarDetailView: View {
     var events : [Event]
+    @State var showingDetail = false
+    @State var currentEvent: Event? = nil
     var body: some View {
         VStack{
             if events.isEmpty{
@@ -24,11 +26,24 @@ struct CalendarDetailView: View {
                 }
             } else {
                 List(events,id: \.self) { event in
-                    Text(event.title)
+                    Text(event.title).onTapGesture {
+                        self.currentEvent = event
+                        self.showingDetail = true
+                    }
                 }
             }
+        }.sheet(isPresented: $showingDetail) {
+            CalendarEventDetailView(event: self.currentEvent!)
+        
         }
     }
+}
+struct CalendarEventDetailView: View {
+    let event: Event
+    var body: some View {
+        Text("Hello World")
+    }
+    
 }
 
     // MARK: - sample list of events for calendar

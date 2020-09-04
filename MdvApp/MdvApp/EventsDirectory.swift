@@ -13,13 +13,14 @@ struct Event: Hashable{
     let body: String
     let startDate : Date
     let endDate: Date
+    let alertDate: Date
     // let alert:
 }
 
 // MARK: - shows events body, start and end date
 extension Event: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
-        self.init(title: value, body: "", startDate: Date(), endDate: Date())
+        self.init(title: value, body: "", startDate: Date(), endDate: Date(), alertDate: Date())
     }
 }
 
@@ -39,12 +40,12 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional:
-                self.scheduleNotification()
+                self.scheduleNotification(for: event)
             case .denied:
                 // Show an UIAlert
                 print("Check settings for notification setup")
             case .notDetermined:
-                self.getUserPermission(success: self.scheduleNotification, failure: { print("D'Oh") })
+                self.getUserPermission(success: self.scheduleNotification(for: event), failure: { print("D'Oh") })
             @unknown default:
                 print("Unhandled auth type: \(settings.authorizationStatus)")
             }
@@ -57,7 +58,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
 
     // MARK: - Notification Center
-    func getUserPermission(success: @escaping () -> Void, failure: @escaping () -> Void) {
+    func getUserPermission(success: @escaping @autoclosure () -> Void, failure: @escaping () -> Void) {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
                 self.registerCategories()
@@ -68,18 +69,16 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    func scheduleNotification() {
+    func scheduleNotification(for event: Event) {
+        let timeInterval = event.alertDate.timeIntervalSince(Date())
+        guard timeInterval > 0 else {return}
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval ,repeats: false)
+        
         let content = UNMutableNotificationContent()
-        content.title = "Late wake up call"
-        content.body = "The early bird catches the worm, but the second mouse gets the cheese."
+        content.title = event.title
+        content.body = event.body
         content.categoryIdentifier = "alarm"
-        content.userInfo = ["customData": "fizzbuzz"]
         content.sound = UNNotificationSound.default
-
-        var dateComponents = DateComponents()
-        dateComponents.hour = 10
-        dateComponents.minute = 30
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 8, repeats: false)
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)

@@ -24,6 +24,7 @@
 		3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */; };
 		3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD88124BFCBB600346768 /* EventsDirectory.swift */; };
 		80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
+		FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */; };
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
 		FB81973024E486E600765A27 /* UIImage+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972F24E486E600765A27 /* UIImage+Convenience.swift */; };
 		FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81973124E4960600765A27 /* UIViewController+Convenience.swift */; };
@@ -52,6 +53,7 @@
 		3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
 		3FDDD88124BFCBB600346768 /* EventsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDirectory.swift; sourceTree = "<group>"; };
 		9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.debug.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		FB81972D24E470DD00765A27 /* StudentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDViewController.swift; sourceTree = "<group>"; };
 		FB81972F24E486E600765A27 /* UIImage+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Convenience.swift"; sourceTree = "<group>"; };
 		FB81973124E4960600765A27 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		3FADD4BE248EDD4300E62366 /* MdvApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB1CDF862502E50D00942E60 /* Extensions */,
 				3F7A26E124A40A910067A37B /* Podfile */,
 				3FADD4BF248EDD4300E62366 /* AppDelegate.swift */,
 				3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */,
@@ -131,6 +134,14 @@
 				0A11EFC3A2705157CB4397EF /* Pods-MdvApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FB1CDF862502E50D00942E60 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 				3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Entities.swift in Sources */,
+				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
 				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,
 				FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */,

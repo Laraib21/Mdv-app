@@ -10,7 +10,6 @@
 		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
 		3F6B598624981BB000B9C90D /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Entities.swift */; };
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
-		3F7A26E024A4029E0067A37B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
 		3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* announcementsLoader.swift */; };
 		3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */; };
 		3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F869CDD24C6457F004A2252 /* EventPopup.swift */; };
@@ -23,7 +22,8 @@
 		3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */; };
 		3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */; };
 		3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD88124BFCBB600346768 /* EventsDirectory.swift */; };
-		80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
+		3FF820292509543600756B5B /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
+		3FF8202C2509543800756B5B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
 		FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */; };
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
 		FB81973024E486E600765A27 /* UIImage+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972F24E486E600765A27 /* UIImage+Convenience.swift */; };
@@ -64,8 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F7A26E024A4029E0067A37B /* WebKit.framework in Frameworks */,
-				80863D9DD5294CB790D87C4D /* Pods_MdvApp.framework in Frameworks */,
+				3FF8202C2509543800756B5B /* WebKit.framework in Frameworks */,
+				3FF820292509543600756B5B /* Pods_MdvApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,14 +419,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6373KCPL45;
 				INFOPLIST_FILE = MdvApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laraibenterprises.MdvApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.laraibenterprises.MdvApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,14 +440,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6373KCPL45;
 				INFOPLIST_FILE = MdvApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.laraibenterprises.MdvApp;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.laraibenterprises.MdvApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

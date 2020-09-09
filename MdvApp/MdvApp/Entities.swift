@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CloudKit
 
 struct Announcement: Codable {
    var title: String
@@ -16,7 +17,11 @@ struct Announcement: Codable {
         case body
     }
 }
-
+extension Announcement {
+    init(record: CKRecord) {
+        self.init(title: record["title"] as! String, body: record["body"] as! String, tags:[])
+    }
+}
 struct Tag {
     var name: String
 }

@@ -13,7 +13,7 @@ struct Event: Hashable{
     let body: String
     let startDate : Date
     let endDate: Date
-    let alertDate: Date
+    let alertDate: Date?
     // let alert:
 }
 
@@ -70,7 +70,8 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
 
     func scheduleNotification(for event: Event) {
-        let timeInterval = event.alertDate.timeIntervalSince(Date())
+        guard let alertDate = event.alertDate else { return }
+        let timeInterval = alertDate.timeIntervalSince(Date())
         guard timeInterval > 0 else {return}
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval ,repeats: false)
         

@@ -159,7 +159,7 @@ struct EventPopup: View {
 
         endDateValid = end.timeIntervalSince(start) > 0
         
-        let alertDate: Date
+        let alertDate: Date?
         switch selection {
         case .atTimeOfEvent:
             alertDate = start
@@ -173,10 +173,12 @@ struct EventPopup: View {
             alertDate = calendar.date(byAdding: .day, value: -2,to: start) ?? start
         case .oneWeekBefore:
             alertDate = calendar.date(byAdding: .day, value: -7,to: start) ?? start
+        case .noAlert:
+            alertDate = nil
         default:
             alertDate = start
         }
-        alertDateValid = alertDate.timeIntervalSince(Date()) > 60
+        alertDateValid = (alertDate?.timeIntervalSince(Date()) ?? 61) > 60
         
         guard isTitleValid && isDescriptionValid && endDateValid else { return }
         

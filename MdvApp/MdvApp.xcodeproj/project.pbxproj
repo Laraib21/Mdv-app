@@ -84,6 +84,7 @@
 		3FADD4B3248EDD4200E62366 = {
 			isa = PBXGroup;
 			children = (
+				3F7A26E124A40A910067A37B /* Podfile */,
 				3FADD4BE248EDD4300E62366 /* MdvApp */,
 				3FADD4BD248EDD4300E62366 /* Products */,
 				3F7A26DE24A4029D0067A37B /* Frameworks */,
@@ -103,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				FB1CDF862502E50D00942E60 /* Extensions */,
-				3F7A26E124A40A910067A37B /* Podfile */,
 				3FADD4BF248EDD4300E62366 /* AppDelegate.swift */,
 				3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */,
 				3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */,

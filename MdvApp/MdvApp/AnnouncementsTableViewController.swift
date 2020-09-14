@@ -49,6 +49,12 @@ class AnnouncementsTableViewController: UITableViewController {
     }
     
     
+    @IBAction func addFakeAnnouncement(_ sender: Any) {
+        let announcement = Announcement(title: "Welcome Back", body: "hello")
+        announcementLoader.save(announcement) {error in
+            print(String(describing:error))
+        }
+    }
     
     
     

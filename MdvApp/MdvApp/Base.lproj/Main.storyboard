@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O84-gX-Gh5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O84-gX-Gh5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Splash Tap Bar Controller-->
         <scene sceneID="Au3-de-qyk">
             <objects>
-                <tabBarController id="O84-gX-Gh5" sceneMemberID="viewController">
+                <tabBarController id="O84-gX-Gh5" customClass="SplashTapBarController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bQx-pA-uVW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,7 +108,13 @@
                             <outlet property="delegate" destination="HRd-6X-TsI" id="g5G-MF-vbq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Announcements" largeTitleDisplayMode="always" id="mci-br-HXc"/>
+                    <navigationItem key="navigationItem" title="Announcements" largeTitleDisplayMode="always" id="mci-br-HXc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="R6r-3t-77a">
+                            <connections>
+                                <action selector="addFakeAnnouncement:" destination="HRd-6X-TsI" id="2Ju-TT-BOi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IPm-he-wd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,13 +234,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRs-Rj-dpV" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="88" width="414" height="356"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="356" id="Fyd-O7-lDJ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderSelectionColor">
                                         <color key="value" red="0.0" green="0.49803921569999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" name="Calendar dark&amp;white"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -298,5 +307,8 @@
     </scenes>
     <resources>
         <image name="hifispeaker" catalog="system" width="110" height="128"/>
+        <namedColor name="Calendar dark&amp;white">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

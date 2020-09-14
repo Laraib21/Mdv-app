@@ -15,6 +15,9 @@ extension CKRecord.RecordType {
 typealias RecordKey = String
 extension RecordKey {
     static let creationDate = "creationDate"
+    static let title = "title"
+    static let body = "body"
+    static let tags = "tags"
 }
 
 class AnnouncementLoader: ObservableObject {
@@ -51,8 +54,20 @@ class AnnouncementLoader: ObservableObject {
     func fetchAnnouncements(completion: @escaping (Swift.Error?) -> Void) {
         let query = CKQuery(recordType: .announcement, predicate: NSPredicate(value: true))
         query.sortDescriptors = [NSSortDescriptor(key: RecordKey.creationDate, ascending: false)]
-        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: .default) { [weak self] records, error in
-            self?.announcements = records?.map { Announcement(record: $0) } ?? []
+        CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase.perform(query, inZoneWith: .default) { [weak self] records, error in
+            self?.announcements = records?.map {Announcement(record: $0) } ?? []
+            completion(error)
+        }
+    }
+    
+    
+    func save(_ announcement: Announcement, completion: @escaping (Swift.Error?) -> Void) {
+        let newRecord = CKRecord(recordType: .announcement)
+        newRecord.setValue(announcement.title, forKey: .title)
+        newRecord.setValue(announcement.body, forKey: .body)
+        newRecord.setValue(announcement.tags.flatMap { $0.name }, forKey: .tags)
+        CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase.save(newRecord) { record, error in
+            print("Saved \(String(describing: record))")
             completion(error)
         }
     }

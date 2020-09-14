@@ -16,7 +16,7 @@ struct AnnouncementDetailsView: View {
             Spacer()
             Text(announcement.body)
             .padding()
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             .cornerRadius(8)
             .padding()
         }

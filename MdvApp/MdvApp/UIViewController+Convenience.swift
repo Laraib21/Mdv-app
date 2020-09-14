@@ -9,9 +9,11 @@ import UIKit
 import SwiftUI
 
 extension UIViewController {
-    func present<V: View>(_ view: V) {
-        let hostingController = UIHostingController(rootView: view)
-        present(hostingController, animated: true, completion: nil)
+    func present<V: View>(_ view: V, animated: Bool = true, presentationStyle: UIModalPresentationStyle = .automatic, transitionStyle: UIModalTransitionStyle = .coverVertical) {
+       let hostingController = UIHostingController(rootView: view)
+       hostingController.modalPresentationStyle = presentationStyle
+       hostingController.modalTransitionStyle = transitionStyle
+       present(hostingController, animated: animated, completion: nil)
     }
 
     func addChildViewController(_ childViewController: UIViewController, intoContainer containerView: UIView) {

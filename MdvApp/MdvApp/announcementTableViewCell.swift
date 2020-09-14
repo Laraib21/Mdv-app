@@ -16,4 +16,6 @@ class announcementTableViewCell: UITableViewCell {
     
     @IBOutlet weak var announcementBodyLabel: UILabel!
     
+    
+    
 }

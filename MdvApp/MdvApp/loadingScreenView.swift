@@ -11,6 +11,7 @@ struct LoadingScreenView: View {
     @State private var isShowingLets = false
     @State private var isShowingGO = false
     @State private var isShowingFalcons = false
+    @State private var isShowingLogo = false
     var overlayView: some View{
         VStack{
             HStack {
@@ -28,7 +29,14 @@ struct LoadingScreenView: View {
             }
             .transition(.opacity)
             Spacer()
-            //school logo goes here
+            
+            HStack{
+                if isShowingLogo {
+                    Image("loading-mdv_0007_Layer-2")
+                }
+            }
+            .transition(.opacity)
+            
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

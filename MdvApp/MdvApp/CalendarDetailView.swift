@@ -41,7 +41,10 @@ struct CalendarDetailView: View {
 struct CalendarEventDetailView: View {
     let event: Event
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Text(event.title)
+            Text(event.body)
+        }
     }
     
 }

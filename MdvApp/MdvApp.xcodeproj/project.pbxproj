@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
+		3F62F35A2513C772007CDD17 /* addingAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F62F3592513C771007CDD17 /* addingAnnouncementView.swift */; };
 		3F6B598624981BB000B9C90D /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Announcement.swift */; };
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
 		3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* announcementsLoader.swift */; };
@@ -37,6 +38,7 @@
 		0A11EFC3A2705157CB4397EF /* Pods-MdvApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.release.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.release.xcconfig"; sourceTree = "<group>"; };
 		241107622B932BE5709839BE /* Pods_MdvApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MdvApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
+		3F62F3592513C771007CDD17 /* addingAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingAnnouncementView.swift; sourceTree = "<group>"; };
 		3F6B598524981BB000B9C90D /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementTableViewCell.swift; sourceTree = "<group>"; };
 		3F7A26DF24A4029E0067A37B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -127,14 +129,15 @@
 				3F7A26E624AE89A10067A37B /* announcementsLoader.swift */,
 				3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */,
 				3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */,
-				3FDDD88124BFCBB600346768 /* EventsDirectory.swift */,
 				3F869CDD24C6457F004A2252 /* EventPopup.swift */,
+				3FDDD88124BFCBB600346768 /* EventsDirectory.swift */,
 				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
 				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
 				FB81972F24E486E600765A27 /* UIImage+Convenience.swift */,
 				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
 				3FAB4CD32510195E0068F402 /* loadingScreenView.swift */,
 				3FAB4CD52510198C0068F402 /* splashTapBarController.swift */,
+				3F62F3592513C771007CDD17 /* addingAnnouncementView.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */,
 				3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */,
 				3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */,
+				3F62F35A2513C772007CDD17 /* addingAnnouncementView.swift in Sources */,
 				3FAB4CD42510195E0068F402 /* loadingScreenView.swift in Sources */,
 				3FAB4CD62510198C0068F402 /* splashTapBarController.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,

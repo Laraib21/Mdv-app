@@ -64,3 +64,5 @@ extension CalendarViewController: FSCalendarDelegate {
         hostingController.rootView = CalendarDetailView(events: eventsDirectory.events(on: date))
     }
 }
+
+

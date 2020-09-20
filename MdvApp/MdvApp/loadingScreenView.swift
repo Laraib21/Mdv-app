@@ -29,15 +29,13 @@ struct LoadingScreenView: View {
             }
             .transition(.opacity)
             Spacer()
-            
-            HStack{
-                if isShowingLogo {
-                    Image("loading-mdv_0007_Layer-2")
-                }
+            if isShowingLogo{
+                Image("loading-mdv_0007_Layer-2").transition(.opacity)
             }
-            .transition(.opacity)
-            
+            Spacer()
         }
+            
+            
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation { self.isShowingLets = true }
@@ -47,6 +45,9 @@ struct LoadingScreenView: View {
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation { self.isShowingFalcons = true }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                withAnimation { self.isShowingLogo = true }
             }
         }
     }
@@ -61,5 +62,6 @@ struct LoadingScreenView_Previews: PreviewProvider {
         LoadingScreenView()
     }
 }
+
 
 

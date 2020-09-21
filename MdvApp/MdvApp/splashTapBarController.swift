@@ -12,21 +12,12 @@ class SplashTapBarController: UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            let loadingScreenView = LoadingScreenView()
- //           self.present(loadingScreenView, animated: false, presentationStyle: .fullScreen)
+            let loadingScreenView = LoadingScreenView(dismiss: self.dismissLoadingScreen)
+            self.present(loadingScreenView, animated: false, presentationStyle: .fullScreen)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    private func dismissLoadingScreen() -> Void {
+        presentedViewController?.dismiss(animated: true, completion: nil)
+    }
 }

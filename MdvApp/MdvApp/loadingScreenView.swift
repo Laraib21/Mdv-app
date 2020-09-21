@@ -12,6 +12,9 @@ struct LoadingScreenView: View {
     @State private var isShowingGO = false
     @State private var isShowingFalcons = false
     @State private var isShowingLogo = false
+
+    var dismiss: (() -> Void)?
+
     var overlayView: some View{
         VStack{
             HStack {
@@ -46,8 +49,11 @@ struct LoadingScreenView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation { self.isShowingFalcons = true }
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 withAnimation { self.isShowingLogo = true }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                withAnimation { self.dismiss?() }
             }
         }
     }

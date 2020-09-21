@@ -114,30 +114,19 @@
 		3FADD4BE248EDD4300E62366 /* MdvApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB0ED82F251950F7002C906B /* Utilities */,
+				FB0ED82C251950D0002C906B /* Calendar */,
+				FB0ED829251950B3002C906B /* Announcements */,
 				3FBCE62325098ADB009B56D8 /* MdvApp.entitlements */,
-				FB1CDF862502E50D00942E60 /* Extensions */,
 				3FADD4BF248EDD4300E62366 /* AppDelegate.swift */,
 				3FADD4C1248EDD4300E62366 /* SceneDelegate.swift */,
-				3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */,
+				3FAB4CD32510195E0068F402 /* loadingScreenView.swift */,
+				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
+				3FAB4CD52510198C0068F402 /* splashTapBarController.swift */,
 				3FADD4C5248EDD4300E62366 /* Main.storyboard */,
 				3FADD4C8248EDD4C00E62366 /* Assets.xcassets */,
 				3FADD4CA248EDD4C00E62366 /* LaunchScreen.storyboard */,
 				3FADD4CD248EDD4C00E62366 /* Info.plist */,
-				3F6B598524981BB000B9C90D /* Announcement.swift */,
-				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
-				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
-				3F7A26E624AE89A10067A37B /* announcementsLoader.swift */,
-				3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */,
-				3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */,
-				3F869CDD24C6457F004A2252 /* EventPopup.swift */,
-				3FDDD88124BFCBB600346768 /* EventsDirectory.swift */,
-				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
-				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
-				FB81972F24E486E600765A27 /* UIImage+Convenience.swift */,
-				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
-				3FAB4CD32510195E0068F402 /* loadingScreenView.swift */,
-				3FAB4CD52510198C0068F402 /* splashTapBarController.swift */,
-				3F62F3592513C771007CDD17 /* addingAnnouncementView.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -151,12 +140,39 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FB1CDF862502E50D00942E60 /* Extensions */ = {
+		FB0ED829251950B3002C906B /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				3F62F3592513C771007CDD17 /* addingAnnouncementView.swift */,
+				3F6B598524981BB000B9C90D /* Announcement.swift */,
+				3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */,
+				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
+				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
+				3F7A26E624AE89A10067A37B /* announcementsLoader.swift */,
+			);
+			path = Announcements;
+			sourceTree = "<group>";
+		};
+		FB0ED82C251950D0002C906B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */,
+				3F869CDD24C6457F004A2252 /* EventPopup.swift */,
+				3FDDD88124BFCBB600346768 /* EventsDirectory.swift */,
+				3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		FB0ED82F251950F7002C906B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */,
+				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
+				FB81972F24E486E600765A27 /* UIImage+Convenience.swift */,
+				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
 			);
-			path = Extensions;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -6,11 +6,19 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension UIColor {
     convenience init?(hexValue: String) {
         guard let (red, green, blue, alpha) = hexValue.asRGBA else { return nil }
         self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+
+extension Color {
+    init?(hexValue: String) {
+        guard let uiColor = UIColor(hexValue: hexValue) else { return nil }
+        self.init(uiColor)
     }
 }
 

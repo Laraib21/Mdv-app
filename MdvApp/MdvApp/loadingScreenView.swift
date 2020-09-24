@@ -12,9 +12,16 @@ struct LoadingScreenView: View {
     @State private var isShowingGO = false
     @State private var isShowingFalcons = false
     @State private var isShowingLogo = false
+    @State private var isShowingWelcome = false
 
     var dismiss: (() -> Void)?
-
+    var welcomeOverlayView: some View{
+        HStack {
+            Spacer()
+                Image("loading-mdv_0006_Welcome-to-Meadowvale-Secondary-School").resizable().aspectRatio(contentMode: .fit)
+            Spacer()
+        }
+    }
     var overlayView: some View{
         VStack{
             HStack {
@@ -36,6 +43,15 @@ struct LoadingScreenView: View {
                 Image("loading-mdv_0007_Layer-2").transition(.opacity)
             }
             Spacer()
+            if isShowingWelcome {
+            Rectangle()
+                .stroke(lineWidth:2.5)
+                .foregroundColor(.white)
+                .frame(height: 50)
+                .overlay(welcomeOverlayView)
+                .padding()
+                .transition(.opacity)
+            }
         }
             
             
@@ -52,9 +68,13 @@ struct LoadingScreenView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 withAnimation { self.isShowingLogo = true }
             }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                withAnimation { self.isShowingWelcome = true }
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 withAnimation { self.dismiss?() }
             }
+            
         }
     }
     var body: some View {

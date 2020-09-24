@@ -111,7 +111,7 @@
                     <navigationItem key="navigationItem" title="Announcements" largeTitleDisplayMode="always" id="mci-br-HXc">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="R6r-3t-77a">
                             <connections>
-                                <action selector="addFakeAnnouncement:" destination="HRd-6X-TsI" id="2Ju-TT-BOi"/>
+                                <action selector="addAnnouncement:" destination="HRd-6X-TsI" id="tmm-7D-jnQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

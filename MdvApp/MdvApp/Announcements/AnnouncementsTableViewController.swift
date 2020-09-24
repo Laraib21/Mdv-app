@@ -8,7 +8,7 @@
 import UIKit
 import SwiftUI
 
-    // MARK: - Helpers
+// MARK: - Helpers
 class AnnouncementsTableViewController: UITableViewController {
     let announcementLoader = AnnouncementLoader()
     override func viewDidLoad() {
@@ -20,12 +20,12 @@ class AnnouncementsTableViewController: UITableViewController {
         }
     }
     
-        // MARK: - Helpers
+    // MARK: - Helpers
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return announcements.count
     }
     
-        // MARK: - Helpers
+    // MARK: - Helpers
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let announcement = announcements[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! announcementTableViewCell
@@ -33,14 +33,14 @@ class AnnouncementsTableViewController: UITableViewController {
         cell.announcementBodyLabel?.text = announcement.body
         return cell
     }
-        // MARK: - Helpers
+    // MARK: - Helpers
     var announcements: [Announcement] = []
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 240
     }
     
-        // MARK: - Helpers
+    // MARK: - Helpers
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let announcementDetailsView = AnnouncementDetailsView(announcement: announcements[indexPath.row])
         let hostingController = UIHostingController(rootView: announcementDetailsView)
@@ -49,14 +49,19 @@ class AnnouncementsTableViewController: UITableViewController {
     }
     
     
-    @IBAction func addFakeAnnouncement(_ sender: Any) {
-        let announcement = Announcement(title: "Welcome Back", body: "hello")
-        announcementLoader.save(announcement) {error in
-            print(String(describing:error))
-        }
+    @IBAction func addAnnouncement(_ sender: Any) {
+        let announcement = NewAnnouncementView(dismiss:dismissHostingController)
+        present(announcement)
     }
     
     
     
+    
+    
+    func dismissHostingController(newAnnouncement: Announcement) -> Void {
+        announcementLoader.save(newAnnouncement) {[weak self]error in
+            print(String(describing:error))
+            self?.presentedViewController?.dismiss(animated: true, completion: nil)
+        }
+    }
 }
-

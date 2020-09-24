@@ -78,7 +78,13 @@ struct LoadingScreenView: View {
         }
     }
     var body: some View {
-        Rectangle().foregroundColor(.blue).edgesIgnoringSafeArea(.all)
+        RadialGradient(gradient: Gradient(colors: [
+                                            Color(hexValue: "#000099")!,
+                                            Color(hexValue: "#0000FF")!]),
+                       center: .init(x: 0.5, y: 0.8),
+                       startRadius: 5,
+                       endRadius: 500)
+            .edgesIgnoringSafeArea(.all)
             .overlay(overlayView)
     }
 }

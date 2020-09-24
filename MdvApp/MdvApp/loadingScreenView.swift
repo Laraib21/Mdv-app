@@ -79,8 +79,8 @@ struct LoadingScreenView: View {
     }
     var body: some View {
         RadialGradient(gradient: Gradient(colors: [
-                                            Color(hexValue: "#000099")!,
-                                            Color(hexValue: "#0000FF")!]),
+                                            Color(hexValue: "#0c58ce")!,
+                                            Color(hexValue: "#0b1bfc")!]),
                        center: .init(x: 0.5, y: 0.8),
                        startRadius: 5,
                        endRadius: 500)

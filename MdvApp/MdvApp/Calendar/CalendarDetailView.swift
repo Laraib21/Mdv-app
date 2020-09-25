@@ -34,27 +34,72 @@ struct CalendarDetailView: View {
             }
         }.sheet(isPresented: $showingDetail) {
             CalendarEventDetailView(event: self.currentEvent!)
-        
+            
         }
     }
 }
 struct CalendarEventDetailView: View {
     let event: Event
+    var editButton: some View {
+        Button(action: {}) {
+            Text("Edit")
+        }
+    }
+    var deleteButton: some View {
+        Button(action: {}) {
+            Text("Delete")
+        }
+    }
+    let timeFormatter: DateFormatter = {
+        let myFormatter = DateFormatter()
+        myFormatter.timeStyle = .short
+        return myFormatter
+    }()
+    
+    let dayFormatter: DateFormatter = {
+        let myFormatter = DateFormatter()
+        myFormatter.dateStyle = .medium
+        return myFormatter
+    }()
+    var formattedStartTime: String {
+        return timeFormatter.string(from: event.startDate)
+    }
+    var formattedEndTime: String {
+        return timeFormatter.string(from: event.endDate)
+    }
     var body: some View {
-        VStack {
-            Text(event.title)
-            Text(event.body)
+        NavigationView {
+            VStack {
+                Form {
+                    if event.spanMultipleDays {
+                        Text("hello world")
+                    } else {
+                        VStack(alignment: .leading) {
+                            Text(dayFormatter.string(from: event.startDate))
+                            Text("From \(formattedStartTime) to  \(formattedEndTime)")
+                        }
+                    }
+                        Text(event.body).frame(minHeight: 60)
+                        //Text(dateFormatter.string(from: event.startDate))
+                        // Text(dateFormatter.string(from: event.endDate))
+                    }.navigationBarTitle(event.title)
+                        .navigationBarItems(trailing: editButton)
+                    deleteButton
+                }
+            }
         }
     }
     
+    // MARK: - sample list of events for calendar
+    struct CalendarDetailView_Previews: PreviewProvider {
+        static var previews: some View {
+            Group {
+                CalendarDetailView(events: [])
+                CalendarEventDetailView(event: Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), endDate: Date(), alertDate: Date()))
+            }
+        }
 }
 
-    // MARK: - sample list of events for calendar
-struct CalendarDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarDetailView(events: [])
-    }
-}
 
 //if events.isEmpty == true {
 //    VStack {

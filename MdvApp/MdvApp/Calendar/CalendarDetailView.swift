@@ -76,7 +76,7 @@ struct CalendarEventDetailView: View {
                     } else {
                         VStack(alignment: .leading) {
                             Text(dayFormatter.string(from: event.startDate))
-                            Text("\(formattedStartTime) \(formattedEndTime)")
+                            Text("From \(formattedStartTime) to  \(formattedEndTime)")
                         }
                     }
                         Text(event.body).frame(minHeight: 60)

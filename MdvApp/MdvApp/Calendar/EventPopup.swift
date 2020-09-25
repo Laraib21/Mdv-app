@@ -80,6 +80,7 @@ struct EventPopup: View {
                 })
                 .overlay(invalidEntryView($alertDateValid, colour: .yellow))
                 TextEditor(text: $description)
+                    .overlay(invalidEntryView($isDescriptionValid))
                     .frame(minHeight: 240)
             }
             .navigationBarTitle("New Event")

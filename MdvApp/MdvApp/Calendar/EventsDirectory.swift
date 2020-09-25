@@ -54,7 +54,11 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - shows event on the date that user identified
     func events(on date: Date) -> [Event] {
-        return events.filter { calendar.isDate($0.startDate, inSameDayAs: date) }
+        return events.filter {
+            calendar.isDate($0.startDate, inSameDayAs: date) ||
+            calendar.isDate($0.endDate, inSameDayAs: date) ||
+            (date.timeIntervalSince($0.startDate) >= 0 && date.timeIntervalSince($0.endDate) <= 0)
+        }
     }
 
     // MARK: - Notification Center

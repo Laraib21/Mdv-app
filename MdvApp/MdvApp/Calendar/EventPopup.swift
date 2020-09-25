@@ -17,61 +17,6 @@ extension ReminderSelection {
     static let noAlert = 6
 }
 
-struct NoShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        return Path()
-    }
-}
-
-final class TextViewDelegate: NSObject {
-    private var text: Binding<String>
-    private var isEditing: Binding<Bool>
-    init(text: Binding<String>, isEditing: Binding<Bool>) {
-        self.text = text
-        self.isEditing = isEditing
-        super.init()
-    }
-}
-
-extension TextViewDelegate: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        isEditing.wrappedValue = true
-    }
-
-    func textViewDidEndEditing(_ textView: UITextView) {
-        isEditing.wrappedValue = false
-    }
-
-    func textViewDidChange(_ textView: UITextView) {
-        text.wrappedValue = textView.text
-    }
-}
-
-struct MultilineTextView: UIViewRepresentable {
-    @Binding var text: String
-    @Binding var isEditing: Bool
-    private let textViewDelegate: TextViewDelegate
-
-    init(text: Binding<String>, isEditing: Binding<Bool>) {
-        self._text = text
-        self._isEditing = isEditing
-        self.textViewDelegate = TextViewDelegate(text: text, isEditing: isEditing)
-    }
-
-    func makeUIView(context: Context) -> UITextView {
-        let view = UITextView()
-        view.font = .systemFont(ofSize: 17)
-        view.backgroundColor = .clear
-        view.isScrollEnabled = true
-        view.isEditable = true
-        view.isUserInteractionEnabled = true
-        view.delegate = textViewDelegate
-        return view
-    }
-
-    func updateUIView(_ uiView: UITextView, context: Context) {}
-}
-
 struct EventPopup: View {
     @State var start = Date()
     @State var end = Date()
@@ -133,17 +78,9 @@ struct EventPopup: View {
                         Text("1 week before").tag(5)
                         Text("No alert").tag(6)
                 })
-                    .overlay(invalidEntryView($alertDateValid, colour: .yellow))
-                ZStack(alignment: .topLeading) {
-                    MultilineTextView(text: $description, isEditing: $isEditing)
-                        .frame(height: 200)
-                        .overlay(invalidEntryView($isDescriptionValid))
-                    if !isEditing && description.isEmpty {
-                        Text("Enter some event details")
-                        .contentShape(NoShape())
-                        .foregroundColor(Color.gray.opacity(0.7))
-                    }
-                }
+                .overlay(invalidEntryView($alertDateValid, colour: .yellow))
+                TextEditor(text: $description)
+                    .frame(minHeight: 240)
             }
             .navigationBarTitle("New Event")
             .navigationBarItems(trailing: saveButton)

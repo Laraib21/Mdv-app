@@ -48,16 +48,8 @@ struct NewAnnouncementView: View {
                 Section {
                     TextField("Announcement Title", text: $title)
                         .overlay(invalidEntryView($isTitleValid))
-                    ZStack(alignment: .topLeading) {
-                        MultilineTextView(text: $description, isEditing: $isEditing)
-                            .frame(height: 200)
-                            .overlay(invalidEntryView($isDescriptionValid))
-                        if !isEditing && description.isEmpty {
-                            Text("Enter some Announcement Details")
-                                .contentShape(NoShape())
-                                .foregroundColor(Color.gray.opacity(0.7))
-                        }
-                    }
+                    TextEditor(text: $description)
+                        .frame(minHeight: 240)
                 }
                 .navigationBarTitle("New Announcement")
                 .navigationBarItems(trailing: saveButton)

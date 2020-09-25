@@ -39,7 +39,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         events.append(event)
         center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
-            case .authorized, .provisional:
+            case .authorized, .provisional, .ephemeral:
                 self.scheduleNotification(for: event)
             case .denied:
                 // Show an UIAlert
@@ -119,6 +119,6 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
+        completionHandler(.banner)
     }
 }

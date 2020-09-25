@@ -67,16 +67,25 @@ struct CalendarEventDetailView: View {
     var formattedEndTime: String {
         return timeFormatter.string(from: event.endDate)
     }
+    var formattedStartDate: String {
+        return dayFormatter.string(from: event.startDate)
+    }
+    var formattedEndDate: String {
+        return dayFormatter.string(from: event.endDate)
+    }
     var body: some View {
         NavigationView {
             VStack {
                 Form {
                     if event.spanMultipleDays {
-                        Text("hello world")
+                        VStack(alignment: .leading) {
+                            Text("from \(formattedStartTime), \(formattedStartDate)")
+                            Text("to \(formattedEndTime), \(formattedEndDate)")
+                        }
                     } else {
                         VStack(alignment: .leading) {
                             Text(dayFormatter.string(from: event.startDate))
-                            Text("From \(formattedStartTime) to  \(formattedEndTime)")
+                            Text("from \(formattedStartTime) to  \(formattedEndTime)")
                         }
                     }
                         Text(event.body).frame(minHeight: 60)

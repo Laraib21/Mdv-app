@@ -15,7 +15,7 @@ struct Event: Hashable{
     let endDate: Date
     let alertDate: Date?
     var spanMultipleDays: Bool {
-        return false
+        return true
     }
         // let alert:
 }

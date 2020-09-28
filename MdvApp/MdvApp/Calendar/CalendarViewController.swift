@@ -28,7 +28,7 @@ class CalendarViewController : UIViewController {
 
     // MARK: - IBActions
     @IBAction func addEvent(_ sender: Any) {
-        let event = EventPopup(dismiss: dismissHostingController)
+        let event = EventPopup(eventIdentifier: nil, dismiss: dismissHostingController)
          present(event)
     }
     
@@ -61,7 +61,8 @@ extension CalendarViewController: FSCalendarDataSource {
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        hostingController.rootView = CalendarDetailView(events: eventsDirectory.events(on: date))
+        let events = eventsDirectory.events(on: date)
+        hostingController.rootView = CalendarDetailView(events: events, dismiss: dismissHostingController)
     }
 }
 

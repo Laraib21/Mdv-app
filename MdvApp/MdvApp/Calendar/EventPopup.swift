@@ -27,6 +27,7 @@ struct EventPopup: View {
     @State var isDescriptionValid = true
     @State var endDateValid = true
     @State var alertDateValid = true
+    let eventIdentifier: UUID?
     var dismiss: ((Event) -> Void)?
     var saveButton: some View {
         Button(action: SaveEvent) {
@@ -121,7 +122,7 @@ struct EventPopup: View {
         
         guard isTitleValid && isDescriptionValid && endDateValid else { return }
         
-        let newEvent = Event(title: title, body: description, startDate: start, endDate: end, alertDate: alertDate)
+        let newEvent = Event(title: title, body: description, startDate: start, endDate: end, alertDate: alertDate, identifier: eventIdentifier)
         self.dismiss?(newEvent)
         
     }
@@ -134,7 +135,7 @@ struct EventPopup: View {
     // MARK: - showing the event below the calendar
 struct EventPopup_Previews: PreviewProvider {
     static var previews: some View {
-        EventPopup()
+        EventPopup(eventIdentifier: nil)
     }
 }
 

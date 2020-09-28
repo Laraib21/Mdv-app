@@ -8,12 +8,13 @@
 import Foundation
 import UserNotifications
 
-struct Event: Hashable{
+struct Event: Hashable, Codable{
     let title: String
     let body: String
     let startDate : Date
     let endDate: Date
     let alertDate: Date?
+    var identifier: UUID?
     var spanMultipleDays: Bool {
         return true
     }
@@ -39,7 +40,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }()
 
     func addEvents(_ event: Event){
-        events.append(event)
+        save(event)
         center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional, .ephemeral:
@@ -128,4 +129,28 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(.banner)
     }
+    
+    // MARK: - saving user events to file
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func save(_ event: Event) {
+        //TODO: Check if we have this event already
+        events.append(event)
+        let encoded: Data
+        do {
+            encoded = try JSONEncoder().encode(event)
+            let url = getDocumentsDirectory().appendingPathComponent("events.txt")
+            try encoded.write(to: url, options: [.atomic])
+        } catch {
+            print("Encountered error: \(error)")
+        }
+    }
+    
+    
+    
+    
 }

@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CalendarDetailView: View {
     var events : [Event]
-    @State var showingDetail = false
-    @State var currentEvent: Event? = nil
+    var dismiss: ((Event) -> Void)?
     var body: some View {
         VStack{
             if events.isEmpty{
@@ -26,22 +25,18 @@ struct CalendarDetailView: View {
                 }
             } else {
                 List(events,id: \.self) { event in
-                    Text(event.title).onTapGesture {
-                        self.currentEvent = event
-                        self.showingDetail = true
-                    }
+                    NavigationLink(event.title, destination: CalendarEventDetailView(event: event, dismiss: dismiss))
                 }
             }
-        }.sheet(isPresented: $showingDetail) {
-            CalendarEventDetailView(event: self.currentEvent!)
-            
         }
     }
 }
 struct CalendarEventDetailView: View {
     let event: Event
+    var dismiss: ((Event) -> Void)?
+    @State var showingDetail = false
     var editButton: some View {
-        Button(action: {}) {
+        Button(action: {showingDetail = true}) {
             Text("Edit")
         }
     }
@@ -74,39 +69,40 @@ struct CalendarEventDetailView: View {
         return dayFormatter.string(from: event.endDate)
     }
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    if event.spanMultipleDays {
-                        VStack(alignment: .leading) {
-                            Text("from \(formattedStartTime), \(formattedStartDate)")
-                            Text("to \(formattedEndTime), \(formattedEndDate)")
-                        }
-                    } else {
-                        VStack(alignment: .leading) {
-                            Text(dayFormatter.string(from: event.startDate))
-                            Text("from \(formattedStartTime) to  \(formattedEndTime)")
-                        }
+        VStack {
+            Form {
+                if event.spanMultipleDays {
+                    VStack(alignment: .leading) {
+                        Text("from \(formattedStartTime), \(formattedStartDate)")
+                        Text("to \(formattedEndTime), \(formattedEndDate)")
                     }
-                        Text(event.body).frame(minHeight: 60)
-                        //Text(dateFormatter.string(from: event.startDate))
-                        // Text(dateFormatter.string(from: event.endDate))
-                    }.navigationBarTitle(event.title)
-                        .navigationBarItems(trailing: editButton)
-                    deleteButton
+                } else {
+                    VStack(alignment: .leading) {
+                        Text(dayFormatter.string(from: event.startDate))
+                        Text("from \(formattedStartTime) to  \(formattedEndTime)")
+                    }
                 }
+                Text(event.body).frame(minHeight: 60)
+                //Text(dateFormatter.string(from: event.startDate))
+                // Text(dateFormatter.string(from: event.endDate))
             }
+            deleteButton
+        }.navigationBarTitle(event.title)
+        .navigationBarItems(trailing: editButton)
+        .sheet(isPresented: $showingDetail){
+            EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:0, description: event.body, eventIdentifier: event.identifier, dismiss:dismiss)
         }
     }
-    
-    // MARK: - sample list of events for calendar
-    struct CalendarDetailView_Previews: PreviewProvider {
-        static var previews: some View {
-            Group {
-                CalendarDetailView(events: [])
-                CalendarEventDetailView(event: Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), endDate: Date(), alertDate: Date()))
-            }
+}
+
+// MARK: - sample list of events for calendar
+struct CalendarDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CalendarDetailView(events: [])
+            CalendarEventDetailView(event: Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), endDate: Date(), alertDate: Date()))
         }
+    }
 }
 
 

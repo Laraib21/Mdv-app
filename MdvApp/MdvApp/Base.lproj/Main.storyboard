@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -186,7 +187,7 @@
                             <constraint firstItem="oez-Xi-awZ" firstAttribute="leading" secondItem="j2Y-2S-E0j" secondAttribute="leading" id="rEj-OP-dfJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Student ID" id="TjI-XT-cHs"/>
+                    <tabBarItem key="tabBarItem" title="Student ID" image="person.crop.square.fill.and.at.rectangle" catalog="system" id="TjI-XT-cHs"/>
                     <navigationItem key="navigationItem" id="HiZ-K8-a3u"/>
                     <connections>
                         <outlet property="barcodeImageView" destination="0cR-jF-Yit" id="AuS-qO-EVT"/>
@@ -198,15 +199,76 @@
             </objects>
             <point key="canvasLocation" x="343" y="731"/>
         </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="9J0-iZ-Qxg">
             <objects>
-                <viewController id="dMc-xl-ay5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="LAC-kN-FxG"/>
+                <viewController id="dMc-xl-ay5" customClass="ScrollViewController" customModule="MdvApp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O3S-mq-Fur">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ach-sn-1CX">
+                                <rect key="frame" x="35" y="188" width="344" height="596"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v9U-yu-m2r">
+                                    <size key="itemSize" width="343" height="595"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CZc-gu-ojv">
+                                        <rect key="frame" x="0.5" y="0.0" width="343" height="595"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Sqe-cP-NcY">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="595"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnv-Li-vnV">
+                                                    <rect key="frame" x="141.5" y="34" width="61" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-5F-JHF">
+                                                    <rect key="frame" x="21" y="131" width="302" height="430"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="430" id="jnJ-Ra-DKc"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cZ6-5F-JHF" firstAttribute="leading" secondItem="Sqe-cP-NcY" secondAttribute="leading" constant="21" id="A1e-0f-e1D"/>
+                                                <constraint firstAttribute="bottom" secondItem="cZ6-5F-JHF" secondAttribute="bottom" constant="34" id="Hlv-qj-zCG"/>
+                                                <constraint firstAttribute="trailing" secondItem="cZ6-5F-JHF" secondAttribute="trailing" constant="20" symbolic="YES" id="uan-hQ-lB3"/>
+                                                <constraint firstItem="cZ6-5F-JHF" firstAttribute="top" secondItem="Rnv-Li-vnV" secondAttribute="bottom" constant="67" id="vHW-wE-Iys"/>
+                                                <constraint firstItem="cZ6-5F-JHF" firstAttribute="centerX" secondItem="Rnv-Li-vnV" secondAttribute="centerX" id="wlz-i2-oCp"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="343" height="595"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ebW-du-BtQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ebW-du-BtQ" firstAttribute="bottom" secondItem="Ach-sn-1CX" secondAttribute="bottom" constant="29" id="5UV-1x-BVl"/>
+                            <constraint firstItem="Ach-sn-1CX" firstAttribute="leading" secondItem="ebW-du-BtQ" secondAttribute="leading" constant="35" id="ZMW-CF-29H"/>
+                            <constraint firstItem="Ach-sn-1CX" firstAttribute="top" secondItem="ebW-du-BtQ" secondAttribute="top" constant="144" id="mao-42-WNB"/>
+                            <constraint firstItem="ebW-du-BtQ" firstAttribute="trailing" secondItem="Ach-sn-1CX" secondAttribute="trailing" constant="35" id="rMX-um-T2w"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="location.fill" catalog="system" id="LAC-kN-FxG" userLabel="Map"/>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="Ach-sn-1CX" id="uNa-hY-a2G"/>
+                        <outlet property="imageTitle" destination="Rnv-Li-vnV" id="M80-Ea-2nZ"/>
+                        <outlet property="imageVIewCell" destination="cZ6-5F-JHF" id="Eyc-5b-IjQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46d-tA-WWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="731"/>
+            <point key="canvasLocation" x="1166.6666666666667" y="730.58035714285711"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="koB-a8-mYa">
@@ -273,7 +335,7 @@
         <scene sceneID="PXn-yF-4ev">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KMc-g4-Z1c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendar" id="ZHH-8m-dck"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="ZHH-8m-dck"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="67I-tj-7AE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -290,7 +352,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="hifispeaker" catalog="system" width="111" height="128"/>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
+        <image name="person.crop.square.fill.and.at.rectangle" catalog="system" width="128" height="93"/>
         <namedColor name="Calendar dark&amp;white">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

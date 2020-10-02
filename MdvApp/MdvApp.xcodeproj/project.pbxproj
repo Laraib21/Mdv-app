@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
 		3F62F35A2513C772007CDD17 /* NewAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F62F3592513C771007CDD17 /* NewAnnouncementView.swift */; };
-		3F6985D0252511EC00088993 /* imageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6985CF252511EC00088993 /* imageCollectionView.swift */; };
 		3F6985D4252512F100088993 /* image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6985D3252512F100088993 /* image.swift */; };
 		3F6B598624981BB000B9C90D /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Announcement.swift */; };
 		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
@@ -30,7 +29,7 @@
 		3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDDD88124BFCBB600346768 /* EventsDirectory.swift */; };
 		3FF820292509543600756B5B /* Pods_MdvApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241107622B932BE5709839BE /* Pods_MdvApp.framework */; };
 		3FF8202C2509543800756B5B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
-		3FF900A9252397CA007754BA /* scrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF900A8252397C2007754BA /* scrollViewController.swift */; };
+		3FF900A9252397CA007754BA /* schoolZoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF900A8252397C2007754BA /* schoolZoneViewController.swift */; };
 		FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */; };
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
 		FB81973024E486E600765A27 /* UIImage+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972F24E486E600765A27 /* UIImage+Convenience.swift */; };
@@ -42,7 +41,6 @@
 		241107622B932BE5709839BE /* Pods_MdvApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MdvApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
 		3F62F3592513C771007CDD17 /* NewAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAnnouncementView.swift; sourceTree = "<group>"; };
-		3F6985CF252511EC00088993 /* imageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCollectionView.swift; sourceTree = "<group>"; };
 		3F6985D3252512F100088993 /* image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = image.swift; sourceTree = "<group>"; };
 		3F6B598524981BB000B9C90D /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementTableViewCell.swift; sourceTree = "<group>"; };
@@ -66,7 +64,7 @@
 		3FDDD87B24BFBC9000346768 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		3FDDD87F24BFC3EB00346768 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
 		3FDDD88124BFCBB600346768 /* EventsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDirectory.swift; sourceTree = "<group>"; };
-		3FF900A8252397C2007754BA /* scrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scrollViewController.swift; sourceTree = "<group>"; };
+		3FF900A8252397C2007754BA /* schoolZoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schoolZoneViewController.swift; sourceTree = "<group>"; };
 		9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.debug.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		FB81972D24E470DD00765A27 /* StudentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDViewController.swift; sourceTree = "<group>"; };
@@ -91,8 +89,7 @@
 		3F6985D22525127900088993 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				3F6985CF252511EC00088993 /* imageCollectionView.swift */,
-				3FF900A8252397C2007754BA /* scrollViewController.swift */,
+				3FF900A8252397C2007754BA /* schoolZoneViewController.swift */,
 				3F6985D3252512F100088993 /* image.swift */,
 			);
 			path = "New Group";
@@ -316,11 +313,10 @@
 				3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */,
 				3F62F35A2513C772007CDD17 /* NewAnnouncementView.swift in Sources */,
 				3FAB4CD42510195E0068F402 /* loadingScreenView.swift in Sources */,
-				3F6985D0252511EC00088993 /* imageCollectionView.swift in Sources */,
 				3FAB4CD62510198C0068F402 /* splashTapBarController.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Announcement.swift in Sources */,
-				3FF900A9252397CA007754BA /* scrollViewController.swift in Sources */,
+				3FF900A9252397CA007754BA /* schoolZoneViewController.swift in Sources */,
 				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
 				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,

@@ -18,7 +18,7 @@ struct Event: Hashable, Codable{
     var spanMultipleDays: Bool {
         return true
     }
-        // let alert:
+    // let alert:
 }
 
 // MARK: - shows events body, start and end date
@@ -31,14 +31,14 @@ extension Event: ExpressibleByStringLiteral {
 // MARK: - List of events
 class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     var events: [Event] = []
-
+    
     lazy var calendar = Calendar.autoupdatingCurrent
     lazy var center: UNUserNotificationCenter = {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         return center
     }()
-
+    
     func addEvents(_ event: Event){
         save(event)
         center.getNotificationSettings { settings in
@@ -60,11 +60,11 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     func events(on date: Date) -> [Event] {
         return events.filter {
             calendar.isDate($0.startDate, inSameDayAs: date) ||
-            calendar.isDate($0.endDate, inSameDayAs: date) ||
-            (date.timeIntervalSince($0.startDate) >= 0 && date.timeIntervalSince($0.endDate) <= 0)
+                calendar.isDate($0.endDate, inSameDayAs: date) ||
+                (date.timeIntervalSince($0.startDate) >= 0 && date.timeIntervalSince($0.endDate) <= 0)
         }
     }
-
+    
     // MARK: - Notification Center
     func getUserPermission(success: @escaping @autoclosure () -> Void, failure: @escaping () -> Void) {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
@@ -76,7 +76,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
             }
         }
     }
-
+    
     func scheduleNotification(for event: Event) {
         guard let alertDate = event.alertDate else { return }
         let timeInterval = alertDate.timeIntervalSince(Date())
@@ -88,44 +88,44 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         content.body = event.body
         content.categoryIdentifier = "alarm"
         content.sound = UNNotificationSound.default
-
+        
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)
     }
-
+    
     func registerCategories() {
         let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
         let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
-
+        
         center.setNotificationCategories([category])
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // pull out the buried userInfo dictionary
         let userInfo = response.notification.request.content.userInfo
-
+        
         if let customData = userInfo["customData"] as? String {
             print("Custom data received: \(customData)")
-
+            
             switch response.actionIdentifier {
             case UNNotificationDefaultActionIdentifier:
                 // the user swiped to unlock
                 print("Default identifier")
-
+                
             case "show":
                 // the user tapped our "show more info…" button
                 print("Show more information…")
                 break
-
+                
             default:
                 break
             }
         }
-
+        
         // you must call the completion handler when you're done
         completionHandler()
     }
-
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(.banner)
     }
@@ -139,6 +139,20 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     func save(_ event: Event) {
         //TODO: Check if we have this event already
+        var count = 0
+        func firstIndex(where predicate: (Event) throws -> Bool) rethrows -> Int? {
+            for eventinArray in events {
+                if eventinArray == event{
+                    count+=1
+                }
+            }
+            let index = events.firstIndex(where: { event in
+                event.id == newEvent.id;)
+            }
+            
+            return index
+        }
+        
         events.append(event)
         let encoded: Data
         do {

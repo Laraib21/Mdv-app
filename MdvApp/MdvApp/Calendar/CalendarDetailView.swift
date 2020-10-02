@@ -106,14 +106,3 @@ struct CalendarDetailView_Previews: PreviewProvider {
 }
 
 
-//if events.isEmpty == true {
-//    VStack {
-//        Text("No Events Today")
-//    }
-//} else {
-//    VStack {
-//        List(...) {
-//            // ...
-//        }
-//    }
-//}

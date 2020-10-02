@@ -139,24 +139,16 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     func save(_ event: Event) {
         //TODO: Check if we have this event already
-        var count = 0
-        func firstIndex(where predicate: (Event) throws -> Bool) rethrows -> Int? {
-            for eventinArray in events {
-                if eventinArray == event{
-                    count+=1
-                }
-            }
-            let index = events.firstIndex(where: { event in
-                event.id == newEvent.id;)
-            }
-            
-            return index
+        var updatedEvent = event
+        if updatedEvent.identifier == nil {
+            updatedEvent.identifier = UUID()
         }
-        
+        let existingIndex = events.firstIndex { $0.identifier != nil && $0.identifier == updatedEvent.identifier }
+        // TODO: existingIndex will tell us whether or not we have an event already, we should replace it with the new one
         events.append(event)
         let encoded: Data
         do {
-            encoded = try JSONEncoder().encode(event)
+            encoded = try JSONEncoder().encode(event) // We should save _all_ of the events, not just the new one
             let url = getDocumentsDirectory().appendingPathComponent("events.txt")
             try encoded.write(to: url, options: [.atomic])
         } catch {

@@ -6,7 +6,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +22,7 @@
                         <segue destination="945-Vo-1FX" kind="relationship" relationship="viewControllers" id="uLV-e2-US8"/>
                         <segue destination="KMc-g4-Z1c" kind="relationship" relationship="viewControllers" id="y5G-zM-RZl"/>
                         <segue destination="DiB-a6-hC5" kind="relationship" relationship="viewControllers" id="y6j-Ej-Clf"/>
-                        <segue destination="fae-aw-aOe" kind="relationship" relationship="viewControllers" id="fVS-yH-rwA"/>
+                        <segue destination="zcL-1o-3DG" kind="relationship" relationship="viewControllers" id="mig-CJ-gSR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1g-6v-v0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -199,68 +198,6 @@
             </objects>
             <point key="canvasLocation" x="343" y="731"/>
         </scene>
-        <!--Map-->
-        <scene sceneID="b3x-AP-1NM">
-            <objects>
-                <collectionViewController id="fae-aw-aOe" customClass="SchoolZoneViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="qJ1-9V-dwz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bHn-3t-dXb">
-                            <size key="itemSize" width="0.0" height="0.0"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="35" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="zoneIdentifier" id="CZc-gu-ojv" customClass="ZoneMapCollectionViewCell" customModule="MdvApp" customModuleProvider="target">
-                                <rect key="frame" x="35" y="0.0" width="41" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Sqe-cP-NcY">
-                                    <rect key="frame" x="0.0" y="0.0" width="41" height="5"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnv-Li-vnV">
-                                            <rect key="frame" x="-9.5" y="-556" width="61" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="D5c-Yt-HKE"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="BLUE ZONE" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-5F-JHF">
-                                            <rect key="frame" x="21" y="-459" width="0.0" height="430"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="cZ6-5F-JHF" secondAttribute="bottom" id="40b-D0-WgD"/>
-                                        <constraint firstAttribute="trailing" secondItem="Rnv-Li-vnV" secondAttribute="trailing" id="5vG-0u-Lvk"/>
-                                        <constraint firstItem="cZ6-5F-JHF" firstAttribute="top" secondItem="Rnv-Li-vnV" secondAttribute="bottom" id="BI4-tW-pbF"/>
-                                        <constraint firstItem="Rnv-Li-vnV" firstAttribute="leading" secondItem="Sqe-cP-NcY" secondAttribute="leading" id="HZf-cQ-UzI"/>
-                                        <constraint firstItem="Rnv-Li-vnV" firstAttribute="top" secondItem="Sqe-cP-NcY" secondAttribute="top" constant="34" id="Rei-3y-gy0"/>
-                                        <constraint firstAttribute="trailing" secondItem="cZ6-5F-JHF" secondAttribute="trailing" id="m5h-5t-uLI"/>
-                                        <constraint firstItem="cZ6-5F-JHF" firstAttribute="leading" secondItem="Sqe-cP-NcY" secondAttribute="leading" id="mZ7-K8-JHS"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <connections>
-                                    <outlet property="zoneImage" destination="cZ6-5F-JHF" id="Fst-VW-76k"/>
-                                    <outlet property="zoneTitle" destination="Rnv-Li-vnV" id="is6-A2-f1A"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="fae-aw-aOe" id="kJc-ug-XXC"/>
-                            <outlet property="delegate" destination="fae-aw-aOe" id="JCO-ew-knr"/>
-                        </connections>
-                    </collectionView>
-                    <tabBarItem key="tabBarItem" title="Map" image="location" catalog="system" id="Z5M-iS-h3M"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D4u-Oc-BHI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1193" y="731"/>
-        </scene>
         <!--Calendar View Controller-->
         <scene sceneID="koB-a8-mYa">
             <objects>
@@ -341,12 +278,173 @@
             </objects>
             <point key="canvasLocation" x="-462" y="731"/>
         </scene>
+        <!--School Map-->
+        <scene sceneID="YgR-HP-Fv3">
+            <objects>
+                <viewController id="A5h-GR-9D3" customClass="SchoolMapViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="drg-fx-Zdh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WHOLE SCHOOL" translatesAutoresizingMaskIntoConstraints="NO" id="Q7w-2f-Jwp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvD-9T-GCs">
+                                <rect key="frame" x="69" y="130" width="313" height="80.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Brown Zone">
+                                    <color key="titleColor" red="0.73350924250000005" green="0.42894363400000002" blue="0.12856400009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="ooM-Q9-DGq"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-dx-abB" userLabel="Blue and Orange Stack View">
+                                <rect key="frame" x="147" y="461.5" width="267" height="159.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fk-8p-9BX">
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="159.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Blue Zone">
+                                            <color key="titleColor" red="0.0" green="0.3411443233" blue="0.98863893749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="JNs-4y-E35"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aL4-am-aXc">
+                                        <rect key="frame" x="107" y="0.0" width="160" height="159.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-Ko-O2p">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="33.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <state key="normal" title="Orange Zone">
+                                                    <color key="titleColor" red="1" green="0.71702712769999999" blue="0.22944572569999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="A2l-9c-lUT"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBV-be-XG0">
+                                                <rect key="frame" x="0.0" y="33.5" width="160" height="126"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5fk-8p-9BX" firstAttribute="width" secondItem="k8G-dx-abB" secondAttribute="width" multiplier="0.4" id="G43-7M-uhK"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-ip-hx1">
+                                <rect key="frame" x="24" y="625" width="190.5" height="188"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Purple Zone">
+                                    <color key="titleColor" red="0.99074774980000002" green="0.36455234889999999" blue="0.99742013220000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="2XM-Pc-i8K"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="4oC-C3-9T8" userLabel="Green and Red Stack View">
+                                <rect key="frame" x="92.5" y="348.5" width="229" height="113"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="np7-ag-dnH">
+                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="113"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <state key="normal" title="Green Zone">
+                                            <color key="titleColor" red="0.69019607843137254" green="0.8858111501" blue="0.57497489450000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="QDW-xi-XvP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iX5-hS-zUB">
+                                        <rect key="frame" x="105.5" y="0.0" width="123.5" height="113"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Red Zone">
+                                            <color key="titleColor" red="0.97313946490000003" green="0.111467503" blue="0.185813427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="EOp-bM-UVX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="iX5-hS-zUB" firstAttribute="width" secondItem="4oC-C3-9T8" secondAttribute="width" multiplier="0.54" id="E5S-pA-QVw"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iin-oH-hKO">
+                                <rect key="frame" x="104" y="210.5" width="294" height="103"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Yellow Zone">
+                                    <color key="titleColor" red="0.97536736729999995" green="0.93800407649999995" blue="0.29519298669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showZone:" destination="A5h-GR-9D3" eventType="touchUpInside" id="5QX-Hv-ta7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dvZ-a4-kQu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tLv-ip-hx1" firstAttribute="width" secondItem="drg-fx-Zdh" secondAttribute="width" multiplier="0.46" id="5uV-jx-gmT"/>
+                            <constraint firstItem="WvD-9T-GCs" firstAttribute="height" secondItem="drg-fx-Zdh" secondAttribute="height" multiplier="0.09" id="8LO-gc-9CX"/>
+                            <constraint firstItem="dvZ-a4-kQu" firstAttribute="trailing" secondItem="Q7w-2f-Jwp" secondAttribute="trailing" id="AY5-ix-Fei"/>
+                            <constraint firstItem="4oC-C3-9T8" firstAttribute="width" secondItem="drg-fx-Zdh" secondAttribute="width" multiplier="0.55314" id="EPt-Xy-kfX"/>
+                            <constraint firstItem="Iin-oH-hKO" firstAttribute="height" secondItem="drg-fx-Zdh" secondAttribute="height" multiplier="0.115" id="GkD-y0-dti"/>
+                            <constraint firstItem="Q7w-2f-Jwp" firstAttribute="leading" secondItem="dvZ-a4-kQu" secondAttribute="leading" id="H0p-bS-AFm"/>
+                            <constraint firstItem="dvZ-a4-kQu" firstAttribute="bottom" secondItem="Q7w-2f-Jwp" secondAttribute="bottom" id="IMX-cV-1vS"/>
+                            <constraint firstItem="tLv-ip-hx1" firstAttribute="top" secondItem="k8G-dx-abB" secondAttribute="bottom" constant="4" id="M1E-yy-zMg"/>
+                            <constraint firstItem="4oC-C3-9T8" firstAttribute="centerX" secondItem="drg-fx-Zdh" secondAttribute="centerX" id="P0Q-4w-DVu"/>
+                            <constraint firstItem="k8G-dx-abB" firstAttribute="trailing" secondItem="dvZ-a4-kQu" secondAttribute="trailing" id="Qwt-g3-aHs"/>
+                            <constraint firstItem="WvD-9T-GCs" firstAttribute="top" secondItem="dvZ-a4-kQu" secondAttribute="top" constant="42" id="Rpd-0q-sif"/>
+                            <constraint firstItem="dvZ-a4-kQu" firstAttribute="trailing" secondItem="Iin-oH-hKO" secondAttribute="trailing" constant="16" id="S6e-Wl-Ycm"/>
+                            <constraint firstItem="Iin-oH-hKO" firstAttribute="width" secondItem="drg-fx-Zdh" secondAttribute="width" multiplier="0.710145" id="WlG-qV-Gsi"/>
+                            <constraint firstItem="Q7w-2f-Jwp" firstAttribute="top" secondItem="dvZ-a4-kQu" secondAttribute="top" id="XhR-hN-egA"/>
+                            <constraint firstItem="WvD-9T-GCs" firstAttribute="width" secondItem="drg-fx-Zdh" secondAttribute="width" multiplier="0.756039" id="b1G-jk-AOQ"/>
+                            <constraint firstItem="k8G-dx-abB" firstAttribute="width" secondItem="drg-fx-Zdh" secondAttribute="width" multiplier="0.644928" id="caD-jc-x3s"/>
+                            <constraint firstItem="k8G-dx-abB" firstAttribute="top" secondItem="4oC-C3-9T8" secondAttribute="bottom" id="mGk-Uf-CcF"/>
+                            <constraint firstItem="k8G-dx-abB" firstAttribute="height" secondItem="drg-fx-Zdh" secondAttribute="height" multiplier="0.178" id="mue-P2-IPL"/>
+                            <constraint firstItem="tLv-ip-hx1" firstAttribute="leading" secondItem="dvZ-a4-kQu" secondAttribute="leading" constant="24" id="q8T-Bt-a8t"/>
+                            <constraint firstItem="dvZ-a4-kQu" firstAttribute="trailing" secondItem="WvD-9T-GCs" secondAttribute="trailing" constant="32" id="qDA-E5-4nh"/>
+                            <constraint firstItem="Iin-oH-hKO" firstAttribute="top" secondItem="WvD-9T-GCs" secondAttribute="bottom" id="toV-zj-nmF"/>
+                            <constraint firstItem="dvZ-a4-kQu" firstAttribute="bottom" secondItem="tLv-ip-hx1" secondAttribute="bottom" id="xhe-jA-CEv"/>
+                            <constraint firstItem="4oC-C3-9T8" firstAttribute="top" secondItem="Iin-oH-hKO" secondAttribute="bottom" constant="35" id="yGP-d6-fyi"/>
+                            <constraint firstItem="tLv-ip-hx1" firstAttribute="height" secondItem="drg-fx-Zdh" secondAttribute="height" multiplier="0.21" id="yMv-Xt-Ofe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="School Map" id="omb-Pe-A38"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bad-FP-z78" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="1440"/>
+        </scene>
+        <!--School Map-->
+        <scene sceneID="Pcv-uR-P9E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zcL-1o-3DG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="School Map" image="map" catalog="system" id="hm3-gA-fdD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S7C-h6-Ett">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A5h-GR-9D3" kind="relationship" relationship="rootViewController" id="b6B-Pw-WkS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kt1-HO-FZw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1142" y="731"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="BLUE ZONE" width="407" height="255"/>
+        <image name="WHOLE SCHOOL" width="540" height="865"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="hifispeaker" catalog="system" width="111" height="128"/>
-        <image name="location" catalog="system" width="128" height="121"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.crop.square.fill.and.at.rectangle" catalog="system" width="128" height="93"/>
         <namedColor name="Calendar dark&amp;white">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

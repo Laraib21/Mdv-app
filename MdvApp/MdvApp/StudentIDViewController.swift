@@ -13,8 +13,6 @@ final class StudentIDViewController: UIViewController {
     @IBOutlet var barcodeScanningView: UIView!
     @IBOutlet var barcodeImageView: UIImageView!
     @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var barcodeValueTextField: UITextField!
-    @IBOutlet var goButton: UIButton!
 
     // MARK: - Properties
     private var studentID: String?
@@ -34,8 +32,6 @@ final class StudentIDViewController: UIViewController {
             return
         }
         #if targetEnvironment(simulator)
-        barcodeValueTextField.isHidden = false
-        goButton.isHidden = false
         toggleBarcodeView(false)
         #else
         do {
@@ -59,13 +55,6 @@ final class StudentIDViewController: UIViewController {
         if captureSession?.isRunning == true {
             captureSession?.stopRunning()
         }
-    }
-
-    // MARK: - IBActions
-    @IBAction func goButtonAction(_ sender: Any) {
-        guard let text = barcodeValueTextField.text else { return }
-        toggleBarcodeView(true)
-        displayBarcode(for: text)
     }
 }
 

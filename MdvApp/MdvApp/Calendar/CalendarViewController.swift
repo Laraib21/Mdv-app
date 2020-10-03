@@ -24,6 +24,9 @@ class CalendarViewController : UIViewController {
         super.viewDidLoad()
         calendarView.select(Date())
         addChildViewController(hostingController, intoContainer: containerViewController)
+        eventsDirectory.loadEvents { [weak self] _ in
+            self?.refreshEvent()
+        }
     }
 
     // MARK: - IBActions
@@ -39,17 +42,20 @@ class CalendarViewController : UIViewController {
     // MARK: - Helper Functions
     func dismissHostingController(newEvent: Event) -> Void {
         eventsDirectory.addEvents(newEvent)
-        let selectedDate = calendarView.selectedDate
         presentedViewController?.dismiss(animated: true){[weak self] in
-            self?.calendarView.reloadData()
-            let events: [Event]
-            if let selectedDate = selectedDate {
-                events = self?.eventsDirectory.events(on: selectedDate) ?? []
-            } else {
-                events = []
-            }
-            self?.hostingController.rootView = CalendarDetailView(events: events)
+            self?.refreshEvent()
         }
+    }
+    
+    func refreshEvent() {
+        calendarView.reloadData()
+        let events: [Event]
+        if let selectedDate = calendarView.selectedDate {
+            events = eventsDirectory.events(on: selectedDate)
+        } else {
+            events = []
+        }
+        hostingController.rootView = CalendarDetailView(events: events)
     }
 
 }

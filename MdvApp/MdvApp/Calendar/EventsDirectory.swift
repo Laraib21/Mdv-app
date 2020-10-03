@@ -31,7 +31,7 @@ extension Event: ExpressibleByStringLiteral {
 // MARK: - List of events
 class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     var events: [Event] = []
-    
+    let eventsUrl = URL.documentsDirectory.appendingPathComponent("events.txt")
     lazy var calendar = Calendar.autoupdatingCurrent
     lazy var center: UNUserNotificationCenter = {
         let center = UNUserNotificationCenter.current()
@@ -132,31 +132,35 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - saving user events to file
     
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
     func save(_ event: Event) {
         //TODO: Check if we have this event already
         var updatedEvent = event
         if updatedEvent.identifier == nil {
             updatedEvent.identifier = UUID()
+            events.append(updatedEvent)
         }
-        let existingIndex = events.firstIndex { $0.identifier != nil && $0.identifier == updatedEvent.identifier }
+        if let existingIndex = events.firstIndex(where:{ $0.identifier != nil && $0.identifier == updatedEvent.identifier}){
+            events[existingIndex] = updatedEvent
+        }
         // TODO: existingIndex will tell us whether or not we have an event already, we should replace it with the new one
-        events.append(event)
         let encoded: Data
         do {
-            encoded = try JSONEncoder().encode(event) // We should save _all_ of the events, not just the new one
-            let url = getDocumentsDirectory().appendingPathComponent("events.txt")
-            try encoded.write(to: url, options: [.atomic])
+            encoded = try JSONEncoder().encode(events) // We should save _all_ of the events, not just the new one
+            try encoded.write(to: eventsUrl, options: [.atomic])
         } catch {
             print("Encountered error: \(error)")
         }
     }
     
-    
+    func loadEvents(completion: @escaping ([Event]) -> Void) {
+        do {
+            let encoded = try Data(contentsOf: eventsUrl)
+            events = try JSONDecoder().decode([Event].self, from: encoded)
+            completion(events)
+        } catch {
+            print("Encountered error: \(error)")
+        }
+    }
     
     
 }

@@ -14,6 +14,7 @@
 		3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* announcementsLoader.swift */; };
 		3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */; };
 		3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F869CDD24C6457F004A2252 /* EventPopup.swift */; };
+		3FA53B8A2527F4F60098E230 /* URL + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA53B892527F4F60098E230 /* URL + Convenience.swift */; };
 		3FAB4CD42510195E0068F402 /* loadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB4CD32510195E0068F402 /* loadingScreenView.swift */; };
 		3FAB4CD62510198C0068F402 /* splashTapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB4CD52510198C0068F402 /* splashTapBarController.swift */; };
 		3FADD4C0248EDD4300E62366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FADD4BF248EDD4300E62366 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		3F7A26E624AE89A10067A37B /* announcementsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementsLoader.swift; sourceTree = "<group>"; };
 		3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateExtensions.swift; sourceTree = "<group>"; };
 		3F869CDD24C6457F004A2252 /* EventPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopup.swift; sourceTree = "<group>"; };
+		3FA53B892527F4F60098E230 /* URL + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Convenience.swift"; sourceTree = "<group>"; };
 		3FAB4CD32510195E0068F402 /* loadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingScreenView.swift; sourceTree = "<group>"; };
 		3FAB4CD52510198C0068F402 /* splashTapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = splashTapBarController.swift; sourceTree = "<group>"; };
 		3FADD4BC248EDD4300E62366 /* MdvApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MdvApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
 				FB81972F24E486E600765A27 /* UIImage+Convenience.swift */,
 				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
+				3FA53B892527F4F60098E230 /* URL + Convenience.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */,
 				3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */,
 				3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */,
+				3FA53B8A2527F4F60098E230 /* URL + Convenience.swift in Sources */,
 				FB0A1B362526114A008033CD /* SchoolMapViewController.swift in Sources */,
 				3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */,
 				FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */,

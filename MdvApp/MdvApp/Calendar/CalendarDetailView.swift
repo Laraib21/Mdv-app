@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CalendarDetailView: View {
     var events : [Event]
-    var dismiss: ((Event) -> Void)?
+    var saveDismiss: ((Event) -> Void)?
+    var deleteDismiss: ((Event) -> Void)?
     var body: some View {
         VStack{
             if events.isEmpty{
@@ -25,7 +26,7 @@ struct CalendarDetailView: View {
                 }
             } else {
                 List(events,id: \.self) { event in
-                    NavigationLink(event.title, destination: CalendarEventDetailView(event: event, dismiss: dismiss))
+                    NavigationLink(event.title, destination: CalendarEventDetailView(event: event, saveDismiss: saveDismiss, deleteDismiss: deleteDismiss))
                 }
             }
         }
@@ -33,7 +34,8 @@ struct CalendarDetailView: View {
 }
 struct CalendarEventDetailView: View {
     let event: Event
-    var dismiss: ((Event) -> Void)?
+    var saveDismiss: ((Event) -> Void)?
+    var deleteDismiss: ((Event) -> Void)?
     @State var showingDetail = false
     var editButton: some View {
         Button(action: {showingDetail = true}) {
@@ -41,7 +43,7 @@ struct CalendarEventDetailView: View {
         }
     }
     var deleteButton: some View {
-        Button(action: {}) {
+        Button(action: {deleteDismiss? (event)}) {
             Text("Delete")
         }
     }
@@ -90,7 +92,7 @@ struct CalendarEventDetailView: View {
         }.navigationBarTitle(event.title)
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
-            EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:0, description: event.body, eventIdentifier: event.identifier, dismiss:dismiss)
+            EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:0, description: event.body, eventIdentifier: event.identifier, dismiss:saveDismiss)
         }
     }
 }

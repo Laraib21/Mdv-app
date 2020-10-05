@@ -40,7 +40,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }()
     
     func addEvents(_ event: Event){
-        save(event)
+        updatedEventsList(event)
         center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional, .ephemeral:
@@ -89,7 +89,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         content.categoryIdentifier = "alarm"
         content.sound = UNNotificationSound.default
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: event.identifier!.uuidString, content: content, trigger: trigger)
         center.add(request)
     }
     
@@ -131,9 +131,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // MARK: - saving user events to file
-    
-    func save(_ event: Event) {
-        //TODO: Check if we have this event already
+    func updatedEventsList(_ event: Event){
         var updatedEvent = event
         if updatedEvent.identifier == nil {
             updatedEvent.identifier = UUID()
@@ -142,7 +140,10 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         if let existingIndex = events.firstIndex(where:{ $0.identifier != nil && $0.identifier == updatedEvent.identifier}){
             events[existingIndex] = updatedEvent
         }
-        // TODO: existingIndex will tell us whether or not we have an event already, we should replace it with the new one
+        save()
+    }
+    
+    func save() {
         let encoded: Data
         do {
             encoded = try JSONEncoder().encode(events) // We should save _all_ of the events, not just the new one
@@ -152,15 +153,25 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func loadEvents(completion: @escaping ([Event]) -> Void) {
+    func loadEvents(completion: @escaping() -> Void) {
         do {
             let encoded = try Data(contentsOf: eventsUrl)
             events = try JSONDecoder().decode([Event].self, from: encoded)
-            completion(events)
+            completion()
         } catch {
             print("Encountered error: \(error)")
         }
     }
     
+    func delete(event: Event, completion: @escaping() -> Void) {
+        defer { completion() }
+        guard let eventIdentifier = event.identifier else {
+            return
+        }
+        if let eventIndex = events.firstIndex(where: {$0.identifier == eventIdentifier}) {
+            events.remove(at: eventIndex)
+            save()
+        }
+    }
     
 }

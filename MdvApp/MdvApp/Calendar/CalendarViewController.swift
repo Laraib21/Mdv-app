@@ -24,14 +24,14 @@ class CalendarViewController : UIViewController {
         super.viewDidLoad()
         calendarView.select(Date())
         addChildViewController(hostingController, intoContainer: containerViewController)
-        eventsDirectory.loadEvents { [weak self] _ in
+        eventsDirectory.loadEvents { [weak self] in
             self?.refreshEvent()
         }
     }
 
     // MARK: - IBActions
     @IBAction func addEvent(_ sender: Any) {
-        let event = EventPopup(eventIdentifier: nil, dismiss: dismissHostingController)
+        let event = EventPopup(eventIdentifier: nil, dismiss: saveDismissHostingController)
          present(event)
     }
     
@@ -40,9 +40,15 @@ class CalendarViewController : UIViewController {
     }
 
     // MARK: - Helper Functions
-    func dismissHostingController(newEvent: Event) -> Void {
+    func saveDismissHostingController(newEvent: Event) -> Void {
         eventsDirectory.addEvents(newEvent)
         presentedViewController?.dismiss(animated: true){[weak self] in
+            self?.refreshEvent()
+        }
+    }
+    
+    func deleteDismissHostingController(existingEvent: Event) -> Void {
+        eventsDirectory.delete(event: existingEvent) {[weak self] in
             self?.refreshEvent()
         }
     }
@@ -68,7 +74,7 @@ extension CalendarViewController: FSCalendarDataSource {
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let events = eventsDirectory.events(on: date)
-        hostingController.rootView = CalendarDetailView(events: events, dismiss: dismissHostingController)
+        hostingController.rootView = CalendarDetailView(events: events, saveDismiss: saveDismissHostingController, deleteDismiss: deleteDismissHostingController )
     }
 }
 

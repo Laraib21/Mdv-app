@@ -49,6 +49,7 @@ class CalendarViewController : UIViewController {
     
     func deleteDismissHostingController(existingEvent: Event) -> Void {
         eventsDirectory.delete(event: existingEvent) {[weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
             self?.refreshEvent()
         }
     }
@@ -61,7 +62,7 @@ class CalendarViewController : UIViewController {
         } else {
             events = []
         }
-        hostingController.rootView = CalendarDetailView(events: events)
+        hostingController.rootView = CalendarDetailView(events: events, saveDismiss: saveDismissHostingController, deleteDismiss: deleteDismissHostingController)
     }
 
 }

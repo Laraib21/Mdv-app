@@ -40,16 +40,16 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }()
     
     func addEvents(_ event: Event){
-        updatedEventsList(event)
+        let savedUpdatedEvent = updatedEventsList(event)
         center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional, .ephemeral:
-                self.scheduleNotification(for: event)
+                self.scheduleNotification(for: savedUpdatedEvent)
             case .denied:
                 // Show an UIAlert
                 print("Check settings for notification setup")
             case .notDetermined:
-                self.getUserPermission(success: self.scheduleNotification(for: event), failure: { print("D'Oh") })
+                self.getUserPermission(success: self.scheduleNotification(for: savedUpdatedEvent), failure: { print("D'Oh") })
             @unknown default:
                 print("Unhandled auth type: \(settings.authorizationStatus)")
             }
@@ -131,7 +131,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // MARK: - saving user events to file
-    func updatedEventsList(_ event: Event){
+    func updatedEventsList(_ event: Event) -> Event {
         var updatedEvent = event
         if updatedEvent.identifier == nil {
             updatedEvent.identifier = UUID()
@@ -139,8 +139,10 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         }
         if let existingIndex = events.firstIndex(where:{ $0.identifier != nil && $0.identifier == updatedEvent.identifier}){
             events[existingIndex] = updatedEvent
+            removeNotification(for: updatedEvent)
         }
         save()
+        return updatedEvent
     }
     
     func save() {
@@ -169,9 +171,25 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
             return
         }
         if let eventIndex = events.firstIndex(where: {$0.identifier == eventIdentifier}) {
-            events.remove(at: eventIndex)
+            let removedEvent = events.remove(at: eventIndex)
+            removeNotification(for: removedEvent)
             save()
         }
     }
+    
+    func removeNotification(for event: Event) {
+        center.getPendingNotificationRequests { [center] requests in
+            let requestsToBeRemoved = requests.filter { $0.identifier == event.identifier?.uuidString }.compactMap { $0.identifier }
+            center.removePendingNotificationRequests(withIdentifiers: requestsToBeRemoved)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

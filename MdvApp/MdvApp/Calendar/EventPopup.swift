@@ -80,15 +80,22 @@ struct EventPopup: View {
                         Text("No alert").tag(6)
                        })
                     .overlay(invalidEntryView($alertDateValid, colour: .yellow))
-                TextEditor(text: $description)
-                    .overlay(invalidEntryView($isDescriptionValid))
-                    .frame(minHeight: 240)
+                ZStack(alignment: .leading){
+                    TextEditor(text: $description)
+                        .overlay(invalidEntryView($isDescriptionValid))
+                        .frame(minHeight: 240)
+                    if description.isEmpty {
+                        VStack {
+                            Text("Please enter description").foregroundColor(Color.gray.opacity(0.4)).padding(.top, 8).padding(.leading, 3)
+                            Spacer()
+                        }
+                    }
+                }
             }
             .navigationBarTitle("New Event")
             .navigationBarItems(trailing: saveButton)
         }
     }
-    let calendar = Calendar.autoupdatingCurrent
     func SaveEvent () {
         // TODO: Validate none of the fields are empty. If any are, don't dismiss!
         // NOTES:
@@ -98,30 +105,12 @@ struct EventPopup: View {
         
         endDateValid = end.timeIntervalSince(start) > 0
         
-        let alertDate: Date?
-        switch selection {
-        case .atTimeOfEvent:
-            alertDate = start
-        case .thirtyMinutesBefore:
-            alertDate = calendar.date(byAdding: .minute, value: -30,to: start) ?? start
-        case .oneHourBefore:
-            alertDate = calendar.date(byAdding: .hour, value: -1,to: start) ?? start
-        case .oneDayBefore:
-            alertDate = calendar.date(byAdding: .day, value: -1,to: start) ?? start
-        case .twoDaysBefore:
-            alertDate = calendar.date(byAdding: .day, value: -2,to: start) ?? start
-        case .oneWeekBefore:
-            alertDate = calendar.date(byAdding: .day, value: -7,to: start) ?? start
-        case .noAlert:
-            alertDate = nil
-        default:
-            alertDate = start
-        }
-        alertDateValid = (alertDate?.timeIntervalSince(Date()) ?? 61) > 60
+        let newEvent = Event(title: title, body: description, startDate: start, selection: selection, endDate: end, identifier: eventIdentifier)
+        
+        alertDateValid = (newEvent.alertDate?.timeIntervalSince(Date()) ?? 61) > 60
         
         guard isTitleValid && isDescriptionValid && endDateValid else { return }
         
-        let newEvent = Event(title: title, body: description, startDate: start, endDate: end, alertDate: alertDate, identifier: eventIdentifier)
         self.dismiss?(newEvent)
         
     }

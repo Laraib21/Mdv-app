@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "HOMESCREEN_0004_LETS.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true,
+    "template-rendering-intent" : "template"
+  }
+}

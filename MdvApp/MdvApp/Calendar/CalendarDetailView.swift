@@ -90,10 +90,10 @@ struct CalendarEventDetailView: View {
                 // Text(dateFormatter.string(from: event.endDate))
             }
             deleteButton
-        }.navigationBarTitle(event.title).tabItem { Text("Calendar") }
+        }.tabItem { Text("Calendar") }
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
-            EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:0, description: event.body, eventIdentifier: event.identifier, dismiss:saveDismiss)
+            EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:event.selection, description: event.body, eventIdentifier: event.identifier, dismiss:saveDismiss)
         }
         .alert(isPresented: $showingDeleteAlert) {
             Alert(title: Text("Delete Event?"), primaryButton: .destructive(Text("Yes"), action: {deleteDismiss? (event)}), secondaryButton: .cancel())
@@ -106,7 +106,7 @@ struct CalendarDetailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             CalendarDetailView(events: [])
-            CalendarEventDetailView(event: Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), endDate: Date(), alertDate: Date()))
+            CalendarEventDetailView(event: Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), selection: 0, endDate: Date()))
         }
     }
 }

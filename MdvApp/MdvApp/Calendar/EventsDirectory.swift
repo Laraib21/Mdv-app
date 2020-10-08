@@ -12,8 +12,28 @@ struct Event: Hashable, Codable{
     let title: String
     let body: String
     let startDate : Date
+    let selection: Int
     let endDate: Date
-    let alertDate: Date?
+    var alertDate: Date?{
+        switch selection {
+        case .atTimeOfEvent:
+            return startDate
+        case .thirtyMinutesBefore:
+            return Calendar.autoupdatingCurrent.date(byAdding: .minute, value: -30,to: startDate) ?? startDate
+        case .oneHourBefore:
+            return Calendar.autoupdatingCurrent.date(byAdding: .hour, value: -1,to: startDate) ?? startDate
+        case .oneDayBefore:
+            return Calendar.autoupdatingCurrent.date(byAdding: .day, value: -1,to: startDate) ?? startDate
+        case .twoDaysBefore:
+            return Calendar.autoupdatingCurrent.date(byAdding: .day, value: -2,to: startDate) ?? startDate
+        case .oneWeekBefore:
+            return Calendar.autoupdatingCurrent.date(byAdding: .day, value: -7,to: startDate) ?? startDate
+        case .noAlert:
+            return nil
+        default:
+            return startDate
+        }
+    }
     var identifier: UUID?
     var spanMultipleDays: Bool {
         return true
@@ -24,7 +44,7 @@ struct Event: Hashable, Codable{
 // MARK: - shows events body, start and end date
 extension Event: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
-        self.init(title: value, body: "", startDate: Date(), endDate: Date(), alertDate: Date())
+        self.init(title: value, body: "", startDate: Date(), selection: 0, endDate: Date())
     }
 }
 

@@ -26,7 +26,7 @@ struct LoadingScreenView: View {
         VStack{
             HStack {
                 if isShowingLets {
-                    Image("loading-mdv_0004_LETS-")
+                    Image("HOMESCREEN_0004_LETS")
                 }
                 if isShowingGO {
                     Image("loading-mdv_0001_Ellipse-1")

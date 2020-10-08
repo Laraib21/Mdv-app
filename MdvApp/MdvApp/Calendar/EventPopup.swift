@@ -34,7 +34,7 @@ struct EventPopup: View {
             Text("Save")
         }
     }
-
+    
     @State private var isEditing = false
     @State private var isValid = true
     
@@ -60,7 +60,7 @@ struct EventPopup: View {
         NavigationView {
             Form {
                 TextField("Title", text: $title)
-                .overlay(invalidEntryView($isTitleValid))
+                    .overlay(invalidEntryView($isTitleValid))
                 DatePicker(selection: $start, displayedComponents: [.date, .hourAndMinute]) {
                     Text("Start")
                 }
@@ -69,8 +69,8 @@ struct EventPopup: View {
                 }
                 .overlay(invalidEntryView($endDateValid))
                 Picker(selection: $selection, label:
-                    Text("Alert")
-                    , content: {
+                        Text("Alert")
+                       , content: {
                         Text("At time of event").tag(0)
                         Text("30 minutes before").tag(1)
                         Text("1 hour before").tag(2)
@@ -78,15 +78,14 @@ struct EventPopup: View {
                         Text("2 days before").tag(4)
                         Text("1 week before").tag(5)
                         Text("No alert").tag(6)
-                })
-                .overlay(invalidEntryView($alertDateValid, colour: .yellow))
+                       })
+                    .overlay(invalidEntryView($alertDateValid, colour: .yellow))
                 TextEditor(text: $description)
                     .overlay(invalidEntryView($isDescriptionValid))
                     .frame(minHeight: 240)
             }
             .navigationBarTitle("New Event")
             .navigationBarItems(trailing: saveButton)
-
         }
     }
     let calendar = Calendar.autoupdatingCurrent
@@ -96,7 +95,7 @@ struct EventPopup: View {
         //    SwiftUI lets you use statements like this:
         isDescriptionValid = !description.isEmpty
         isTitleValid = !title.isEmpty
-
+        
         endDateValid = end.timeIntervalSince(start) > 0
         
         let alertDate: Date?
@@ -132,7 +131,7 @@ struct EventPopup: View {
     }
 }
 
-    // MARK: - showing the event below the calendar
+// MARK: - showing the event below the calendar
 struct EventPopup_Previews: PreviewProvider {
     static var previews: some View {
         EventPopup(eventIdentifier: nil)

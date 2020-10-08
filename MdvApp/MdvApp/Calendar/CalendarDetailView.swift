@@ -37,13 +37,14 @@ struct CalendarEventDetailView: View {
     var saveDismiss: ((Event) -> Void)?
     var deleteDismiss: ((Event) -> Void)?
     @State var showingDetail = false
+    @State private var showingDeleteAlert = false
     var editButton: some View {
         Button(action: {showingDetail = true}) {
             Text("Edit")
         }
     }
     var deleteButton: some View {
-        Button(action: {deleteDismiss? (event)}) {
+        Button(action: {showingDeleteAlert = true}) {
             Text("Delete")
         }
     }
@@ -89,10 +90,13 @@ struct CalendarEventDetailView: View {
                 // Text(dateFormatter.string(from: event.endDate))
             }
             deleteButton
-        }.navigationBarTitle(event.title)
+        }.navigationBarTitle(event.title).tabItem { Text("Calendar") }
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
             EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:0, description: event.body, eventIdentifier: event.identifier, dismiss:saveDismiss)
+        }
+        .alert(isPresented: $showingDeleteAlert) {
+            Alert(title: Text("Delete Event?"), primaryButton: .destructive(Text("Yes"), action: {deleteDismiss? (event)}), secondaryButton: .cancel())
         }
     }
 }

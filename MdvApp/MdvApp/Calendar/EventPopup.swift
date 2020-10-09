@@ -17,6 +17,12 @@ extension ReminderSelection {
     static let noAlert = 6
 }
 
+struct NoShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        return Path()
+    }
+}
+
 struct EventPopup: View {
     @State var start = Date()
     @State var end = Date()
@@ -86,7 +92,7 @@ struct EventPopup: View {
                         .frame(minHeight: 240)
                     if description.isEmpty {
                         VStack {
-                            Text("Please enter description").foregroundColor(Color.gray.opacity(0.4)).padding(.top, 8).padding(.leading, 3)
+                            Text("Please enter description").foregroundColor(Color.gray.opacity(0.4)).padding(.top, 8).padding(.leading, 3).contentShape(NoShape())
                             Spacer()
                         }
                     }

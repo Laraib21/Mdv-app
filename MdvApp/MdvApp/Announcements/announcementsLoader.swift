@@ -56,7 +56,7 @@ class AnnouncementLoader: ObservableObject {
         query.sortDescriptors = [NSSortDescriptor(key: RecordKey.creationDate, ascending: false)]
         CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase.perform(query, inZoneWith: .default) { [weak self] records, error in
             self?.announcements = records?.map {Announcement(record: $0) } ?? []
-            completion(error)
+            DispatchQueue.main.async { completion(error) }
         }
     }
     
@@ -68,7 +68,7 @@ class AnnouncementLoader: ObservableObject {
         newRecord.setValue(announcement.tags.flatMap { $0.name }, forKey: .tags)
         CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase.save(newRecord) { record, error in
             print("Saved \(String(describing: record))")
-            completion(error)
+            DispatchQueue.main.async { completion(error) }
         }
     }
 }

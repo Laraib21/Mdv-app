@@ -37,6 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="240" id="fmc-0X-IRx" customClass="announcementTableViewCell" customModule="MdvApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="240"/>
@@ -45,6 +46,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kxu-G1-50T">
+                                            <rect key="frame" x="20" y="228" width="374" height="1"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="rua-3C-1wL"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3O0-gg-fge">
                                             <rect key="frame" x="36" y="27" width="342" height="186"/>
                                             <subviews>
@@ -91,10 +99,13 @@
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Kxu-G1-50T" firstAttribute="leading" secondItem="o5A-5x-cz7" secondAttribute="leadingMargin" id="2wP-2I-CpA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Kxu-G1-50T" secondAttribute="trailing" id="A63-xF-jSY"/>
                                         <constraint firstItem="3O0-gg-fge" firstAttribute="top" secondItem="o5A-5x-cz7" secondAttribute="topMargin" constant="16" id="AVi-m0-QWc"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="3O0-gg-fge" secondAttribute="bottom" constant="16" id="UrL-b1-AQL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="3O0-gg-fge" secondAttribute="trailing" constant="16" id="XH0-Lq-HNh"/>
                                         <constraint firstItem="3O0-gg-fge" firstAttribute="leading" secondItem="o5A-5x-cz7" secondAttribute="leadingMargin" constant="16" id="lr4-Qq-EX8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Kxu-G1-50T" secondAttribute="bottom" id="wSA-nX-SD3"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.49803921568627452" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -217,6 +228,12 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
                                         <color key="value" name="Calendar dark&amp;white"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" systemColor="systemBlueColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" systemColor="systemBlueColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>

@@ -34,7 +34,7 @@ struct NewAnnouncementView: View {
                     HStack {
                         Spacer()
                         Image(systemName: "exclamationmark.triangle.fill")
-                            .padding([.top], 2)
+                            .padding([.top], 1)
                             .foregroundColor(colour)
                     }
                     Spacer()
@@ -48,8 +48,16 @@ struct NewAnnouncementView: View {
                 Section {
                     TextField("Announcement Title", text: $title)
                         .overlay(invalidEntryView($isTitleValid))
-                    TextEditor(text: $description)
-                        .frame(minHeight: 240)
+                    ZStack(alignment: .leading){
+                        TextEditor(text: $description)
+                            .frame(minHeight: 240)
+                        if description.isEmpty {
+                            VStack {
+                                Text("Please enter description").foregroundColor(Color.gray.opacity(0.5)).padding(.top, 8).padding(.leading, 0.5).contentShape(NoShape())
+                                Spacer()
+                            }
+                        }
+                    }
                 }
                 .navigationBarTitle("New Announcement")
                 .navigationBarItems(trailing: saveButton)
@@ -57,7 +65,7 @@ struct NewAnnouncementView: View {
         }
         
         
-    
+        
         
         
         

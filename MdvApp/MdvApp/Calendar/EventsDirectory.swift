@@ -53,15 +53,11 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     var events: [Event] = []
     let eventsUrl = URL.documentsDirectory.appendingPathComponent("events.txt")
     lazy var calendar = Calendar.autoupdatingCurrent
-    lazy var center: UNUserNotificationCenter = {
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        return center
-    }()
+
     
     func addEvents(_ event: Event){
         let savedUpdatedEvent = updatedEventsList(event)
-        center.getNotificationSettings { settings in
+        NotificationManager.shared.center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional, .ephemeral:
                 self.scheduleNotification(for: savedUpdatedEvent)
@@ -87,7 +83,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: - Notification Center
     func getUserPermission(success: @escaping @autoclosure () -> Void, failure: @escaping () -> Void) {
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+        NotificationManager.shared.center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
                 self.registerCategories()
                 success()
@@ -110,46 +106,17 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         
         let request = UNNotificationRequest(identifier: event.identifier!.uuidString, content: content, trigger: trigger)
-        center.add(request)
+        NotificationManager.shared.center.add(request)
     }
     
     func registerCategories() {
         let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
         let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
         
-        center.setNotificationCategories([category])
+        NotificationManager.shared.center.setNotificationCategories([category])
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // pull out the buried userInfo dictionary
-        let userInfo = response.notification.request.content.userInfo
-        
-        if let customData = userInfo["customData"] as? String {
-            print("Custom data received: \(customData)")
-            
-            switch response.actionIdentifier {
-            case UNNotificationDefaultActionIdentifier:
-                // the user swiped to unlock
-                print("Default identifier")
-                
-            case "show":
-                // the user tapped our "show more info…" button
-                print("Show more information…")
-                break
-                
-            default:
-                break
-            }
-        }
-        
-        // you must call the completion handler when you're done
-        completionHandler()
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.banner)
-    }
-    
+
     // MARK: - saving user events to file
     func updatedEventsList(_ event: Event) -> Event {
         var updatedEvent = event
@@ -198,9 +165,9 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func removeNotification(for event: Event) {
-        center.getPendingNotificationRequests { [center] requests in
+        NotificationManager.shared.center.getPendingNotificationRequests { requests in
             let requestsToBeRemoved = requests.filter { $0.identifier == event.identifier?.uuidString }.compactMap { $0.identifier }
-            center.removePendingNotificationRequests(withIdentifiers: requestsToBeRemoved)
+            NotificationManager.shared.center.removePendingNotificationRequests(withIdentifiers: requestsToBeRemoved)
         }
     }
     

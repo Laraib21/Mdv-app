@@ -65,7 +65,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
                 // Show an UIAlert
                 print("Check settings for notification setup")
             case .notDetermined:
-                self.getUserPermission(success: self.scheduleNotification(for: savedUpdatedEvent), failure: { print("D'Oh") })
+                NotificationManager.shared.getUserPermission(success: self.scheduleNotification(for: savedUpdatedEvent), failure: { print("D'Oh") })
             @unknown default:
                 print("Unhandled auth type: \(settings.authorizationStatus)")
             }

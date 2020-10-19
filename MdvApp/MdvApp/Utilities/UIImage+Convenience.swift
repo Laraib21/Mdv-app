@@ -9,7 +9,7 @@ import UIKit
 
 extension UIImage {
     convenience init?(barcode: String) {
-        let data = barcode.data(using: .ascii)
+        let data = ("000000" + barcode).data(using: .utf8)
         guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else { return nil }
 
         filter.setValue(data, forKey: "inputMessage")

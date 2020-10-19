@@ -118,7 +118,7 @@ extension StudentIDViewController {
         }
         captureSession.addOutput(metadataOutput)
         metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-        metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
+        metadataOutput.metadataObjectTypes = metadataOutput.availableMetadataObjectTypes
     }
 
     private func addPreviewLayer(for captureSession: AVCaptureSession, to barcodeScanningView: UIView) {

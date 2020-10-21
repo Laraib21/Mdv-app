@@ -35,6 +35,7 @@
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
 		FB81973024E486E600765A27 /* UIImage+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972F24E486E600765A27 /* UIImage+Convenience.swift */; };
 		FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81973124E4960600765A27 /* UIViewController+Convenience.swift */; };
+		FBEA32D42540E171004D5248 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA32D32540E171004D5248 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		FB81972D24E470DD00765A27 /* StudentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDViewController.swift; sourceTree = "<group>"; };
 		FB81972F24E486E600765A27 /* UIImage+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Convenience.swift"; sourceTree = "<group>"; };
 		FB81973124E4960600765A27 /* UIViewController+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Convenience.swift"; sourceTree = "<group>"; };
+		FBEA32D32540E171004D5248 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +142,7 @@
 				3FADD4CA248EDD4C00E62366 /* LaunchScreen.storyboard */,
 				3FADD4CD248EDD4C00E62366 /* Info.plist */,
 				BF4C9B02253A5AB0006B846A /* NotificationManager.swift */,
-				BF18AB042540E0580084BE57 /* ContentView.swift */,
+				FBEA32D32540E171004D5248 /* ContentView.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -320,7 +322,7 @@
 				3F6B598624981BB000B9C90D /* Announcement.swift in Sources */,
 				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
 				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
-				BF18AB052540E0580084BE57 /* ContentView.swift in Sources */,
+				FBEA32D42540E171004D5248 /* ContentView.swift in Sources */,
 				3FADD4C2248EDD4300E62366 /* SceneDelegate.swift in Sources */,
 				FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */,
 				3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */,

@@ -32,7 +32,7 @@
         <!--Announcements-->
         <scene sceneID="cli-md-JFL">
             <objects>
-                <tableViewController id="HRd-6X-TsI" customClass="AnnouncementsTableViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AnnouncementsViewController" id="HRd-6X-TsI" customClass="AnnouncementsTableViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wwa-r5-g0U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,7 @@
         <!--Announcements-->
         <scene sceneID="PAo-BN-WzO">
             <objects>
-                <navigationController title="Announcements" automaticallyAdjustsScrollViewInsets="NO" id="945-Vo-1FX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AnnouncementsNavViewController" title="Announcements" automaticallyAdjustsScrollViewInsets="NO" id="945-Vo-1FX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Announcements" image="hifispeaker" catalog="system" id="XgA-RC-mgV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ARN-mz-UN4">

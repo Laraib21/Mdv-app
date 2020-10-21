@@ -63,10 +63,10 @@ extension StudentIDViewController {
     private func displayBarcode(for studentID: String) {
         // Generate a barcode image from the student ID #
         // Rotate it by 90 degrees
-        guard let barcodeImage = UIImage(barcode: studentID) else {
-            scanBarcode(withMessage: "Unable to create barcode from \(studentID), try scanning again.")
-            return
-        }
+    //    guard let barcodeImage = UIImage(barcode: studentID) else {
+      //      scanBarcode(withMessage: "Unable to create barcode from \(studentID), try scanning again.")
+        //      return
+     //   }
 
         barcodeImageView.image = barcodeImage.rotate(radians: .pi / 2)
         barcodeImageView.isHidden = false
@@ -118,7 +118,7 @@ extension StudentIDViewController {
         }
         captureSession.addOutput(metadataOutput)
         metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-        metadataOutput.metadataObjectTypes = metadataOutput.availableMetadataObjectTypes
+        metadataOutput.metadataObjectTypes = [.code39]
     }
 
     private func addPreviewLayer(for captureSession: AVCaptureSession, to barcodeScanningView: UIView) {

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Splash Tap Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="Au3-de-qyk">
             <objects>
-                <tabBarController id="O84-gX-Gh5" customClass="SplashTapBarController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="O84-gX-Gh5" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bQx-pA-uVW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

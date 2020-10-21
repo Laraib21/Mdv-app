@@ -7,6 +7,7 @@
 
 import AVFoundation
 import UIKit
+import RSBarcodes_Swift
 
 final class StudentIDViewController: UIViewController {
     // MARK: - IBOutlets
@@ -63,10 +64,10 @@ extension StudentIDViewController {
     private func displayBarcode(for studentID: String) {
         // Generate a barcode image from the student ID #
         // Rotate it by 90 degrees
-    //    guard let barcodeImage = UIImage(barcode: studentID) else {
-      //      scanBarcode(withMessage: "Unable to create barcode from \(studentID), try scanning again.")
-        //      return
-     //   }
+        guard let barcodeImage = RSUnifiedCodeGenerator.shared.generateCode(studentID, machineReadableCodeObjectType: AVMetadataObject.ObjectType.code39.rawValue) else {
+            scanBarcode(withMessage: "Unable to create barcode from \(studentID), try scanning again.")
+              return
+       }
 
         barcodeImageView.image = barcodeImage.rotate(radians: .pi / 2)
         barcodeImageView.isHidden = false

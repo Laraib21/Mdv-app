@@ -14,7 +14,7 @@ struct LoadingScreenView: View {
     @State private var isShowingLogo = false
     @State private var isShowingWelcome = false
 
-    var dismiss: (() -> Void)?
+    @Binding var isShowing: Bool
     var welcomeOverlayView: some View{
         HStack {
             Spacer()
@@ -72,7 +72,7 @@ struct LoadingScreenView: View {
                 withAnimation { self.isShowingWelcome = true }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                withAnimation { self.dismiss?() }
+                withAnimation { self.isShowing = false }
             }
             
         }
@@ -91,7 +91,7 @@ struct LoadingScreenView: View {
 
 struct LoadingScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingScreenView()
+        LoadingScreenView(isShowing:.constant(true))
     }
 }
 

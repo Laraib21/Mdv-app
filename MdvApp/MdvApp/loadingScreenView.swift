@@ -40,7 +40,7 @@ struct LoadingScreenView: View {
             .transition(.opacity)
             Spacer()
             if isShowingLogo{
-                Image("loading-mdv_0007_Layer-2").transition(.opacity)
+                Image("dkkd").transition(.opacity)
             }
             Spacer()
             if isShowingWelcome {

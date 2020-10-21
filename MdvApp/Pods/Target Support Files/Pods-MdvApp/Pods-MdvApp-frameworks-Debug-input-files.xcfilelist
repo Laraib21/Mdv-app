@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-MdvApp/Pods-MdvApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
+${BUILT_PRODUCTS_DIR}/RSBarcodes_Swift/RSBarcodes_Swift.framework

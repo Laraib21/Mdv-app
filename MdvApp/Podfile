@@ -8,6 +8,6 @@ target 'MdvApp' do
   # Pods for MdvApp
   pod 'FSCalendar'
  
- # Pods for Barcode Generator
- pod 'RSBarcodes_Swift', '~> 5.1.0'
-
+  # Pods for Barcode Generator
+  pod 'RSBarcodes_Swift', '~> 5.1.0'
+end

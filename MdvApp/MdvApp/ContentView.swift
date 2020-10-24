@@ -18,8 +18,44 @@ struct AnnouncementsView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
         // Doesn't matter for now
     }
+    
 }
 
+struct CalendarView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UINavigationController
+    func makeUIViewController(context: Context) -> UINavigationController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(identifier: "CalendarViewController")
+    }
+
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        // Doesn't matter for now
+    }
+}
+
+struct StudentIDView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UINavigationController
+    func makeUIViewController(context: Context) -> UINavigationController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(identifier: "StudentIDViewController")
+    }
+
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        // Doesn't matter for now
+    }
+}
+
+struct SchoolMapView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = UINavigationController
+    func makeUIViewController(context: Context) -> UINavigationController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(identifier: "SchoolMapViewController")
+    }
+
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        // Doesn't matter for now
+    }
+}
 
 struct ContentView: View {
     @State var isShowingSplashView = false
@@ -27,36 +63,36 @@ struct ContentView: View {
     var announcementsTab: some View {
         AnnouncementsView()
             .tabItem {
-                Image(systemName: "airplane.circle.fill")
+                Image(systemName: "hifispeaker")
                     .imageScale(.large)
-                Text("Sample")
+                Text("Announcements")
             }
     }
 
     var calendarTab: some View {
         Text("Hello World")
             .tabItem {
-                Image(systemName: "airplane.circle.fill")
+                Image(systemName: "calendar.circle.fill")
                     .imageScale(.large)
-                Text("Sample")
+                Text("Calendar")
             }
     }
 
     var studentIdTab: some View {
         Text("Hello World")
             .tabItem {
-                Image(systemName: "airplane.circle.fill")
+                Image(systemName: "person.crop.square")
                     .imageScale(.large)
-                Text("Sample")
+                Text("Student ID")
             }
     }
 
     var schoolMapTab: some View {
         Text("Hello World")
             .tabItem {
-                Image(systemName: "airplane.circle.fill")
+                Image(systemName: "map")
                     .imageScale(.large)
-                Text("Sample")
+                Text("School Map")
             }
     }
 

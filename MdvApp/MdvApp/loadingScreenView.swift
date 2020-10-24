@@ -91,7 +91,7 @@ struct LoadingScreenView: View {
 
 struct LoadingScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingScreenView()
+        LoadingScreenView(isShowing: .constant(true))
     }
 }
 

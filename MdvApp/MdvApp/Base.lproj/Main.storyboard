@@ -155,7 +155,7 @@
         <!--Student ID-->
         <scene sceneID="7DO-I5-p01">
             <objects>
-                <viewController id="DiB-a6-hC5" customClass="StudentIDViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentIDViewController" id="DiB-a6-hC5" customClass="StudentIDViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HvK-hE-RUR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,7 +212,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="koB-a8-mYa">
             <objects>
-                <viewController id="4mI-Xh-tol" customClass="CalendarViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarViewController" id="4mI-Xh-tol" customClass="CalendarViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SCd-9H-mmi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,7 +278,7 @@
         <!--Calendar-->
         <scene sceneID="PXn-yF-4ev">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KMc-g4-Z1c" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CalendarNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="KMc-g4-Z1c" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar" catalog="system" id="ZHH-8m-dck"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="67I-tj-7AE">
@@ -297,7 +297,7 @@
         <!--School Map-->
         <scene sceneID="YgR-HP-Fv3">
             <objects>
-                <viewController id="A5h-GR-9D3" customClass="SchoolMapViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchoolMapViewController" id="A5h-GR-9D3" customClass="SchoolMapViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="drg-fx-Zdh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,7 +439,7 @@
         <!--School Map-->
         <scene sceneID="Pcv-uR-P9E">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zcL-1o-3DG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MapNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="zcL-1o-3DG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="School Map" image="map" catalog="system" id="hm3-gA-fdD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S7C-h6-Ett">

@@ -25,7 +25,7 @@ struct CalendarView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController
     func makeUIViewController(context: Context) -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(identifier: "CalendarViewController")
+        return storyboard.instantiateViewController(identifier: "CalendarNavViewController")
     }
 
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
@@ -34,13 +34,13 @@ struct CalendarView: UIViewControllerRepresentable {
 }
 
 struct StudentIDView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UINavigationController
-    func makeUIViewController(context: Context) -> UINavigationController {
+    typealias UIViewControllerType = StudentIDViewController
+    func makeUIViewController(context: Context) -> StudentIDViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         return storyboard.instantiateViewController(identifier: "StudentIDViewController")
     }
 
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+    func updateUIViewController(_ uiViewController: StudentIDViewController, context: Context) {
         // Doesn't matter for now
     }
 }
@@ -49,7 +49,7 @@ struct SchoolMapView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController
     func makeUIViewController(context: Context) -> UINavigationController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(identifier: "SchoolMapViewController")
+        return storyboard.instantiateViewController(identifier: "MapNavViewController")
     }
 
     func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
@@ -58,7 +58,7 @@ struct SchoolMapView: UIViewControllerRepresentable {
 }
 
 struct ContentView: View {
-    @State var isShowingSplashView = false
+    @State var isShowingSplashView = true
 
     var announcementsTab: some View {
         AnnouncementsView()
@@ -70,7 +70,7 @@ struct ContentView: View {
     }
 
     var calendarTab: some View {
-        Text("Hello World")
+        CalendarView()
             .tabItem {
                 Image(systemName: "calendar.circle.fill")
                     .imageScale(.large)
@@ -79,7 +79,7 @@ struct ContentView: View {
     }
 
     var studentIdTab: some View {
-        Text("Hello World")
+        StudentIDView()
             .tabItem {
                 Image(systemName: "person.crop.square")
                     .imageScale(.large)
@@ -88,7 +88,7 @@ struct ContentView: View {
     }
 
     var schoolMapTab: some View {
-        Text("Hello World")
+        SchoolMapView()
             .tabItem {
                 Image(systemName: "map")
                     .imageScale(.large)
@@ -107,8 +107,8 @@ struct ContentView: View {
                     studentIdTab
                     schoolMapTab
                 }
-                .animation(Animation.easeInOut.speed(0.5))
-                .transition(.move(edge: .bottom))
+                //.animation(Animation.easeInOut.speed(0.5))
+                //.transition(.move(edge: .bottom))
             }
         }
     }

@@ -14,15 +14,13 @@ class AnnouncementsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        announcementLoader.fetchAnnouncements { [weak self] (possibleError) in
-            if let possibleError = possibleError{
-                print(possibleError)
-                return
-            }
-            self?.tableView.reloadData()
-        }
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshControlInvoked), for: .valueChanged)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshControlInvoked()
+    }
     // MARK: - Helpers
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return announcementLoader.announcements.count
@@ -65,4 +63,23 @@ class AnnouncementsTableViewController: UITableViewController {
             self?.presentedViewController?.dismiss(animated: true, completion: nil)
         }
     }
+    
+    
+    @objc func refreshControlInvoked() {
+        refreshControl?.beginRefreshing()
+        announcementLoader.fetchAnnouncements { [weak self] (possibleError) in
+            if let possibleError = possibleError{
+                print(possibleError)
+                return
+            }
+            self?.tableView.reloadData()
+            DispatchQueue.main.async { self?.refreshControl?.endRefreshing() }
+        }
+    }
+    
+    
+    
+    
+    
+    
 }

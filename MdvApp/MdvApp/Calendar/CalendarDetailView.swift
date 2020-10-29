@@ -90,6 +90,9 @@ struct CalendarEventDetailView: View {
                 // Text(dateFormatter.string(from: event.endDate))
             }
             deleteButton
+            Rectangle()
+                .foregroundColor(Color(UIColor.systemGroupedBackground))
+                .frame(height: 2)
         }.tabItem { Text("Calendar") }
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){

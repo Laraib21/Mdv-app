@@ -28,35 +28,35 @@ final class StudentIDViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let studentID = studentID {
-            displayBarcode(for: studentID)
-            return
-        }
-        #if targetEnvironment(simulator)
-        toggleBarcodeView(false)
-        #else
-        do {
-            try configureCaptureSession()
-        } catch {
-            captureSession = nil
-            print("Encountered error starting capture session: \(error)")
-        }
-        #endif
+//        if let studentID = studentID {
+//            displayBarcode(for: studentID)
+//            return
+//        }
+//        #if targetEnvironment(simulator)
+//        toggleBarcodeView(false)
+//        #else
+//        do {
+//            try configureCaptureSession()
+//        } catch {
+//            captureSession = nil
+//            print("Encountered error starting capture session: \(error)")
+//        }
+//        #endif
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if captureSession?.isRunning == false {
-            captureSession?.startRunning()
-        }
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if captureSession?.isRunning == true {
-            captureSession?.stopRunning()
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        if captureSession?.isRunning == false {
+//            captureSession?.startRunning()
+//        }
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        if captureSession?.isRunning == true {
+//            captureSession?.stopRunning()
+//        }
+//    }
 }
 
 // MARK: - Barcode Display

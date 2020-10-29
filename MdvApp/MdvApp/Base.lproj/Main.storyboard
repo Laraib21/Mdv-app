@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -136,7 +136,7 @@
         <scene sceneID="7DO-I5-p01">
             <objects>
                 <viewController storyboardIdentifier="StudentIDViewController" id="DiB-a6-hC5" customClass="StudentIDViewController" customModule="MdvApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HvK-hE-RUR">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HvK-hE-RUR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -144,36 +144,76 @@
                                 <rect key="frame" x="20" y="66" width="374" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan " translatesAutoresizingMaskIntoConstraints="NO" id="9VM-gQ-N8V">
-                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="66.666666666666671" height="44"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" your" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-f4-YYF">
-                                        <rect key="frame" x="76.5" y="0.0" width="68.5" height="44"/>
+                                        <rect key="frame" x="76.666666666666657" y="0.0" width="68.666666666666657" height="44"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" Student " translatesAutoresizingMaskIntoConstraints="NO" id="cgs-ed-9AF">
-                                        <rect key="frame" x="155" y="0.0" width="121" height="44"/>
+                                        <rect key="frame" x="155.33333333333334" y="0.0" width="120.33333333333334" height="44"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ID" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-8z-bF0">
-                                        <rect key="frame" x="286" y="0.0" width="29.5" height="44"/>
+                                        <rect key="frame" x="285.66666666666669" y="0.0" width="29.666666666666686" height="44"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="here" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-mY-uOE">
-                                        <rect key="frame" x="325.5" y="0.0" width="48.5" height="44"/>
+                                        <rect key="frame" x="325.33333333333331" y="0.0" width="48.666666666666686" height="44"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="61t-Yy-9ZE"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bird" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-Sw-xTe">
+                                <rect key="frame" x="20" y="737" width="178" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="6yw-nc-iSW"/>
+                                    <constraint firstAttribute="height" constant="87" id="Z21-0z-jCM"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Ellipse" translatesAutoresizingMaskIntoConstraints="NO" id="2vP-Kc-GAl">
+                                <rect key="frame" x="0.0" y="797" width="414" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="cvq-dF-z3U"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Layer 2" translatesAutoresizingMaskIntoConstraints="NO" id="YnG-LH-40V">
+                                <rect key="frame" x="168.66666666666666" y="165" width="77" height="98"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="M7o-YH-H5t"/>
+                                    <constraint firstAttribute="height" constant="98" id="jvV-KW-NvO"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlA-kH-oCv">
+                                <rect key="frame" x="53" y="406" width="308" height="84"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="mPT-TF-UVr"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="j2Y-2S-E0j"/>
+                        <viewLayoutGuide key="safeArea" id="paL-0E-Wh6"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="tzH-BJ-u2s" firstAttribute="top" secondItem="j2Y-2S-E0j" secondAttribute="top" constant="22" id="lme-4m-lLB"/>
-                            <constraint firstItem="tzH-BJ-u2s" firstAttribute="leading" secondItem="j2Y-2S-E0j" secondAttribute="leading" constant="20" id="nUI-bN-cmp"/>
-                            <constraint firstItem="j2Y-2S-E0j" firstAttribute="trailing" secondItem="tzH-BJ-u2s" secondAttribute="trailing" constant="20" id="otP-cb-1ua"/>
+                            <constraint firstItem="YnG-LH-40V" firstAttribute="centerX" secondItem="HvK-hE-RUR" secondAttribute="centerX" id="1nW-lW-6D3"/>
+                            <constraint firstItem="aZg-Sw-xTe" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leadingMargin" id="2YJ-m5-G4M"/>
+                            <constraint firstAttribute="bottom" secondItem="2vP-Kc-GAl" secondAttribute="bottom" constant="-9" id="8lH-pp-BDe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GlA-kH-oCv" secondAttribute="trailing" constant="33" id="SHJ-OS-9iD"/>
+                            <constraint firstItem="2vP-Kc-GAl" firstAttribute="top" secondItem="aZg-Sw-xTe" secondAttribute="bottom" constant="-27" id="Wk1-eJ-DjU"/>
+                            <constraint firstItem="YnG-LH-40V" firstAttribute="top" secondItem="tzH-BJ-u2s" secondAttribute="bottom" constant="55" id="ZGw-ro-j8a"/>
+                            <constraint firstItem="tzH-BJ-u2s" firstAttribute="top" secondItem="HvK-hE-RUR" secondAttribute="top" constant="66" id="lme-4m-lLB"/>
+                            <constraint firstItem="2vP-Kc-GAl" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" id="lzi-YU-PiO"/>
+                            <constraint firstItem="tzH-BJ-u2s" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" constant="20" id="nUI-bN-cmp"/>
+                            <constraint firstAttribute="trailing" secondItem="tzH-BJ-u2s" secondAttribute="trailing" constant="20" id="otP-cb-1ua"/>
+                            <constraint firstItem="GlA-kH-oCv" firstAttribute="centerY" secondItem="HvK-hE-RUR" secondAttribute="centerY" id="spa-Lh-uLE"/>
+                            <constraint firstAttribute="trailing" secondItem="2vP-Kc-GAl" secondAttribute="trailing" id="w4l-NC-9ex"/>
+                            <constraint firstItem="GlA-kH-oCv" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leadingMargin" constant="33" id="yc8-Sm-dJW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Student ID" image="person.crop.square.fill.and.at.rectangle" catalog="system" id="TjI-XT-cHs"/>
                     <navigationItem key="navigationItem" id="HiZ-K8-a3u"/>
+                    <connections>
+                        <outlet property="borderView" destination="GlA-kH-oCv" id="SG8-mU-Ebk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uD8-op-gcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -276,7 +316,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvD-9T-GCs">
-                                <rect key="frame" x="69" y="130" width="313" height="80.5"/>
+                                <rect key="frame" x="69" y="130" width="313" height="80.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Brown Zone">
                                     <color key="titleColor" red="0.73350924250000005" green="0.42894363400000002" blue="0.12856400009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -286,10 +326,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="k8G-dx-abB" userLabel="Blue and Orange Stack View">
-                                <rect key="frame" x="147" y="510.5" width="267" height="159.5"/>
+                                <rect key="frame" x="147" y="510.33333333333331" width="267" height="159.66666666666669"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fk-8p-9BX">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="159.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="159.66666666666666"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Blue Zone">
                                             <color key="titleColor" red="0.0" green="0.3411443233" blue="0.98863893749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -299,10 +339,10 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aL4-am-aXc">
-                                        <rect key="frame" x="107" y="0.0" width="160" height="159.5"/>
+                                        <rect key="frame" x="106.66666666666664" y="0.0" width="160.33333333333337" height="159.66666666666666"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-Ko-O2p">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="34.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Orange Zone">
                                                     <color key="titleColor" red="1" green="0.71702712769999999" blue="0.22944572569999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -312,7 +352,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBV-be-XG0">
-                                                <rect key="frame" x="0.0" y="33.5" width="160" height="126"/>
+                                                <rect key="frame" x="0.0" y="34.333333333333307" width="160.33333333333334" height="125.33333333333331"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -323,7 +363,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLv-ip-hx1">
-                                <rect key="frame" x="24" y="674" width="190.5" height="188"/>
+                                <rect key="frame" x="24" y="674" width="190.33333333333334" height="188"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Purple Zone">
                                     <color key="titleColor" red="0.99074774980000002" green="0.36455234889999999" blue="0.99742013220000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -333,10 +373,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="4oC-C3-9T8" userLabel="Green and Red Stack View">
-                                <rect key="frame" x="92.5" y="348.5" width="229" height="162"/>
+                                <rect key="frame" x="92.666666666666686" y="348.66666666666669" width="229" height="161.66666666666669"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="np7-ag-dnH">
-                                        <rect key="frame" x="0.0" y="0.0" width="105.5" height="162"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="105.33333333333333" height="161.66666666666666"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <state key="normal" title="Green Zone">
                                             <color key="titleColor" red="0.69019607843137254" green="0.8858111501" blue="0.57497489450000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -346,7 +386,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iX5-hS-zUB">
-                                        <rect key="frame" x="105.5" y="0.0" width="123.5" height="162"/>
+                                        <rect key="frame" x="105.33333333333331" y="0.0" width="123.66666666666669" height="161.66666666666666"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Red Zone">
                                             <color key="titleColor" red="0.97313946490000003" green="0.111467503" blue="0.185813427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -361,7 +401,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iin-oH-hKO">
-                                <rect key="frame" x="104" y="210.5" width="294" height="103"/>
+                                <rect key="frame" x="104" y="210.66666666666663" width="294" height="103"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Yellow Zone">
                                     <color key="titleColor" red="0.97536736729999995" green="0.93800407649999995" blue="0.29519298669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -427,13 +467,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" Student " width="190.5" height="37.5"/>
-        <image name=" your" width="108.5" height="35.5"/>
-        <image name="ID" width="47" height="35"/>
+        <image name=" Student " width="190" height="37.666667938232422"/>
+        <image name=" your" width="108" height="35.666667938232422"/>
+        <image name="Bird" width="154" height="136"/>
+        <image name="Ellipse" width="828" height="193"/>
+        <image name="ID" width="46.666667938232422" height="34.666667938232422"/>
+        <image name="Layer 2" width="86" height="170"/>
         <image name="Scan " width="105" height="35"/>
         <image name="WHOLE SCHOOL" width="540" height="865"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="here" width="99.5" height="37.5"/>
+        <image name="here" width="99.666664123535156" height="37.666667938232422"/>
         <image name="hifispeaker" catalog="system" width="111" height="128"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.crop.square.fill.and.at.rectangle" catalog="system" width="128" height="93"/>

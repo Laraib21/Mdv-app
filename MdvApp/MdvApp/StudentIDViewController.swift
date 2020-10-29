@@ -11,13 +11,13 @@ import RSBarcodes_Swift
 
 final class StudentIDViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var barcodeScanningView: UIView!
+    @IBOutlet var borderView: UIView!
+
     @IBOutlet var barcodeImageView: UIImageView!
     @IBOutlet var messageLabel: UILabel!
 
     // MARK: - Properties
     private var studentID: String?
-    private var captureSession: AVCaptureSession?
     private lazy var radialGradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.type = .radial
@@ -41,6 +41,8 @@ final class StudentIDViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        borderView.layer.borderWidth = 1
+        borderView.layer.borderColor = UIColor.white.cgColor
 
 //        if let studentID = studentID {
 //            displayBarcode(for: studentID)
@@ -97,75 +99,3 @@ extension StudentIDViewController {
 }
 
 
-// MARK: - Barcode Scanning
-extension StudentIDViewController {
-    private func configureCaptureSession() throws {
-        // Set up the AVCaptureSession
-        let captureSession = AVCaptureSession()
-
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
-            print("Unable to start AVCaptureDevice, aborting")
-            return
-        }
-        try addVideoInput(from: videoCaptureDevice, to: captureSession)
-        try addMetadataOutput(to: captureSession)
-        addPreviewLayer(for: captureSession, to: barcodeScanningView)
-
-        self.captureSession = captureSession
-        scanBarcode(withMessage: "Scan your student ID to create a virtual student card.")
-    }
-
-    private func scanBarcode(withMessage message: String) {
-        messageLabel.text = message
-        toggleBarcodeView(false)
-    }
-
-    private func scanner(found barcode: String) {
-        toggleBarcodeView(true)
-        displayBarcode(for: barcode)
-    }
-
-    // MARK: - Helpers
-    private func addVideoInput(from device: AVCaptureDevice, to captureSession: AVCaptureSession) throws {
-        let videoInput = try AVCaptureDeviceInput(device: device)
-        guard captureSession.canAddInput(videoInput) else {
-            throw NSError(domain: "mdv.student.barcode.input", code: 0, userInfo: nil)
-        }
-        captureSession.addInput(videoInput)
-    }
-
-    private func addMetadataOutput(to captureSession: AVCaptureSession) throws {
-        let metadataOutput = AVCaptureMetadataOutput()
-        guard captureSession.canAddOutput(metadataOutput) else {
-            throw NSError(domain: "mdv.student.barcode.output", code: 0, userInfo: nil)
-        }
-        captureSession.addOutput(metadataOutput)
-        metadataOutput.setMetadataObjectsDelegate(self, queue: .main)
-        metadataOutput.metadataObjectTypes = [.code39]
-    }
-
-    private func addPreviewLayer(for captureSession: AVCaptureSession, to barcodeScanningView: UIView) {
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = barcodeScanningView.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        barcodeScanningView.layer.addSublayer(previewLayer)
-    }
-
-    private func toggleBarcodeView(_ isHidden: Bool) {
-        messageLabel.isHidden = isHidden
-        barcodeScanningView.isHidden = isHidden
-    }
-}
-
-extension StudentIDViewController: AVCaptureMetadataOutputObjectsDelegate {
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        guard let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
-            let barcodeValue = metadataObject.stringValue else {
-            // TODO: Show an error message
-            print("Unable to scan item, continuing")
-            return
-        }
-        captureSession?.stopRunning()
-        scanner(found: barcodeValue)
-    }
-}

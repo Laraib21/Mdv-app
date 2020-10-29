@@ -140,6 +140,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKN-62-0eN" userLabel="Gradient View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tzH-BJ-u2s">
                                 <rect key="frame" x="20" y="66" width="374" height="44"/>
                                 <subviews>
@@ -191,12 +195,13 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="paL-0E-Wh6"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="YnG-LH-40V" firstAttribute="centerX" secondItem="HvK-hE-RUR" secondAttribute="centerX" id="1nW-lW-6D3"/>
                             <constraint firstItem="aZg-Sw-xTe" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leadingMargin" id="2YJ-m5-G4M"/>
+                            <constraint firstItem="nKN-62-0eN" firstAttribute="top" secondItem="HvK-hE-RUR" secondAttribute="top" id="3xd-tD-OCH"/>
                             <constraint firstAttribute="bottom" secondItem="2vP-Kc-GAl" secondAttribute="bottom" constant="-9" id="8lH-pp-BDe"/>
+                            <constraint firstAttribute="bottom" secondItem="nKN-62-0eN" secondAttribute="bottom" id="Phx-bt-sm8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GlA-kH-oCv" secondAttribute="trailing" constant="33" id="SHJ-OS-9iD"/>
                             <constraint firstItem="2vP-Kc-GAl" firstAttribute="top" secondItem="aZg-Sw-xTe" secondAttribute="bottom" constant="-27" id="Wk1-eJ-DjU"/>
                             <constraint firstItem="YnG-LH-40V" firstAttribute="top" secondItem="tzH-BJ-u2s" secondAttribute="bottom" constant="55" id="ZGw-ro-j8a"/>
@@ -205,7 +210,9 @@
                             <constraint firstItem="tzH-BJ-u2s" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" constant="20" id="nUI-bN-cmp"/>
                             <constraint firstAttribute="trailing" secondItem="tzH-BJ-u2s" secondAttribute="trailing" constant="20" id="otP-cb-1ua"/>
                             <constraint firstItem="GlA-kH-oCv" firstAttribute="centerY" secondItem="HvK-hE-RUR" secondAttribute="centerY" id="spa-Lh-uLE"/>
+                            <constraint firstItem="nKN-62-0eN" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" id="vWD-M6-8ho"/>
                             <constraint firstAttribute="trailing" secondItem="2vP-Kc-GAl" secondAttribute="trailing" id="w4l-NC-9ex"/>
+                            <constraint firstAttribute="trailing" secondItem="nKN-62-0eN" secondAttribute="trailing" id="xKb-Yv-j6Q"/>
                             <constraint firstItem="GlA-kH-oCv" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leadingMargin" constant="33" id="yc8-Sm-dJW"/>
                         </constraints>
                     </view>
@@ -213,6 +220,7 @@
                     <navigationItem key="navigationItem" id="HiZ-K8-a3u"/>
                     <connections>
                         <outlet property="borderView" destination="GlA-kH-oCv" id="SG8-mU-Ebk"/>
+                        <outlet property="gradientView" destination="nKN-62-0eN" id="CNb-tT-G7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uD8-op-gcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -342,7 +350,7 @@
                                         <rect key="frame" x="106.66666666666664" y="0.0" width="160.33333333333337" height="159.66666666666666"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-Ko-O2p">
-                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="160.33333333333334" height="34"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                 <state key="normal" title="Orange Zone">
                                                     <color key="titleColor" red="1" green="0.71702712769999999" blue="0.22944572569999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -352,7 +360,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBV-be-XG0">
-                                                <rect key="frame" x="0.0" y="34.333333333333307" width="160.33333333333334" height="125.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="34.000000000000064" width="160.33333333333334" height="125.66666666666669"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>

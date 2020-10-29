@@ -15,5 +15,6 @@ struct MdvApp: App {
                     NotificationManager.shared.getUserPermission(success: print("Success"), failure: { print("Failed") })
                 }
         }
+
     }
 }

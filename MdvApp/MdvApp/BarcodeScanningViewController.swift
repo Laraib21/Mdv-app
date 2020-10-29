@@ -8,16 +8,28 @@
 import Foundation
 import AVFoundation
 import UIKit
+
 protocol BarcodeScanningViewControllerDelegate: AnyObject {
     func scanner(found barcode: String)
 }
 
 // MARK: - Barcode Scanning
 final class BarcodeScanningViewController: UIViewController{
+    // MARK: - Properties
     private var captureSession: AVCaptureSession?
-    
     weak var delegate: BarcodeScanningViewControllerDelegate?
-    
+
+    // MARK: - Object Lifecycle
+    init(delegate: BarcodeScanningViewControllerDelegate? = nil) {
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Helper Functions
     private func configureCaptureSession() throws {
         // Set up the AVCaptureSession
         let captureSession = AVCaptureSession()
@@ -29,11 +41,9 @@ final class BarcodeScanningViewController: UIViewController{
         try addVideoInput(from: videoCaptureDevice, to: captureSession)
         try addMetadataOutput(to: captureSession)
         addPreviewLayer(for: captureSession, to: view)
-        
         self.captureSession = captureSession
     }
-    
-    // MARK: - Helpers
+
     private func addVideoInput(from device: AVCaptureDevice, to captureSession: AVCaptureSession) throws {
         let videoInput = try AVCaptureDeviceInput(device: device)
         guard captureSession.canAddInput(videoInput) else {
@@ -58,7 +68,6 @@ final class BarcodeScanningViewController: UIViewController{
         previewLayer.videoGravity = .resizeAspectFill
         barcodeScanningView.layer.addSublayer(previewLayer)
     }
-    
 }
 
 extension BarcodeScanningViewController: AVCaptureMetadataOutputObjectsDelegate {
@@ -70,6 +79,6 @@ extension BarcodeScanningViewController: AVCaptureMetadataOutputObjectsDelegate 
             return
         }
         captureSession?.stopRunning()
-        scanner(found: barcodeValue)
+        delegate?.scanner(found: barcodeValue)
     }
 }

@@ -12,6 +12,7 @@ import RSBarcodes_Swift
 final class StudentIDViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet var borderView: UIView!
+    @IBOutlet var gradientView: UIView!
 
     @IBOutlet var barcodeImageView: UIImageView!
     @IBOutlet var messageLabel: UILabel!
@@ -76,9 +77,11 @@ final class StudentIDViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        radialGradientLayer.frame = view.bounds
+        let origin = CGPoint(x: 0, y: -66)
+        let size = CGSize(width: gradientView.bounds.size.width, height: gradientView.bounds.size.height + 66)
+        radialGradientLayer.frame = CGRect(origin: origin, size: size)
         if radialGradientLayer.superlayer == nil {
-            view.layer.addSublayer(radialGradientLayer)
+            gradientView.layer.addSublayer(radialGradientLayer)
         }
     }
 }
@@ -89,8 +92,8 @@ extension StudentIDViewController {
         // Generate a barcode image from the student ID #
         // Rotate it by 90 degrees
         guard let barcodeImage = RSUnifiedCodeGenerator.shared.generateCode(studentID, machineReadableCodeObjectType: AVMetadataObject.ObjectType.code39.rawValue) else {
-            scanBarcode(withMessage: "Unable to create barcode from \(studentID), try scanning again.")
-              return
+            print("Unable to create barcode from \(studentID), try scanning again.")
+            return
         }
 
         barcodeImageView.image = barcodeImage.rotate(radians: .pi / 2)

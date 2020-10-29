@@ -18,6 +18,20 @@ final class StudentIDViewController: UIViewController {
     // MARK: - Properties
     private var studentID: String?
     private var captureSession: AVCaptureSession?
+    private lazy var radialGradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.type = .radial
+        gradientLayer.colors = [
+            UIColor(hexValue: "#0041d1")!.cgColor,
+            UIColor(hexValue: "#0019b3")!.cgColor,
+        ]
+
+        let screenRatio = view.frame.width / view.frame.height / 2
+        let startPoint = CGPoint(x: 0.5, y: 0.8)
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = CGPoint(x: 1, y: startPoint.y + screenRatio)
+        return gradientLayer
+    }()
 
     // MARK: - UIViewController Overrides
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -57,6 +71,14 @@ final class StudentIDViewController: UIViewController {
 //            captureSession?.stopRunning()
 //        }
 //    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        radialGradientLayer.frame = view.bounds
+        if radialGradientLayer.superlayer == nil {
+            view.layer.addSublayer(radialGradientLayer)
+        }
+    }
 }
 
 // MARK: - Barcode Display

@@ -157,7 +157,7 @@
                                     <constraint firstAttribute="height" constant="87" id="Z21-0z-jCM"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Ellipse" translatesAutoresizingMaskIntoConstraints="NO" id="2vP-Kc-GAl">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="hills" translatesAutoresizingMaskIntoConstraints="NO" id="2vP-Kc-GAl">
                                 <rect key="frame" x="0.0" y="797" width="414" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="108" id="cvq-dF-z3U"/>
@@ -471,12 +471,12 @@
     </scenes>
     <resources>
         <image name="Bird" width="154" height="136"/>
-        <image name="Ellipse" width="828" height="193"/>
         <image name="Layer 2" width="86" height="170"/>
         <image name="Scan Your Student ID Here" width="612" height="37.666667938232422"/>
         <image name="WHOLE SCHOOL" width="540" height="865"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="hifispeaker" catalog="system" width="111" height="128"/>
+        <image name="hills" width="828" height="193"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.crop.square.fill.and.at.rectangle" catalog="system" width="128" height="93"/>
         <namedColor name="Calendar dark&amp;white">

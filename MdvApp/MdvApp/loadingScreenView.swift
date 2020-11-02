@@ -13,12 +13,12 @@ struct LoadingScreenView: View {
     @State private var isShowingFalcons = false
     @State private var isShowingLogo = false
     @State private var isShowingWelcome = false
-
+    
     @Binding var isShowing: Bool
     var welcomeOverlayView: some View{
         HStack {
             Spacer()
-                Image("Welcome to Meadowvale Secondary School").resizable().aspectRatio(contentMode: .fit)
+            Image("Welcome to Meadowvale Secondary School").resizable().aspectRatio(contentMode: .fit)
             Spacer()
         }
     }
@@ -40,21 +40,26 @@ struct LoadingScreenView: View {
             .transition(.opacity)
             Spacer()
             if isShowingLogo{
-                Image("logo").transition(.opacity)
+                Image("logo1").resizable().frame(width: 300, height: 295).aspectRatio(contentMode: .fit
+                ).transition(.opacity)
+            } else {
+                Spacer().frame(width: 300, height: 295)
             }
             Spacer()
             if isShowingWelcome {
-            Rectangle()
-                .stroke(lineWidth:2.5)
-                .foregroundColor(.white)
-                .frame(height: 50)
-                .overlay(welcomeOverlayView)
-                .padding()
-                .transition(.opacity)
+                Rectangle()
+                    .stroke(lineWidth:2.5)
+                    .foregroundColor(.white)
+                    .frame(height: 50)
+                    .overlay(welcomeOverlayView)
+                    .padding()
+                    .transition(.opacity)
+            } else {
+                Spacer().frame(width: 10, height: 82)
             }
         }
-            
-            
+        
+        
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation { self.isShowingLets = true }

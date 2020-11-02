@@ -14,11 +14,11 @@ final class StudentIDViewController: UIViewController {
     @IBOutlet var borderView: UIView!
     @IBOutlet var gradientView: UIView!
 
-    @IBOutlet var barcodeImageView: UIImageView!
-    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var barcodeView: UIView!
+    
 
     // MARK: - Properties
-    private var studentID: String?
+    private var studentID: String? = "621833"
     private lazy var radialGradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.type = .radial
@@ -33,7 +33,7 @@ final class StudentIDViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1, y: startPoint.y + screenRatio)
         return gradientLayer
     }()
-
+    private lazy var barcodeScanningViewController = BarcodeScanningViewController()
     // MARK: - UIViewController Overrides
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -44,11 +44,13 @@ final class StudentIDViewController: UIViewController {
         super.viewDidLoad()
         borderView.layer.borderWidth = 1
         borderView.layer.borderColor = UIColor.white.cgColor
+        
+    
 
-//        if let studentID = studentID {
-//            displayBarcode(for: studentID)
-//            return
-//        }
+        if let studentID = studentID {
+            displayBarcode(for: studentID)
+            return
+        }
 //        #if targetEnvironment(simulator)
 //        toggleBarcodeView(false)
 //        #else
@@ -61,19 +63,10 @@ final class StudentIDViewController: UIViewController {
 //        #endif
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        if captureSession?.isRunning == false {
-//            captureSession?.startRunning()
-//        }
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        if captureSession?.isRunning == true {
-//            captureSession?.stopRunning()
-//        }
-//    }
+    private func displayBarcode(for studentID: String) {
+        let StudentIdBarcodeViewController = StudentIdBarcode(studentID: studentID)
+        addChildViewController(StudentIdBarcodeViewController, intoContainer: barcodeView)
+    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -86,19 +79,5 @@ final class StudentIDViewController: UIViewController {
     }
 }
 
-// MARK: - Barcode Display
-extension StudentIDViewController {
-    private func displayBarcode(for studentID: String) {
-        // Generate a barcode image from the student ID #
-        // Rotate it by 90 degrees
-        guard let barcodeImage = RSUnifiedCodeGenerator.shared.generateCode(studentID, machineReadableCodeObjectType: AVMetadataObject.ObjectType.code39.rawValue) else {
-            print("Unable to create barcode from \(studentID), try scanning again.")
-            return
-        }
-
-        barcodeImageView.image = barcodeImage.rotate(radians: .pi / 2)
-        barcodeImageView.isHidden = false
-    }
-}
 
 

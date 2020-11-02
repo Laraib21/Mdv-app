@@ -144,29 +144,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tzH-BJ-u2s">
-                                <rect key="frame" x="20" y="66" width="374" height="44"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan " translatesAutoresizingMaskIntoConstraints="NO" id="9VM-gQ-N8V">
-                                        <rect key="frame" x="0.0" y="0.0" width="66.666666666666671" height="44"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" your" translatesAutoresizingMaskIntoConstraints="NO" id="eDW-f4-YYF">
-                                        <rect key="frame" x="76.666666666666657" y="0.0" width="68.666666666666657" height="44"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" Student " translatesAutoresizingMaskIntoConstraints="NO" id="cgs-ed-9AF">
-                                        <rect key="frame" x="155.33333333333334" y="0.0" width="120.33333333333334" height="44"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ID" translatesAutoresizingMaskIntoConstraints="NO" id="l1H-8z-bF0">
-                                        <rect key="frame" x="285.66666666666669" y="0.0" width="29.666666666666686" height="44"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="here" translatesAutoresizingMaskIntoConstraints="NO" id="Qa6-mY-uOE">
-                                        <rect key="frame" x="325.33333333333331" y="0.0" width="48.666666666666686" height="44"/>
-                                    </imageView>
-                                </subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan Your Student ID Here" translatesAutoresizingMaskIntoConstraints="NO" id="tJU-oh-qGb">
+                                <rect key="frame" x="20" y="99" width="374" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="61t-Yy-9ZE"/>
+                                    <constraint firstAttribute="height" constant="44" id="Jwf-lG-SeO"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bird" translatesAutoresizingMaskIntoConstraints="NO" id="aZg-Sw-xTe">
                                 <rect key="frame" x="20" y="737" width="178" height="87"/>
                                 <constraints>
@@ -189,26 +172,37 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlA-kH-oCv">
                                 <rect key="frame" x="53" y="406" width="308" height="84"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYP-WP-moM">
+                                        <rect key="frame" x="4" y="4" width="300" height="76"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="vYP-WP-moM" firstAttribute="leading" secondItem="GlA-kH-oCv" secondAttribute="leading" constant="4" id="8l0-nt-LLE"/>
+                                    <constraint firstAttribute="bottom" secondItem="vYP-WP-moM" secondAttribute="bottom" constant="4" id="d9z-ic-O0W"/>
                                     <constraint firstAttribute="height" constant="84" id="mPT-TF-UVr"/>
+                                    <constraint firstItem="vYP-WP-moM" firstAttribute="top" secondItem="GlA-kH-oCv" secondAttribute="top" constant="4" id="qzc-EX-LEz"/>
+                                    <constraint firstAttribute="trailing" secondItem="vYP-WP-moM" secondAttribute="trailing" constant="4" id="zS2-Bs-act"/>
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="xfZ-fG-Kd8"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="YnG-LH-40V" firstAttribute="centerX" secondItem="HvK-hE-RUR" secondAttribute="centerX" id="1nW-lW-6D3"/>
                             <constraint firstItem="aZg-Sw-xTe" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leadingMargin" id="2YJ-m5-G4M"/>
                             <constraint firstItem="nKN-62-0eN" firstAttribute="top" secondItem="HvK-hE-RUR" secondAttribute="top" id="3xd-tD-OCH"/>
+                            <constraint firstItem="tJU-oh-qGb" firstAttribute="top" secondItem="xfZ-fG-Kd8" secondAttribute="top" constant="55" id="5ct-yS-T6Q"/>
                             <constraint firstAttribute="bottom" secondItem="2vP-Kc-GAl" secondAttribute="bottom" constant="-9" id="8lH-pp-BDe"/>
                             <constraint firstAttribute="bottom" secondItem="nKN-62-0eN" secondAttribute="bottom" id="Phx-bt-sm8"/>
+                            <constraint firstItem="xfZ-fG-Kd8" firstAttribute="trailing" secondItem="tJU-oh-qGb" secondAttribute="trailing" constant="20" id="Qb1-Re-2qm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GlA-kH-oCv" secondAttribute="trailing" constant="33" id="SHJ-OS-9iD"/>
                             <constraint firstItem="2vP-Kc-GAl" firstAttribute="top" secondItem="aZg-Sw-xTe" secondAttribute="bottom" constant="-27" id="Wk1-eJ-DjU"/>
-                            <constraint firstItem="YnG-LH-40V" firstAttribute="top" secondItem="tzH-BJ-u2s" secondAttribute="bottom" constant="55" id="ZGw-ro-j8a"/>
-                            <constraint firstItem="tzH-BJ-u2s" firstAttribute="top" secondItem="HvK-hE-RUR" secondAttribute="top" constant="66" id="lme-4m-lLB"/>
+                            <constraint firstItem="tJU-oh-qGb" firstAttribute="leading" secondItem="xfZ-fG-Kd8" secondAttribute="leading" constant="20" id="bW1-gz-yM6"/>
+                            <constraint firstItem="YnG-LH-40V" firstAttribute="top" secondItem="tJU-oh-qGb" secondAttribute="bottom" constant="22" id="fE5-P0-p60"/>
                             <constraint firstItem="2vP-Kc-GAl" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" id="lzi-YU-PiO"/>
-                            <constraint firstItem="tzH-BJ-u2s" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" constant="20" id="nUI-bN-cmp"/>
-                            <constraint firstAttribute="trailing" secondItem="tzH-BJ-u2s" secondAttribute="trailing" constant="20" id="otP-cb-1ua"/>
                             <constraint firstItem="GlA-kH-oCv" firstAttribute="centerY" secondItem="HvK-hE-RUR" secondAttribute="centerY" id="spa-Lh-uLE"/>
                             <constraint firstItem="nKN-62-0eN" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" id="vWD-M6-8ho"/>
                             <constraint firstAttribute="trailing" secondItem="2vP-Kc-GAl" secondAttribute="trailing" id="w4l-NC-9ex"/>
@@ -219,6 +213,7 @@
                     <tabBarItem key="tabBarItem" title="Student ID" image="person.crop.square.fill.and.at.rectangle" catalog="system" id="TjI-XT-cHs"/>
                     <navigationItem key="navigationItem" id="HiZ-K8-a3u"/>
                     <connections>
+                        <outlet property="barcodeView" destination="vYP-WP-moM" id="uo0-tD-vve"/>
                         <outlet property="borderView" destination="GlA-kH-oCv" id="SG8-mU-Ebk"/>
                         <outlet property="gradientView" destination="nKN-62-0eN" id="CNb-tT-G7s"/>
                     </connections>
@@ -475,16 +470,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" Student " width="190" height="37.666667938232422"/>
-        <image name=" your" width="108" height="35.666667938232422"/>
         <image name="Bird" width="154" height="136"/>
         <image name="Ellipse" width="828" height="193"/>
-        <image name="ID" width="46.666667938232422" height="34.666667938232422"/>
         <image name="Layer 2" width="86" height="170"/>
-        <image name="Scan " width="105" height="35"/>
+        <image name="Scan Your Student ID Here" width="612" height="37.666667938232422"/>
         <image name="WHOLE SCHOOL" width="540" height="865"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="here" width="99.666664123535156" height="37.666667938232422"/>
         <image name="hifispeaker" catalog="system" width="111" height="128"/>
         <image name="map" catalog="system" width="128" height="110"/>
         <image name="person.crop.square.fill.and.at.rectangle" catalog="system" width="128" height="93"/>

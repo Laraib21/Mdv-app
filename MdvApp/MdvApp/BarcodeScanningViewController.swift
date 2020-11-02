@@ -18,17 +18,17 @@ final class BarcodeScanningViewController: UIViewController{
     // MARK: - Properties
     private var captureSession: AVCaptureSession?
     weak var delegate: BarcodeScanningViewControllerDelegate?
-
+    
     // MARK: - Object Lifecycle
     init(delegate: BarcodeScanningViewControllerDelegate? = nil) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Helper Functions
     private func configureCaptureSession() throws {
         // Set up the AVCaptureSession
@@ -43,13 +43,27 @@ final class BarcodeScanningViewController: UIViewController{
         addPreviewLayer(for: captureSession, to: view)
         self.captureSession = captureSession
     }
-
+    
     private func addVideoInput(from device: AVCaptureDevice, to captureSession: AVCaptureSession) throws {
         let videoInput = try AVCaptureDeviceInput(device: device)
         guard captureSession.canAddInput(videoInput) else {
             throw NSError(domain: "mdv.student.barcode.input", code: 0, userInfo: nil)
         }
         captureSession.addInput(videoInput)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if captureSession?.isRunning == false {
+            captureSession?.startRunning()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if captureSession?.isRunning == true {
+            captureSession?.stopRunning()
+        }
     }
     
     private func addMetadataOutput(to captureSession: AVCaptureSession) throws {
@@ -82,3 +96,5 @@ extension BarcodeScanningViewController: AVCaptureMetadataOutputObjectsDelegate 
         delegate?.scanner(found: barcodeValue)
     }
 }
+
+

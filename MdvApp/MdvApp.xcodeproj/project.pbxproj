@@ -28,6 +28,7 @@
 		BF1721002547760B0056525D /* MdvApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1720FF2547760B0056525D /* MdvApp.swift */; };
 		BF4C9B03253A5AB0006B846A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C9B02253A5AB0006B846A /* NotificationManager.swift */; };
 		BFEF71F5254B7A9200E17430 /* BarcodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */; };
+		BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */; };
 		FB0A1B362526114A008033CD /* SchoolMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A1B352526114A008033CD /* SchoolMapViewController.swift */; };
 		FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */; };
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
@@ -63,6 +64,7 @@
 		BF1720FF2547760B0056525D /* MdvApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MdvApp.swift; sourceTree = "<group>"; };
 		BF4C9B02253A5AB0006B846A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanningViewController.swift; sourceTree = "<group>"; };
+		BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDBarcodeViewController.swift; sourceTree = "<group>"; };
 		FB0A1B352526114A008033CD /* SchoolMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMapViewController.swift; sourceTree = "<group>"; };
 		FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		FB81972D24E470DD00765A27 /* StudentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				FBEA32D32540E171004D5248 /* ContentView.swift */,
 				BF1720FF2547760B0056525D /* MdvApp.swift */,
 				BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */,
+				BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3F6B598624981BB000B9C90D /* Announcement.swift in Sources */,
 				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
 				BF1721002547760B0056525D /* MdvApp.swift in Sources */,
+				BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */,
 				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
 				FBEA32D42540E171004D5248 /* ContentView.swift in Sources */,
 				FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */,

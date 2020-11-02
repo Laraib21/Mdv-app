@@ -18,7 +18,7 @@ struct LoadingScreenView: View {
     var welcomeOverlayView: some View{
         HStack {
             Spacer()
-                Image("loading-mdv_0006_Welcome-to-Meadowvale-Secondary-School").resizable().aspectRatio(contentMode: .fit)
+                Image("Welcome to Meadowvale Secondary School").resizable().aspectRatio(contentMode: .fit)
             Spacer()
         }
     }
@@ -26,21 +26,21 @@ struct LoadingScreenView: View {
         VStack{
             HStack {
                 if isShowingLets {
-                    Image("HOMESCREEN_0004_LETS")
+                    Image("LET’S")
                 }
                 if isShowingGO {
-                    Image("loading-mdv_0001_Ellipse-1")
-                    Image("loading-mdv_0003_GO")
+                    Image("Ellipse")
+                    Image("GO")
                 }
                 if isShowingFalcons {
-                    Image("loading-mdv_0001_Ellipse-1")
-                    Image("loading-mdv_0002_FALCONS")
+                    Image("Ellipse")
+                    Image("FALCONS")
                 }
             }
             .transition(.opacity)
             Spacer()
             if isShowingLogo{
-                Image("dkkd").transition(.opacity)
+                Image("logo").transition(.opacity)
             }
             Spacer()
             if isShowingWelcome {
@@ -92,6 +92,7 @@ struct LoadingScreenView: View {
 struct LoadingScreenView_Previews: PreviewProvider {
     static var previews: some View {
         LoadingScreenView(isShowing: .constant(true))
+            .previewDevice("iPhone 11 Pro")
     }
 }
 

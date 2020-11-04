@@ -21,7 +21,6 @@ extension UIViewController {
         let childView = childViewController.view!
         childView.translatesAutoresizingMaskIntoConstraints = false
         addChild(childViewController)
-        childView.frame = containerView.bounds
         childViewController.beginAppearanceTransition(true, animated: false)
 
         containerView.addSubview(childView)
@@ -34,5 +33,14 @@ extension UIViewController {
         childViewController.endAppearanceTransition()
         childViewController.didMove(toParent: self)
     }
+    
+    func removeFromParentViewController(){
+        willMove(toParent: nil)
+        beginAppearanceTransition(false, animated: true)
+        view.removeFromSuperview()
+        endAppearanceTransition()
+        removeFromParent()
+    }
+    
 }
 

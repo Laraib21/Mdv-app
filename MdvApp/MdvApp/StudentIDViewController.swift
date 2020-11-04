@@ -16,9 +16,13 @@ final class StudentIDViewController: UIViewController {
 
     @IBOutlet var barcodeView: UIView!
     
-
+    @IBOutlet weak var studentIDImage: UIImageView!
+    
+    @IBOutlet weak var studentIDArrow: UIImageView!
+    
+    
     // MARK: - Properties
-    private var studentID: String? = "621833"
+    private var studentID: String? 
     private lazy var radialGradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.type = .radial
@@ -49,18 +53,17 @@ final class StudentIDViewController: UIViewController {
 
         if let studentID = studentID {
             displayBarcode(for: studentID)
-            return
+        } else {
+            #if targetEnvironment(simulator)
+                return
+            #else
+            barcodeScanningViewController.delegate = self
+                addChildViewController(barcodeScanningViewController, intoContainer: barcodeView)
+            #endif
+            
         }
-//        #if targetEnvironment(simulator)
-//        toggleBarcodeView(false)
-//        #else
-//        do {
-//            try configureCaptureSession()
-//        } catch {
-//            captureSession = nil
-//            print("Encountered error starting capture session: \(error)")
-//        }
-//        #endif
+        
+        UserDefaults.standard.set(String.self, forKey: "app.mdv.student.id")
     }
 
     private func displayBarcode(for studentID: String) {
@@ -79,5 +82,16 @@ final class StudentIDViewController: UIViewController {
     }
 }
 
-
+extension StudentIDViewController: BarcodeScanningViewControllerDelegate{
+    func scanner(found barcode: String) {
+        print("barcode found")
+        print(barcode)
+        barcodeScanningViewController.removeFromParentViewController()
+        studentID = barcode
+        displayBarcode(for: barcode)
+        let possibleStudentId = UserDefaults.standard.string(forKey: "app.mdv.student.id")
+    }
+    
+    
+}
 

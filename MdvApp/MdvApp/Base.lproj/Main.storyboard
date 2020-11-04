@@ -216,6 +216,8 @@
                         <outlet property="barcodeView" destination="vYP-WP-moM" id="uo0-tD-vve"/>
                         <outlet property="borderView" destination="GlA-kH-oCv" id="SG8-mU-Ebk"/>
                         <outlet property="gradientView" destination="nKN-62-0eN" id="CNb-tT-G7s"/>
+                        <outlet property="studentIDArrow" destination="YnG-LH-40V" id="GdT-Ez-RdZ"/>
+                        <outlet property="studentIDImage" destination="tJU-oh-qGb" id="1Hf-gc-soG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uD8-op-gcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

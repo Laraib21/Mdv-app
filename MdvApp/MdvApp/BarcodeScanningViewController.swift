@@ -18,6 +18,7 @@ final class BarcodeScanningViewController: UIViewController{
     // MARK: - Properties
     private var captureSession: AVCaptureSession?
     weak var delegate: BarcodeScanningViewControllerDelegate?
+    private var previewLayer: AVCaptureVideoPreviewLayer!
     
     // MARK: - Object Lifecycle
     init(delegate: BarcodeScanningViewControllerDelegate? = nil) {
@@ -51,7 +52,19 @@ final class BarcodeScanningViewController: UIViewController{
         }
         captureSession.addInput(videoInput)
     }
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            do {
+                try configureCaptureSession()
+            } catch {
+                captureSession = nil
+                print("Encountered error starting capture session: \(error)")
+            }
+        }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer.frame = view.bounds
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if captureSession?.isRunning == false {
@@ -77,7 +90,9 @@ final class BarcodeScanningViewController: UIViewController{
     }
     
     private func addPreviewLayer(for captureSession: AVCaptureSession, to barcodeScanningView: UIView) {
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        print(barcodeScanningView.layer.bounds)
+        print(barcodeScanningView.bounds)
         previewLayer.frame = barcodeScanningView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         barcodeScanningView.layer.addSublayer(previewLayer)

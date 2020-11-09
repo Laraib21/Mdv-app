@@ -132,15 +132,15 @@
 				3F6985D22525127900088993 /* School Map */,
 				3FBCE62325098ADB009B56D8 /* MdvApp.entitlements */,
 				3FAB4CD32510195E0068F402 /* loadingScreenView.swift */,
-				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
 				3FADD4C5248EDD4300E62366 /* Main.storyboard */,
 				3FADD4C8248EDD4C00E62366 /* Assets.xcassets */,
 				3FADD4CD248EDD4C00E62366 /* Info.plist */,
 				BF4C9B02253A5AB0006B846A /* NotificationManager.swift */,
 				FBEA32D32540E171004D5248 /* ContentView.swift */,
-				BF1720FF2547760B0056525D /* MdvApp.swift */,
-				BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */,
 				BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */,
+				BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */,
+				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
+				BF1720FF2547760B0056525D /* MdvApp.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -466,6 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MdvApp/MdvApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6373KCPL45;
 				INFOPLIST_FILE = MdvApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -487,6 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MdvApp/MdvApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6373KCPL45;
 				INFOPLIST_FILE = MdvApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

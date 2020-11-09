@@ -144,6 +144,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmW-oP-crl">
+                                <rect key="frame" x="157" y="498" width="103" height="36"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2KU-0h-a54"/>
+                                    <constraint firstAttribute="height" constant="44" id="zAg-hW-oDq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Re-scan">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="reScanAction:" destination="DiB-a6-hC5" eventType="touchUpInside" id="7fD-4v-N4H"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scan Your Student ID Here" translatesAutoresizingMaskIntoConstraints="NO" id="tJU-oh-qGb">
                                 <rect key="frame" x="20" y="99" width="374" height="44"/>
                                 <constraints>
@@ -199,11 +219,13 @@
                             <constraint firstAttribute="bottom" secondItem="nKN-62-0eN" secondAttribute="bottom" id="Phx-bt-sm8"/>
                             <constraint firstItem="xfZ-fG-Kd8" firstAttribute="trailing" secondItem="tJU-oh-qGb" secondAttribute="trailing" constant="20" id="Qb1-Re-2qm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GlA-kH-oCv" secondAttribute="trailing" constant="33" id="SHJ-OS-9iD"/>
+                            <constraint firstItem="BmW-oP-crl" firstAttribute="centerX" secondItem="HvK-hE-RUR" secondAttribute="centerX" id="SzM-yh-Wk0"/>
                             <constraint firstItem="2vP-Kc-GAl" firstAttribute="top" secondItem="aZg-Sw-xTe" secondAttribute="bottom" constant="-27" id="Wk1-eJ-DjU"/>
                             <constraint firstItem="tJU-oh-qGb" firstAttribute="leading" secondItem="xfZ-fG-Kd8" secondAttribute="leading" constant="20" id="bW1-gz-yM6"/>
                             <constraint firstItem="YnG-LH-40V" firstAttribute="top" secondItem="tJU-oh-qGb" secondAttribute="bottom" constant="22" id="fE5-P0-p60"/>
                             <constraint firstItem="2vP-Kc-GAl" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" id="lzi-YU-PiO"/>
                             <constraint firstItem="GlA-kH-oCv" firstAttribute="centerY" secondItem="HvK-hE-RUR" secondAttribute="centerY" id="spa-Lh-uLE"/>
+                            <constraint firstItem="BmW-oP-crl" firstAttribute="top" secondItem="GlA-kH-oCv" secondAttribute="bottom" constant="16" id="vM8-8w-Rrn"/>
                             <constraint firstItem="nKN-62-0eN" firstAttribute="leading" secondItem="HvK-hE-RUR" secondAttribute="leading" id="vWD-M6-8ho"/>
                             <constraint firstAttribute="trailing" secondItem="2vP-Kc-GAl" secondAttribute="trailing" id="w4l-NC-9ex"/>
                             <constraint firstAttribute="trailing" secondItem="nKN-62-0eN" secondAttribute="trailing" id="xKb-Yv-j6Q"/>
@@ -216,6 +238,7 @@
                         <outlet property="barcodeView" destination="vYP-WP-moM" id="uo0-tD-vve"/>
                         <outlet property="borderView" destination="GlA-kH-oCv" id="SG8-mU-Ebk"/>
                         <outlet property="gradientView" destination="nKN-62-0eN" id="CNb-tT-G7s"/>
+                        <outlet property="reScanButton" destination="BmW-oP-crl" id="Bxa-uU-WET"/>
                         <outlet property="studentIDArrow" destination="YnG-LH-40V" id="GdT-Ez-RdZ"/>
                         <outlet property="studentIDImage" destination="tJU-oh-qGb" id="1Hf-gc-soG"/>
                     </connections>
@@ -489,6 +512,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

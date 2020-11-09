@@ -20,6 +20,22 @@ final class StudentIDViewController: UIViewController {
     
     @IBOutlet weak var studentIDArrow: UIImageView!
     
+    @IBOutlet weak var reScanButton: UIButton!
+    
+    @IBAction func reScanAction(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "app.mdv.student.id")
+        studentID = nil
+        studentIdBarcodeViewController?.removeFromParentViewController()
+        addChildViewController(barcodeScanningViewController, intoContainer: barcodeView)
+        reScanButton.isHidden = true
+        UIView.transition(with: studentIDImage, duration: 0.3, options: .transitionCrossDissolve, animations:  {
+            self.studentIDImage.image = #imageLiteral(resourceName: "Scan Your Student ID Here")
+        })
+        UIView.animate(withDuration: 0.3) {
+            self.studentIDArrow.isHidden = false
+        }
+    }
+    
     
     // MARK: - Properties
     private var studentID: String? 
@@ -37,7 +53,11 @@ final class StudentIDViewController: UIViewController {
         gradientLayer.endPoint = CGPoint(x: 1, y: startPoint.y + screenRatio)
         return gradientLayer
     }()
-    private lazy var barcodeScanningViewController = BarcodeScanningViewController()
+    private lazy var barcodeScanningViewController: BarcodeScanningViewController = {
+        let scanningViewController = BarcodeScanningViewController()
+        scanningViewController.delegate = self
+        return scanningViewController
+    }()
     // MARK: - UIViewController Overrides
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -49,7 +69,7 @@ final class StudentIDViewController: UIViewController {
         borderView.layer.borderWidth = 1
         borderView.layer.borderColor = UIColor.white.cgColor
         
-    
+        studentID = UserDefaults.standard.string(forKey: "app.mdv.student.id")
 
         if let studentID = studentID {
             displayBarcode(for: studentID)
@@ -57,19 +77,24 @@ final class StudentIDViewController: UIViewController {
             #if targetEnvironment(simulator)
                 return
             #else
-            barcodeScanningViewController.delegate = self
                 addChildViewController(barcodeScanningViewController, intoContainer: barcodeView)
             #endif
             
         }
-        
-        UserDefaults.standard.set(String.self, forKey: "app.mdv.student.id")
     }
-
+    private var studentIdBarcodeViewController: StudentIdBarcode?
     private func displayBarcode(for studentID: String) {
-        let StudentIdBarcodeViewController = StudentIdBarcode(studentID: studentID)
-        addChildViewController(StudentIdBarcodeViewController, intoContainer: barcodeView)
+        studentIdBarcodeViewController = StudentIdBarcode(studentID: studentID)
+        addChildViewController(studentIdBarcodeViewController!, intoContainer: barcodeView)
+        reScanButton.isHidden = false
+        UIView.transition(with: studentIDImage, duration: 0.3, options: .transitionCrossDissolve, animations:  {
+            self.studentIDImage.image = #imageLiteral(resourceName: "Your Student ID")
+        })
+        UIView.animate(withDuration: 0.3) {
+            self.studentIDArrow.isHidden = true
+        }
     }
+    
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -84,12 +109,11 @@ final class StudentIDViewController: UIViewController {
 
 extension StudentIDViewController: BarcodeScanningViewControllerDelegate{
     func scanner(found barcode: String) {
-        print("barcode found")
-        print(barcode)
         barcodeScanningViewController.removeFromParentViewController()
         studentID = barcode
+        UserDefaults.standard.set(barcode, forKey: "app.mdv.student.id")
         displayBarcode(for: barcode)
-        let possibleStudentId = UserDefaults.standard.string(forKey: "app.mdv.student.id")
+
     }
     
     

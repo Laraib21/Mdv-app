@@ -91,8 +91,6 @@ final class BarcodeScanningViewController: UIViewController{
     
     private func addPreviewLayer(for captureSession: AVCaptureSession, to barcodeScanningView: UIView) {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        print(barcodeScanningView.layer.bounds)
-        print(barcodeScanningView.bounds)
         previewLayer.frame = barcodeScanningView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         barcodeScanningView.layer.addSublayer(previewLayer)

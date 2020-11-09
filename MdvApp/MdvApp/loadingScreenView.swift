@@ -27,14 +27,21 @@ struct LoadingScreenView: View {
             HStack {
                 if isShowingLets {
                     Image("LET’S")
+                } else {
+                    Spacer().frame(width: 70, height: 10)
                 }
                 if isShowingGO {
                     Image("Ellipse")
                     Image("GO")
+                } else {
+                    Spacer().frame(width: 80, height: 10)
+                    
                 }
                 if isShowingFalcons {
                     Image("Ellipse")
                     Image("FALCONS")
+                } else {
+                    Spacer().frame(width: 183, height: 10)
                 }
             }
             .transition(.opacity)

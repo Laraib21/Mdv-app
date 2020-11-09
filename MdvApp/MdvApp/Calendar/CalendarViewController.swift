@@ -24,7 +24,7 @@ class CalendarViewController : UIViewController {
         super.viewDidLoad()
         calendarView.select(Date())
         addChildViewController(hostingController, intoContainer: containerViewController)
-        eventsDirectory.loadEvents { [weak self] in
+        eventsDirectory.loadEvents { [weak self] _ in
             self?.refreshEvent()
         }
     }

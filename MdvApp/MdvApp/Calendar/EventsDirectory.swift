@@ -147,10 +147,11 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         do {
             let encoded = try Data(contentsOf: eventsUrl)
             events = try JSONDecoder().decode([Event].self, from: encoded)
+            os_log("Events loaded successfully", log: .default, type: .error)
             completion(nil)
         } catch {
             print("Encountered error: \(error)")
-            os_log("User %{public}@ ecountered", type: .error, error.localizedDescription)
+            os_log("User %{public}@ ecountered", log: .default, type: .error, error.localizedDescription)
             completion(error)
         }
     }

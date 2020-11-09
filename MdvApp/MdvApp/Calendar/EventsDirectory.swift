@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import os.log
 
 struct Event: Hashable, Codable{
     let title: String
@@ -142,13 +143,15 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    func loadEvents(completion: @escaping() -> Void) {
+    func loadEvents(completion: @escaping(Error?) -> Void) {
         do {
             let encoded = try Data(contentsOf: eventsUrl)
             events = try JSONDecoder().decode([Event].self, from: encoded)
-            completion()
+            completion(nil)
         } catch {
             print("Encountered error: \(error)")
+            os_log("User %{public}@ ecountered", type: .error, error.localizedDescription)
+            completion(error)
         }
     }
     

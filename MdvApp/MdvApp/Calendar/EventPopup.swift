@@ -25,7 +25,7 @@ struct NoShape: Shape {
 
 struct EventPopup: View {
     @State var start = Date()
-    @State var end = Date()
+    @State var end = Date(timeIntervalSinceNow: 1*60*60)
     @State var title = ""
     @State var selection = 0
     @State var description = ""
@@ -33,6 +33,18 @@ struct EventPopup: View {
     @State var isDescriptionValid = true
     @State var endDateValid = true
     @State var alertDateValid = true
+    @State var isShowing = false {
+        didSet {
+            if isShowing == true {
+                start = Calendar.autoupdatingCurrent.startOfDay(for: start)
+                end = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: start) ?? start
+            } else {
+                start = Date()
+                end = Date(timeIntervalSinceNow: 1*60*60)
+            }
+            
+        }
+    }
     let eventIdentifier: UUID?
     var dismiss: ((Event) -> Void)?
     var saveButton: some View {
@@ -70,10 +82,17 @@ struct EventPopup: View {
                 DatePicker(selection: $start, displayedComponents: [.date, .hourAndMinute]) {
                     Text("Start").layoutPriority(1)
                 }
+                .disabled(isShowing)
                 DatePicker(selection: $end, displayedComponents: [.date, .hourAndMinute]) {
                     Text("End").layoutPriority(1)
                 }
                 .overlay(invalidEntryView($endDateValid))
+                .disabled(isShowing)
+                
+                Toggle(isOn: $isShowing) {
+                    Text("All Day")
+                }
+                
                 Picker(selection: $selection, label:
                         Text("Alert")
                        , content: {
@@ -132,5 +151,6 @@ struct EventPopup_Previews: PreviewProvider {
         EventPopup(eventIdentifier: nil)
     }
 }
+
 
 

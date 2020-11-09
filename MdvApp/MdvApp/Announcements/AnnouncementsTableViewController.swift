@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import os.log
 
 // MARK: - Helpers
 class AnnouncementsTableViewController: UITableViewController {
@@ -68,18 +69,14 @@ class AnnouncementsTableViewController: UITableViewController {
     @objc func refreshControlInvoked() {
         refreshControl?.beginRefreshing()
         announcementLoader.fetchAnnouncements { [weak self] (possibleError) in
+            defer { DispatchQueue.main.async { self?.refreshControl?.endRefreshing() } }
             if let possibleError = possibleError{
                 print(possibleError)
+                os_log("User encountered error: %{public}@", log: .default, type: .error, possibleError.localizedDescription)
                 return
             }
+            os_log("Announcements loaded!", log: .default, type: .error)
             self?.tableView.reloadData()
-            DispatchQueue.main.async { self?.refreshControl?.endRefreshing() }
         }
     }
-    
-    
-    
-    
-    
-    
 }

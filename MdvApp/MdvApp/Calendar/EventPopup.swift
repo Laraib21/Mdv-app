@@ -68,10 +68,10 @@ struct EventPopup: View {
                 TextField("Title", text: $title)
                     .overlay(invalidEntryView($isTitleValid))
                 DatePicker(selection: $start, displayedComponents: [.date, .hourAndMinute]) {
-                    Text("Start")
+                    Text("Start").layoutPriority(1)
                 }
                 DatePicker(selection: $end, displayedComponents: [.date, .hourAndMinute]) {
-                    Text("End")
+                    Text("End").layoutPriority(1)
                 }
                 .overlay(invalidEntryView($endDateValid))
                 Picker(selection: $selection, label:

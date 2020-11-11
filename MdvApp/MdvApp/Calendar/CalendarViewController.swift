@@ -14,31 +14,33 @@ class CalendarViewController : UIViewController {
     // MARK: - IBOutlets
     @IBOutlet var containerViewController: UIView!
     @IBOutlet weak var calendarView: FSCalendar!
-
+    
     // MARK: - Properties
     let eventsDirectory = EventsDirectory()
     let hostingController = UIHostingController(rootView: CalendarDetailView(events: []))
-
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         calendarView.select(Date())
         addChildViewController(hostingController, intoContainer: containerViewController)
-        eventsDirectory.loadEvents { [weak self] _ in
+        
+        eventsDirectory.loadEvents { [weak self]
+            _ in
             self?.refreshEvent()
         }
     }
-
+    
     // MARK: - IBActions
     @IBAction func addEvent(_ sender: Any) {
         let event = EventPopup(eventIdentifier: nil, dismiss: saveDismissHostingController)
-         present(event)
+        present(event)
     }
     
     func createNotification(date: Date) {
         
     }
-
+    
     // MARK: - Helper Functions
     func saveDismissHostingController(newEvent: Event) -> Void {
         eventsDirectory.addEvents(newEvent)
@@ -64,7 +66,7 @@ class CalendarViewController : UIViewController {
         }
         hostingController.rootView = CalendarDetailView(events: events, saveDismiss: saveDismissHostingController, deleteDismiss: deleteDismissHostingController)
     }
-
+    
 }
 extension CalendarViewController: FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {

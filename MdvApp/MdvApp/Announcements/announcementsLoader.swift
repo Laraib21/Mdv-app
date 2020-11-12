@@ -21,11 +21,26 @@ extension RecordKey {
 }
 
 class AnnouncementLoader: ObservableObject {
+    static let shared = AnnouncementLoader()
+    private init() {}
     let publicRecord = CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase
     @Published var announcements: [Announcement] = []
     
+    func applicationDidReceive(_ ckQueryNotification: CKQueryNotification, completion: @escaping(Bool) -> Void) {
+        guard let checkTitle = ckQueryNotification.recordFields?["title"] as? String,
+              let checkBody = ckQueryNotification.recordFields?["body"] as? String
+        else {
+            print("failed")
+            completion(false)
+            return
+        }
+        let announcementCreater = Announcement(title: checkTitle, body: checkBody)
+        DispatchQueue.main.async{ self.announcements.append(announcementCreater) }
+        completion(true)
+    }
+
     // MARK: - gets announcements from the internet
-   
+    
     func fetchAnnouncements(completion: @escaping (Swift.Error?) -> Void) {
         let query = CKQuery(recordType: .announcement, predicate: NSPredicate(value: true))
         query.sortDescriptors = [NSSortDescriptor(key: RecordKey.creationDate, ascending: false)]
@@ -33,7 +48,6 @@ class AnnouncementLoader: ObservableObject {
             self?.announcements = records?.map {Announcement(record: $0) } ?? []
             DispatchQueue.main.async { completion(error) }
         }
-        subscriptions()
     }
     
     
@@ -49,7 +63,7 @@ class AnnouncementLoader: ObservableObject {
     }
     
     
-    func subscriptions(){
+    func updateSubscriptions(){
         publicRecord.fetchAllSubscriptions { [weak self] subscriptions, error in
             if let possibleError = error{
                 print(possibleError)
@@ -57,10 +71,20 @@ class AnnouncementLoader: ObservableObject {
             }
             
             
-            if let possibleSubscriptions = subscriptions, possibleSubscriptions.isEmpty{
+            subscriptions?.forEach {
+                self?.publicRecord.delete(withSubscriptionID: $0.subscriptionID) { possibleResult, possibleError in
+                    if let error = possibleError {
+                        print("Encountered error deleting: \(error)")
+                    } else if let result = possibleResult {
+                        print("Delete result: \(result)")
+                    } else {
+                        print("Unsure what happened when deleting subscriptions.")
+                    }
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
                 self?.subscribeToAnnouncements()
             }
-            
         }
     }
     
@@ -69,8 +93,10 @@ class AnnouncementLoader: ObservableObject {
         let subscription = CKQuerySubscription(recordType: .announcement, predicate: predicate, options: .firesOnRecordCreation)
         
         let notification = CKSubscription.NotificationInfo()
-        notification.alertBody = "show up."
-        notification.soundName = "default"
+        //notification.alertBody = "show up."
+       // notification.soundName = "default"
+        notification.shouldSendContentAvailable = true
+        notification.desiredKeys = ["title", "body"]
         
         subscription.notificationInfo = notification
         

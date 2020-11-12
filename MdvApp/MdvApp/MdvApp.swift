@@ -5,6 +5,7 @@
 //  Created by Laraib Iqbal on 2020-10-26.
 //
 
+import CloudKit
 import SwiftUI
 @main
 struct MdvApp: App {
@@ -27,7 +28,16 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // Handle receiving iCloud notification data
-        completionHandler(.noData) // TEMPORARY
+        if let ckQueryNotification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo) {
+            AnnouncementLoader.shared.applicationDidReceive(ckQueryNotification) { success in
+                if success {
+                    completionHandler(.newData)
+                } else {
+                    completionHandler(.failed)
+                }
+            }
+        } else {
+            completionHandler(.noData)
+        }
     }
 }

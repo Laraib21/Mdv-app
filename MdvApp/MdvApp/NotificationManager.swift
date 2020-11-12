@@ -7,6 +7,8 @@
 
 import Foundation
 import UserNotifications
+import CloudKit
+import UIKit
 
 class NotificationManager: NSObject {
     static let shared = NotificationManager()
@@ -20,6 +22,7 @@ class NotificationManager: NSObject {
     func getUserPermission(success: @escaping @autoclosure () -> Void, failure: @escaping () -> Void) {
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
+                DispatchQueue.main.async { UIApplication.shared.registerForRemoteNotifications() }
                 self.registerCategories()
                 success()
             } else {
@@ -34,16 +37,13 @@ class NotificationManager: NSObject {
         
         NotificationManager.shared.center.setNotificationCategories([category])
     }
-    func applicationDidRecieve (_ ckQueryNotification: CKQueryNotification, completion: @escaping(Bool) -> Void) {
-        completion(true)
-    
-    }
 }
-extension NotificationManager: UNUserNotificationCenterDelegate{
-
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.banner)
+    extension NotificationManager: UNUserNotificationCenterDelegate {
+        
+        
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler(.banner)
+        }
+        
     }
-    
-}

@@ -45,12 +45,14 @@ class AnnouncementLoader: ObservableObject {
         let query = CKQuery(recordType: .announcement, predicate: NSPredicate(value: true))
         query.sortDescriptors = [NSSortDescriptor(key: RecordKey.creationDate, ascending: false)]
         publicRecord.perform(query, inZoneWith: .default) { [weak self] records, error in
-            self?.announcements = records?.map {Announcement(record: $0) } ?? []
-            DispatchQueue.main.async { completion(error) }
+            DispatchQueue.main.async {
+                self?.announcements = records?.map { Announcement(record: $0) } ?? []
+                completion(error)
+            }
         }
     }
-    
-    
+
+
     func save(_ announcement: Announcement, completion: @escaping (Swift.Error?) -> Void) {
         let newRecord = CKRecord(recordType: .announcement)
         newRecord.setValue(announcement.title, forKey: .title)
@@ -61,16 +63,16 @@ class AnnouncementLoader: ObservableObject {
             DispatchQueue.main.async { completion(error) }
         }
     }
-    
-    
+
+
     func updateSubscriptions(){
         publicRecord.fetchAllSubscriptions { [weak self] subscriptions, error in
             if let possibleError = error{
                 print(possibleError)
                 return
             }
-            
-            
+
+
             subscriptions?.forEach {
                 self?.publicRecord.delete(withSubscriptionID: $0.subscriptionID) { possibleResult, possibleError in
                     if let error = possibleError {
@@ -87,25 +89,25 @@ class AnnouncementLoader: ObservableObject {
             }
         }
     }
-    
+
     func subscribeToAnnouncements() {
         let predicate = NSPredicate(value: true)
         let subscription = CKQuerySubscription(recordType: .announcement, predicate: predicate, options: .firesOnRecordCreation)
-        
+
         let notification = CKSubscription.NotificationInfo()
         //notification.alertBody = "show up."
-       // notification.soundName = "default"
+        // notification.soundName = "default"
         notification.shouldSendContentAvailable = true
         notification.desiredKeys = ["title", "body"]
-        
+
         subscription.notificationInfo = notification
-        
+
         publicRecord.save(subscription) { _ , error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
-        
+
     }
-    
+
 }

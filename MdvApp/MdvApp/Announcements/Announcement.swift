@@ -8,20 +8,23 @@
 import Foundation
 import CloudKit
 
-struct Announcement: Codable {
-   var title: String
-   var body: String
-   var tags: [Tag] = []
-   enum CodingKeys: String, CodingKey {
+struct Announcement: Codable, Equatable, Hashable {
+    enum CodingKeys: String, CodingKey {
         case title
         case body
     }
+
+    var title: String
+    var body: String
+    var tags: [Tag] = []
 }
 extension Announcement {
     init(record: CKRecord) {
-        self.init(title: record["title"] as! String, body: record["body"] as! String, tags:[])
+        self.init(title: record["title"] as! String,
+                  body: record["body"] as! String,
+                  tags:[])
     }
 }
-struct Tag {
+struct Tag: Codable, Equatable, Hashable {
     var name: String
 }

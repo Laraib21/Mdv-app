@@ -8,19 +8,6 @@
 import UIKit
 import SwiftUI
 
-struct AnnouncementsView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UINavigationController
-    func makeUIViewController(context: Context) -> UINavigationController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(identifier: "AnnouncementsNavViewController")
-    }
-
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
-        // Doesn't matter for now
-    }
-    
-}
-
 struct CalendarView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UINavigationController
     func makeUIViewController(context: Context) -> UINavigationController {
@@ -61,7 +48,7 @@ struct ContentView: View {
     @State var isShowingSplashView = true
 
     var announcementsTab: some View {
-        AnnouncementsView()
+        AnnouncementsTableView()
             .tabItem {
                 Image(systemName: "hifispeaker")
                     .imageScale(.large)

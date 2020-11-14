@@ -14,20 +14,21 @@ import os.log
 // 3. Add announcement button action / view
 
 struct AnnouncementsTableView: View {
-    @ObservedObject var announcementsLoader = AnnouncementLoader.shared
+    @EnvironmentObject var announcementsLoader: AnnouncementLoader
     @State private var selectedAnnouncement: Announcement?
     @State private var isShowingAnnouncement = false
-
+    @State private var isShowingNewAnnouncement = false
+    
     var addNewAnnouncementButton: some View {
-        Button(action: { /* TODO */ }) {
+        Button(action: { isShowingNewAnnouncement = true }) {
             Image(systemName: "plus")
         }
     }
-
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(announcementsLoader.announcements, id: \.self) { announcement in
+                ForEach(announcementsLoader.announcements) { announcement in
                     AnnouncementView(announcement: announcement)
                         .onTapGesture {
                             selectedAnnouncement = announcement
@@ -56,7 +57,23 @@ struct AnnouncementsTableView: View {
         }, content: {
             AnnouncementDetailsView(announcement: selectedAnnouncement!)
         })
+        .sheet(isPresented: $isShowingNewAnnouncement) {
+            NewAnnouncementView(dismiss:addNewAnnouncement(_:))
+        }
     }
+    
+    func addNewAnnouncement(_ newAnnouncement: Announcement) {
+            announcementsLoader.save(newAnnouncement) { possibleError in
+                if let error = possibleError {
+                    print("Encountered error saving announcement: \(error)")
+                } else {
+                    isShowingNewAnnouncement = false
+                }
+            }
+        }
+    
+    
+    
 }
 
 struct AnnouncementView: View {
@@ -66,7 +83,7 @@ struct AnnouncementView: View {
             .padding(.vertical, 2)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
-
+        
     }
 }
 

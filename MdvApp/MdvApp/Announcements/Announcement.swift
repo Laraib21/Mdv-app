@@ -8,12 +8,12 @@
 import Foundation
 import CloudKit
 
-struct Announcement: Codable, Equatable, Hashable {
+struct Announcement: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case title
         case body
     }
-
+let id = UUID()
     var title: String
     var body: String
     var tags: [Tag] = []

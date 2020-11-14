@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import CloudKit
+import SwiftUI
 
 extension CKRecord.RecordType {
     static let announcement = "Announcement"
@@ -21,8 +22,6 @@ extension RecordKey {
 }
 
 class AnnouncementLoader: ObservableObject {
-    static let shared = AnnouncementLoader()
-    private init() {}
     let publicRecord = CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase
     @Published var announcements: [Announcement] = []
     
@@ -35,7 +34,11 @@ class AnnouncementLoader: ObservableObject {
             return
         }
         let announcementCreater = Announcement(title: checkTitle, body: checkBody)
-        DispatchQueue.main.async{ self.announcements.append(announcementCreater) }
+        DispatchQueue.main.async{
+            withAnimation{
+                print(announcementCreater)
+                self.announcements.append(announcementCreater) }
+        }
         completion(true)
     }
 

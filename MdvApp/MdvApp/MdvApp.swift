@@ -17,19 +17,21 @@ struct MdvApp: App {
                 .onAppear {
                     NotificationManager.shared.getUserPermission(success: print("Success"), failure: { print("Failed") })
                 }
+                .environmentObject(appDelegate.announcementloader)
         }
 
     }
 }
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
+    let announcementloader = AnnouncementLoader()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         return true
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let ckQueryNotification = CKQueryNotification(fromRemoteNotificationDictionary: userInfo) {
-            AnnouncementLoader.shared.applicationDidReceive(ckQueryNotification) { success in
+            announcementloader.applicationDidReceive(ckQueryNotification) { success in
                 if success {
                     completionHandler(.newData)
                 } else {

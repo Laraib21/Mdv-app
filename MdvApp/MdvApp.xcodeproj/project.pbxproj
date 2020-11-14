@@ -30,6 +30,7 @@
 		BFEF71F5254B7A9200E17430 /* BarcodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */; };
 		BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */; };
 		FB0A1B362526114A008033CD /* SchoolMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A1B352526114A008033CD /* SchoolMapViewController.swift */; };
+		FB183604255CB8760083B05C /* AnnouncementsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB183603255CB8760083B05C /* AnnouncementsTableView.swift */; };
 		FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */; };
 		FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972D24E470DD00765A27 /* StudentIDViewController.swift */; };
 		FB81973024E486E600765A27 /* UIImage+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB81972F24E486E600765A27 /* UIImage+Convenience.swift */; };
@@ -66,6 +67,7 @@
 		BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanningViewController.swift; sourceTree = "<group>"; };
 		BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDBarcodeViewController.swift; sourceTree = "<group>"; };
 		FB0A1B352526114A008033CD /* SchoolMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMapViewController.swift; sourceTree = "<group>"; };
+		FB183603255CB8760083B05C /* AnnouncementsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableView.swift; sourceTree = "<group>"; };
 		FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		FB81972D24E470DD00765A27 /* StudentIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDViewController.swift; sourceTree = "<group>"; };
 		FB81972F24E486E600765A27 /* UIImage+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Convenience.swift"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				3F62F3592513C771007CDD17 /* NewAnnouncementView.swift */,
 				3F6B598524981BB000B9C90D /* Announcement.swift */,
 				3FADD4C3248EDD4300E62366 /* AnnouncementsTableViewController.swift */,
+				FB183603255CB8760083B05C /* AnnouncementsTableView.swift */,
 				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
 				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
 				3F7A26E624AE89A10067A37B /* announcementsLoader.swift */,
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB183604255CB8760083B05C /* AnnouncementsTableView.swift in Sources */,
 				3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */,
 				3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */,
 				3FADD4C4248EDD4300E62366 /* AnnouncementsTableViewController.swift in Sources */,

@@ -18,7 +18,7 @@ struct AnnouncementsTableView: View {
     @State private var selectedAnnouncement: Announcement?
     @State private var isShowingAnnouncement = false
     @State private var isShowingNewAnnouncement = false
-    
+
     var addNewAnnouncementButton: some View {
         Button(action: { isShowingNewAnnouncement = true }) {
             Image(systemName: "plus")
@@ -61,7 +61,7 @@ struct AnnouncementsTableView: View {
             NewAnnouncementView(dismiss:addNewAnnouncement(_:))
         }
     }
-    
+
     func addNewAnnouncement(_ newAnnouncement: Announcement) {
         announcementsLoader.save(newAnnouncement) { possibleError in
             if let error = possibleError {
@@ -71,26 +71,30 @@ struct AnnouncementsTableView: View {
             }
         }
     }
-    
-    
-    
 }
 
 struct AnnouncementView: View {
     let announcement: Announcement
     var body: some View {
         VStack {
-        Text(announcement.title)
-            .padding(.vertical, 2)
-            .font(.headline)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Text(announcement.body)
-                .font(.body)
-                .foregroundColor(.gray)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            VStack {
+                Text(announcement.title)
+                    .font(.title)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.vertical, 2)
+                Text(announcement.body)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 2)
+            }
+            .padding(30)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+            Spacer()
+                .frame(height: 20)
+            Divider()
+                .background(Color.white)
+                .padding(.horizontal, 30)
         }
-        .padding(.horizontal)
-        .clipShape(RoundedRectangle(cornerRadius: 25.0))
     }
 }
 
@@ -102,9 +106,12 @@ struct AnnouncementsTableView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             AnnouncementView(announcement: shortSampleAnnouncement)
+                .padding()
+                .background(Color.blue)
             AnnouncementView(announcement: longSampleAnnouncement)
+                .padding()
+                .background(Color.blue)
         }
         .previewLayout(.sizeThatFits)
     }
 }
-

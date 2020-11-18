@@ -47,6 +47,7 @@ struct SchoolMapView: UIViewControllerRepresentable {
 struct ContentView: View {
     @State var isShowingSplashView = true
     @Environment(\.announcementloader) var announcementLoader
+
     var announcementsTab: some View {
         AnnouncementsTableView()
             .tabItem {

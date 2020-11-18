@@ -17,8 +17,8 @@ struct MdvApp: App {
                 .onAppear {
                     NotificationManager.shared.getUserPermission(success: print("Success"), failure: { print("Failed") })
                 }
-                .environment(\.announcementloader, AnnouncementLoaderKey.defaultValue)       }
-
+                .environment(\.announcementloader, AnnouncementLoaderKey.defaultValue)
+        }
     }
 }
 

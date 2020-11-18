@@ -13,7 +13,7 @@ struct Announcement: Codable, Identifiable {
         case title
         case body
     }
-let id = UUID()
+    let id = UUID()
     var title: String
     var body: String
     var tags: [Tag] = []

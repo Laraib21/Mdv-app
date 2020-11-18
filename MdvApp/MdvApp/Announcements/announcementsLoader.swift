@@ -22,6 +22,8 @@ extension RecordKey {
 }
 
 class AnnouncementLoader: ObservableObject {
+    static let shared = AnnouncementLoader()
+    private init() {}
     let publicRecord = CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase
     @Published var announcements: [Announcement] = []
     
@@ -41,7 +43,7 @@ class AnnouncementLoader: ObservableObject {
         }
         completion(true)
     }
-
+    
     // MARK: - gets announcements from the internet
     
     func fetchAnnouncements(completion: @escaping (Swift.Error?) -> Void) {
@@ -54,8 +56,8 @@ class AnnouncementLoader: ObservableObject {
             }
         }
     }
-
-
+    
+    
     func save(_ announcement: Announcement, completion: @escaping (Swift.Error?) -> Void) {
         let newRecord = CKRecord(recordType: .announcement)
         newRecord.setValue(announcement.title, forKey: .title)
@@ -66,16 +68,16 @@ class AnnouncementLoader: ObservableObject {
             DispatchQueue.main.async { completion(error) }
         }
     }
-
-
+    
+    
     func updateSubscriptions(){
         publicRecord.fetchAllSubscriptions { [weak self] subscriptions, error in
             if let possibleError = error{
                 print(possibleError)
                 return
             }
-
-
+            
+            
             subscriptions?.forEach {
                 self?.publicRecord.delete(withSubscriptionID: $0.subscriptionID) { possibleResult, possibleError in
                     if let error = possibleError {
@@ -92,25 +94,35 @@ class AnnouncementLoader: ObservableObject {
             }
         }
     }
-
+    
     func subscribeToAnnouncements() {
         let predicate = NSPredicate(value: true)
         let subscription = CKQuerySubscription(recordType: .announcement, predicate: predicate, options: .firesOnRecordCreation)
-
+        
         let notification = CKSubscription.NotificationInfo()
         //notification.alertBody = "show up."
         // notification.soundName = "default"
         notification.shouldSendContentAvailable = true
         notification.desiredKeys = ["title", "body"]
-
+        
         subscription.notificationInfo = notification
-
+        
         publicRecord.save(subscription) { _ , error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
-
+        
     }
+    
+}
 
+struct AnnouncementLoaderKey: EnvironmentKey {
+    static let defaultValue = AnnouncementLoader.shared
+}
+extension EnvironmentValues {
+    var announcementloader: AnnouncementLoader {
+        get { self[AnnouncementLoaderKey.self] }
+        set { self[AnnouncementLoaderKey.self] = newValue }
+    }
 }

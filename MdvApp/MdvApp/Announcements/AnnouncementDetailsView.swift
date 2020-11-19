@@ -8,19 +8,16 @@
 import SwiftUI
 struct AnnouncementDetailsView: View {
     let announcement: Announcement
+    private let gradient = Gradient(colors: [Color(#colorLiteral(red: 0.003449816722, green: 0.0759826526, blue: 0.4911656976, alpha: 1)), Color(#colorLiteral(red: 0.008099403232, green: 0.1319192946, blue: 0.7244079709, alpha: 1))])
     var body: some View {
         ScrollView {
-            Spacer()
-                .frame(height: 20)
-            Text(announcement.title)
-            Spacer()
-            Text(announcement.body)
-            .padding()
-            .background(Color(UIColor.systemBackground))
-            .cornerRadius(8)
-            .padding()
+            AnnouncementView(announcement: announcement)
+                .padding()
         }
-        .background(Color(#colorLiteral(red: 0, green: 0.5864223838, blue: 1, alpha: 1)).edgesIgnoringSafeArea(.all))
+        .background(RadialGradient(gradient: gradient,
+                                   center: .center,
+                                   startRadius: 50,
+                                   endRadius: 200).edgesIgnoringSafeArea(.all))
     }
 }
 struct AnnouncementDetailsView_Previews: PreviewProvider {

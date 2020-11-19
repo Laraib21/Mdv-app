@@ -15,10 +15,8 @@ import os.log
 
 struct AnnouncementsTableView: View {
     @EnvironmentObject var announcementsLoader: AnnouncementLoader
-    @State private var selectedAnnouncement: Announcement?
-    @State private var isShowingAnnouncement = false
     @State private var isShowingNewAnnouncement = false
-
+    
     var addNewAnnouncementButton: some View {
         Button(action: { isShowingNewAnnouncement = true }) {
             Image(systemName: "plus")
@@ -28,14 +26,18 @@ struct AnnouncementsTableView: View {
     var body: some View {
         NavigationView {
             ScrollView {
+                Spacer().frame(height: 22)
                 ForEach(announcementsLoader.announcements) { announcement in
-                    AnnouncementView(announcement: announcement)
-                        .onTapGesture {
-                            selectedAnnouncement = announcement
-                            isShowingAnnouncement = true
-                        }
+                    NavigationLink(
+                        destination:             AnnouncementDetailsView(announcement: announcement),
+                        label: {
+                            AnnouncementView(announcement: announcement)
+                                .padding()
+                        })
+                        .buttonStyle(PlainButtonStyle())
                 }
             }
+            .background(Color.blue)
             .navigationTitle("Announcements")
             .navigationBarItems(trailing: addNewAnnouncementButton)
         }
@@ -51,17 +53,12 @@ struct AnnouncementsTableView: View {
                 os_log("Announcements loaded!", log: .default, type: .error)
             }
         }
-        .sheet(isPresented: $isShowingAnnouncement, onDismiss: {
-            selectedAnnouncement = nil
-            isShowingAnnouncement = false
-        }, content: {
-            AnnouncementDetailsView(announcement: selectedAnnouncement!)
-        })
+        
         .sheet(isPresented: $isShowingNewAnnouncement) {
             NewAnnouncementView(dismiss:addNewAnnouncement(_:))
         }
     }
-
+    
     func addNewAnnouncement(_ newAnnouncement: Announcement) {
         announcementsLoader.save(newAnnouncement) { possibleError in
             if let error = possibleError {
@@ -80,15 +77,18 @@ struct AnnouncementView: View {
             VStack {
                 Text(announcement.title)
                     .font(.title)
+                    .foregroundColor(.black)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 2)
                 Text(announcement.body)
+                    .foregroundColor(.gray)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 2)
             }
             .padding(30)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 30))
+            .shadow(color: .black, radius: 12)
             Spacer()
                 .frame(height: 20)
             Divider()

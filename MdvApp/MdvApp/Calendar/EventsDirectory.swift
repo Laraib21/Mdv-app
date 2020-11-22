@@ -8,13 +8,21 @@
 import Foundation
 import UserNotifications
 import os.log
+import SwiftUI
 
 struct Event: Hashable, Codable{
-    let title: String
-    let body: String
-    let startDate : Date
-    let selection: Int
-    let endDate: Date
+    enum CodingKeys: String, CodingKey {
+        case title, body, startDate, selection, endDate
+    }
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.title == rhs.title && lhs.body == rhs.body && lhs.startDate.timeIntervalSince1970 == rhs.startDate.timeIntervalSince1970 && lhs.endDate.timeIntervalSince1970 == rhs.endDate.timeIntervalSince1970
+    }
+    
+    @State var title: String
+    @State var body: String
+    @State var  startDate : Date
+    @State var selection: Int
+    @State var endDate: Date
     var alertDate: Date?{
         switch selection {
         case .atTimeOfEvent:
@@ -39,9 +47,50 @@ struct Event: Hashable, Codable{
     var spanMultipleDays: Bool {
         return true
     }
-    // let alert:
+}
+extension Event{
+    init() {
+        _title = .init(wrappedValue: "")
+        _body = .init(wrappedValue: "")
+        _startDate = .init(wrappedValue: Date())
+        _endDate = .init(wrappedValue: Date(timeIntervalSinceNow: 1*60*60))
+        _selection = .init(wrappedValue: 0)
+    }
 }
 
+
+
+extension Event{
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        _title = .init(wrappedValue: try container.decode(String.self, forKey: .title))
+        _body = .init(wrappedValue: try container.decode(String.self, forKey: .body))
+        _startDate = .init(wrappedValue: try container.decode(Date.self, forKey: .startDate))
+        _endDate = .init(wrappedValue: try container.decode(Date.self, forKey: .endDate))
+        _selection = .init(wrappedValue: try container.decode(Int.self, forKey: .selection))
+    }
+}
+
+extension Event {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(title, forKey: .title)
+        try container.encode(body, forKey: .body)
+        try container.encode(startDate, forKey: .startDate)
+        try container.encode(endDate, forKey: .endDate)
+        try container.encode(selection, forKey: .selection)
+    }
+}
+
+extension Event {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(body)
+        hasher.combine(startDate)
+        hasher.combine(endDate)
+        hasher.combine(selection)
+    }
+}
 // MARK: - shows events body, start and end date
 extension Event: ExpressibleByStringLiteral {
     init(stringLiteral value: String) {
@@ -54,7 +103,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     var events: [Event] = []
     let eventsUrl = URL.documentsDirectory.appendingPathComponent("events.txt")
     lazy var calendar = Calendar.autoupdatingCurrent
-
+    
     
     func addEvents(_ event: Event){
         let savedUpdatedEvent = updatedEventsList(event)
@@ -117,7 +166,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         NotificationManager.shared.center.setNotificationCategories([category])
     }
     
-
+    
     // MARK: - saving user events to file
     func updatedEventsList(_ event: Event) -> Event {
         var updatedEvent = event

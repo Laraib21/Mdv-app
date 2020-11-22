@@ -26,14 +26,14 @@ struct CalendarDetailView: View {
                 }
             } else {
                 List(events,id: \.self) { event in
-                    NavigationLink(event.title, destination: CalendarEventDetailView(event: event, saveDismiss: saveDismiss, deleteDismiss: deleteDismiss))
+                    NavigationLink(event.title, destination: CalendarEventDetailView(event: .constant(event), saveDismiss: saveDismiss, deleteDismiss: deleteDismiss))
                 }
             }
         }
     }
 }
 struct CalendarEventDetailView: View {
-    let event: Event
+   @Binding var event: Event
     var saveDismiss: ((Event) -> Void)?
     var deleteDismiss: ((Event) -> Void)?
     @State var showingDetail = false
@@ -96,7 +96,7 @@ struct CalendarEventDetailView: View {
         }.tabItem { Text("Calendar") }
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
-            EventPopup(start: event.startDate, end: event.endDate, title: event.title, selection:event.selection, description: event.body, eventIdentifier: event.identifier, dismiss:saveDismiss)
+            EventPopup(event: $event, dismiss:saveDismiss)
         }
         .alert(isPresented: $showingDeleteAlert) {
             Alert(title: Text("Delete Event?"), primaryButton: .destructive(Text("Yes"), action: {deleteDismiss? (event)}), secondaryButton: .cancel())
@@ -106,10 +106,11 @@ struct CalendarEventDetailView: View {
 
 // MARK: - sample list of events for calendar
 struct CalendarDetailView_Previews: PreviewProvider {
+    @State static var event = Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), selection: 0, endDate: Date())
     static var previews: some View {
         Group {
             CalendarDetailView(events: [])
-            CalendarEventDetailView(event: Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), selection: 0, endDate: Date()))
+            CalendarEventDetailView(event: $event)
         }
     }
 }

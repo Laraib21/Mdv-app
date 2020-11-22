@@ -24,11 +24,7 @@ struct NoShape: Shape {
 }
 
 struct EventPopup: View {
-    @State var start = Date()
-    @State var end = Date(timeIntervalSinceNow: 1*60*60)
-    @State var title = ""
-    @State var selection = 0
-    @State var description = ""
+    @Binding var event: Event
     @State var isTitleValid = true
     @State var isDescriptionValid = true
     @State var endDateValid = true
@@ -36,16 +32,15 @@ struct EventPopup: View {
     @State var isShowing = false {
         didSet {
             if isShowing == true {
-                start = Calendar.autoupdatingCurrent.startOfDay(for: start)
-                end = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: start) ?? start
+                event.startDate = Calendar.autoupdatingCurrent.startOfDay(for: event.startDate)
+                event.endDate = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: event.startDate) ?? event.startDate
             } else {
-                start = Date()
-                end = Date(timeIntervalSinceNow: 1*60*60)
+                event.startDate = Date()
+                event.endDate = Date(timeIntervalSinceNow: 1*60*60)
             }
             
         }
     }
-    let eventIdentifier: UUID?
     var dismiss: ((Event) -> Void)?
     var saveButton: some View {
         Button(action: SaveEvent) {
@@ -77,13 +72,13 @@ struct EventPopup: View {
     var body: some View{
         NavigationView {
             Form {
-                TextField("Title", text: $title)
+                TextField("Title", text: event.$title)
                     .overlay(invalidEntryView($isTitleValid))
-                DatePicker(selection: $start, displayedComponents: [.date, .hourAndMinute]) {
+                DatePicker(selection: event.$startDate, displayedComponents: [.date, .hourAndMinute]) {
                     Text("Start").layoutPriority(1)
                 }
                 .disabled(isShowing)
-                DatePicker(selection: $end, displayedComponents: [.date, .hourAndMinute]) {
+                DatePicker(selection: event.$endDate, displayedComponents: [.date, .hourAndMinute]) {
                     Text("End").layoutPriority(1)
                 }
                 .overlay(invalidEntryView($endDateValid))
@@ -93,7 +88,7 @@ struct EventPopup: View {
                     Text("All Day")
                 }
                 
-                Picker(selection: $selection, label:
+                Picker(selection: event.$selection, label:
                         Text("Alert")
                        , content: {
                         Text("At time of event").tag(0)
@@ -106,10 +101,10 @@ struct EventPopup: View {
                        })
                     .overlay(invalidEntryView($alertDateValid, colour: .yellow))
                 ZStack(alignment: .leading){
-                    TextEditor(text: $description)
+                    TextEditor(text: event.$body)
                         .overlay(invalidEntryView($isDescriptionValid))
                         .frame(minHeight: 240)
-                    if description.isEmpty {
+                    if event.body.isEmpty {
                         VStack {
                             Text("Please enter description").foregroundColor(Color.gray.opacity(0.4)).padding(.top, 8).padding(.leading, 3).contentShape(NoShape())
                             Spacer()
@@ -125,18 +120,18 @@ struct EventPopup: View {
         // TODO: Validate none of the fields are empty. If any are, don't dismiss!
         // NOTES:
         //    SwiftUI lets you use statements like this:
-        isDescriptionValid = !description.isEmpty
-        isTitleValid = !title.isEmpty
+        isDescriptionValid = !event.body.isEmpty
+        isTitleValid = !event.title.isEmpty
         
-        endDateValid = end.timeIntervalSince(start) > 0
+        endDateValid = event.endDate.timeIntervalSince(event.startDate) > 0
         
-        let newEvent = Event(title: title, body: description, startDate: start, selection: selection, endDate: end, identifier: eventIdentifier)
+
         
-        alertDateValid = (newEvent.alertDate?.timeIntervalSince(Date()) ?? 61) > 60
+        alertDateValid = (event.alertDate?.timeIntervalSince(Date()) ?? 61) > 60
         
         guard isTitleValid && isDescriptionValid && endDateValid else { return }
         
-        self.dismiss?(newEvent)
+        self.dismiss?(event)
         
     }
     func getDocumentsDirectory() -> URL {
@@ -148,7 +143,7 @@ struct EventPopup: View {
 // MARK: - showing the event below the calendar
 struct EventPopup_Previews: PreviewProvider {
     static var previews: some View {
-        EventPopup(eventIdentifier: nil)
+        EventPopup(event: .constant(Event()))
     }
 }
 

@@ -29,18 +29,9 @@ struct EventPopup: View {
     @State var isDescriptionValid = true
     @State var endDateValid = true
     @State var alertDateValid = true
-    @State var isShowing = false {
-        didSet {
-            if isShowing == true {
-                event.startDate = Calendar.autoupdatingCurrent.startOfDay(for: event.startDate)
-                event.endDate = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: event.startDate) ?? event.startDate
-            } else {
-                event.startDate = Date()
-                event.endDate = Date(timeIntervalSinceNow: 1*60*60)
-            }
+    @State var isShowing = false
             
-        }
-    }
+    
     var dismiss: ((Event) -> Void)?
     var saveButton: some View {
         Button(action: SaveEvent) {
@@ -86,6 +77,15 @@ struct EventPopup: View {
                 
                 Toggle(isOn: $isShowing) {
                     Text("All Day")
+                }
+                .onChange(of: isShowing) { (value) in
+                    if value == true {
+                        event.startDate = Calendar.autoupdatingCurrent.startOfDay(for: event.startDate)
+                        event.endDate = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: event.startDate) ?? event.startDate
+                    } else {
+                        event.startDate = Date()
+                        event.endDate = Date(timeIntervalSinceNow: 1*60*60)
+                    }
                 }
                 
                 Picker(selection: $event.selection, label:

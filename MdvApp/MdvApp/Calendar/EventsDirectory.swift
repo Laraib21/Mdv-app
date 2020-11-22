@@ -43,7 +43,7 @@ final class Event: Hashable, Codable, ObservableObject {
             return startDate
         }
     }
-    var identifier: UUID?
+    let identifier = UUID()
     var spanMultipleDays: Bool {
         return true
     }
@@ -113,16 +113,16 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     
     func addEvents(_ event: Event){
-        let savedUpdatedEvent = updatedEventsList(event)
+        updatedEventsList(event)
         NotificationManager.shared.center.getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .authorized, .provisional, .ephemeral:
-                self.scheduleNotification(for: savedUpdatedEvent)
+                self.scheduleNotification(for: event)
             case .denied:
                 // Show an UIAlert
                 print("Check settings for notification setup")
             case .notDetermined:
-                NotificationManager.shared.getUserPermission(success: self.scheduleNotification(for: savedUpdatedEvent), failure: { print("D'Oh") })
+                NotificationManager.shared.getUserPermission(success: self.scheduleNotification(for: event), failure: { print("D'Oh") })
             @unknown default:
                 print("Unhandled auth type: \(settings.authorizationStatus)")
             }
@@ -162,7 +162,7 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
         content.categoryIdentifier = "alarm"
         content.sound = UNNotificationSound.default
         
-        let request = UNNotificationRequest(identifier: event.identifier!.uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: event.identifier.uuidString, content: content, trigger: trigger)
         NotificationManager.shared.center.add(request)
     }
     
@@ -175,18 +175,13 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     
     
     // MARK: - saving user events to file
-    func updatedEventsList(_ event: Event) -> Event {
-        var updatedEvent = event
-        if updatedEvent.identifier == nil {
-            updatedEvent.identifier = UUID()
-            events.append(updatedEvent)
-        }
-        if let existingIndex = events.firstIndex(where:{ $0.identifier != nil && $0.identifier == updatedEvent.identifier}){
-            events[existingIndex] = updatedEvent
-            removeNotification(for: updatedEvent)
+    func updatedEventsList(_ event: Event) {
+        if events.contains(event) {
+            removeNotification(for: event)
+        } else {
+            events.append(event)
         }
         save()
-        return updatedEvent
     }
     
     func save() {
@@ -213,20 +208,17 @@ class EventsDirectory: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func delete(event: Event, completion: @escaping() -> Void) {
-        defer { completion() }
-        guard let eventIdentifier = event.identifier else {
-            return
-        }
-        if let eventIndex = events.firstIndex(where: {$0.identifier == eventIdentifier}) {
+        if let eventIndex = events.firstIndex(where: {$0.identifier == event.identifier}) {
             let removedEvent = events.remove(at: eventIndex)
             removeNotification(for: removedEvent)
             save()
         }
+        completion()
     }
     
     func removeNotification(for event: Event) {
         NotificationManager.shared.center.getPendingNotificationRequests { requests in
-            let requestsToBeRemoved = requests.filter { $0.identifier == event.identifier?.uuidString }.compactMap { $0.identifier }
+            let requestsToBeRemoved = requests.filter { $0.identifier == event.identifier.uuidString }.map { $0.identifier }
             NotificationManager.shared.center.removePendingNotificationRequests(withIdentifiers: requestsToBeRemoved)
         }
     }

@@ -33,7 +33,7 @@ class CalendarViewController : UIViewController {
     
     // MARK: - IBActions
     @IBAction func addEvent(_ sender: Any) {
-        let event = EventPopup(event:.constant(Event()), dismiss: saveDismissHostingController)
+        let event = EventPopup(event: Event(), dismiss: saveDismissHostingController)
         present(event)
     }
     

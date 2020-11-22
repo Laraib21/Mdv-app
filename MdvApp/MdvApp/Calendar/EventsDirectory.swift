@@ -10,7 +10,7 @@ import UserNotifications
 import os.log
 import SwiftUI
 
-struct Event: Hashable, Codable{
+final class Event: Hashable, Codable, ObservableObject {
     enum CodingKeys: String, CodingKey {
         case title, body, startDate, selection, endDate
     }
@@ -18,11 +18,11 @@ struct Event: Hashable, Codable{
         return lhs.title == rhs.title && lhs.body == rhs.body && lhs.startDate.timeIntervalSince1970 == rhs.startDate.timeIntervalSince1970 && lhs.endDate.timeIntervalSince1970 == rhs.endDate.timeIntervalSince1970
     }
     
-    @State var title: String
-    @State var body: String
-    @State var  startDate : Date
-    @State var selection: Int
-    @State var endDate: Date
+    @Published var title: String
+    @Published var body: String
+    @Published var  startDate : Date
+    @Published var selection: Int
+    @Published var endDate: Date
     var alertDate: Date?{
         switch selection {
         case .atTimeOfEvent:
@@ -47,27 +47,34 @@ struct Event: Hashable, Codable{
     var spanMultipleDays: Bool {
         return true
     }
-}
-extension Event{
-    init() {
-        _title = .init(wrappedValue: "")
-        _body = .init(wrappedValue: "")
-        _startDate = .init(wrappedValue: Date())
-        _endDate = .init(wrappedValue: Date(timeIntervalSinceNow: 1*60*60))
-        _selection = .init(wrappedValue: 0)
+
+    init(title: String = "",
+         body: String = "",
+         startDate: Date = Date(),
+         endDate: Date = Date(timeIntervalSinceNow: 1*60*60),
+         selection: Int = 0) {
+        self.title = title
+        self.body = body
+        self.startDate = startDate
+        self.endDate = endDate
+        self.selection = selection
     }
 }
 
-
-
 extension Event{
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        _title = .init(wrappedValue: try container.decode(String.self, forKey: .title))
-        _body = .init(wrappedValue: try container.decode(String.self, forKey: .body))
-        _startDate = .init(wrappedValue: try container.decode(Date.self, forKey: .startDate))
-        _endDate = .init(wrappedValue: try container.decode(Date.self, forKey: .endDate))
-        _selection = .init(wrappedValue: try container.decode(Int.self, forKey: .selection))
+        let title = try container.decode(String.self, forKey: .title)
+        let body = try container.decode(String.self, forKey: .body)
+        let startDate = try container.decode(Date.self, forKey: .startDate)
+        let endDate = try container.decode(Date.self, forKey: .endDate)
+        let selection = try container.decode(Int.self, forKey: .selection)
+
+        self.init(title: title,
+                  body: body,
+                  startDate: startDate,
+                  endDate: endDate,
+                  selection: selection)
     }
 }
 
@@ -93,8 +100,8 @@ extension Event {
 }
 // MARK: - shows events body, start and end date
 extension Event: ExpressibleByStringLiteral {
-    init(stringLiteral value: String) {
-        self.init(title: value, body: "", startDate: Date(), selection: 0, endDate: Date())
+    convenience init(stringLiteral value: String) {
+        self.init(title: value)
     }
 }
 

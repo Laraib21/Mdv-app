@@ -24,7 +24,7 @@ struct NoShape: Shape {
 }
 
 struct EventPopup: View {
-    @Binding var event: Event
+    @ObservedObject var event: Event
     @State var isTitleValid = true
     @State var isDescriptionValid = true
     @State var endDateValid = true
@@ -72,13 +72,13 @@ struct EventPopup: View {
     var body: some View{
         NavigationView {
             Form {
-                TextField("Title", text: event.$title)
+                TextField("Title", text: $event.title)
                     .overlay(invalidEntryView($isTitleValid))
-                DatePicker(selection: event.$startDate, displayedComponents: [.date, .hourAndMinute]) {
+                DatePicker(selection: $event.startDate, displayedComponents: [.date, .hourAndMinute]) {
                     Text("Start").layoutPriority(1)
                 }
                 .disabled(isShowing)
-                DatePicker(selection: event.$endDate, displayedComponents: [.date, .hourAndMinute]) {
+                DatePicker(selection: $event.endDate, displayedComponents: [.date, .hourAndMinute]) {
                     Text("End").layoutPriority(1)
                 }
                 .overlay(invalidEntryView($endDateValid))
@@ -88,7 +88,7 @@ struct EventPopup: View {
                     Text("All Day")
                 }
                 
-                Picker(selection: event.$selection, label:
+                Picker(selection: $event.selection, label:
                         Text("Alert")
                        , content: {
                         Text("At time of event").tag(0)
@@ -101,7 +101,7 @@ struct EventPopup: View {
                        })
                     .overlay(invalidEntryView($alertDateValid, colour: .yellow))
                 ZStack(alignment: .leading){
-                    TextEditor(text: event.$body)
+                    TextEditor(text: $event.body)
                         .overlay(invalidEntryView($isDescriptionValid))
                         .frame(minHeight: 240)
                     if event.body.isEmpty {
@@ -142,8 +142,9 @@ struct EventPopup: View {
 
 // MARK: - showing the event below the calendar
 struct EventPopup_Previews: PreviewProvider {
+    @ObservedObject static var event = Event()
     static var previews: some View {
-        EventPopup(event: .constant(Event()))
+        EventPopup(event: event)
     }
 }
 

@@ -96,7 +96,7 @@ struct CalendarEventDetailView: View {
         }.tabItem { Text("Calendar") }
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
-            EventPopup(event: $event, dismiss:saveDismiss)
+            EventPopup(event: event, dismiss:saveDismiss)
         }
         .alert(isPresented: $showingDeleteAlert) {
             Alert(title: Text("Delete Event?"), primaryButton: .destructive(Text("Yes"), action: {deleteDismiss? (event)}), secondaryButton: .cancel())
@@ -106,7 +106,7 @@ struct CalendarEventDetailView: View {
 
 // MARK: - sample list of events for calendar
 struct CalendarDetailView_Previews: PreviewProvider {
-    @State static var event = Event(title: "My Test Event Title", body: "My Test Event Body", startDate: Date(), selection: 0, endDate: Date())
+    @State static var event = Event(title: "My Test Event Title", body: "My Test Event Body")
     static var previews: some View {
         Group {
             CalendarDetailView(events: [])

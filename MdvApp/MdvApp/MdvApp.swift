@@ -16,6 +16,7 @@ struct MdvApp: App {
             ContentView()
                 .onAppear {
                     NotificationManager.shared.getUserPermission(success: print("Success"), failure: { print("Failed") })
+                    AnnouncementLoader.shared.saveSecurityAccess()
                 }
                 .environment(\.announcementloader, AnnouncementLoaderKey.defaultValue)
         }

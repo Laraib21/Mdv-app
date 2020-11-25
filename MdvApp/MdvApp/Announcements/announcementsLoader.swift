@@ -12,6 +12,7 @@ import SwiftUI
 
 extension CKRecord.RecordType {
     static let announcement = "Announcement"
+    static let SecurityAccess = "SecurityAccess"
 }
 typealias RecordKey = String
 extension RecordKey {
@@ -19,6 +20,7 @@ extension RecordKey {
     static let title = "title"
     static let body = "body"
     static let tags = "tags"
+    static let useless = "useless"
 }
 
 class AnnouncementLoader: ObservableObject {
@@ -26,6 +28,7 @@ class AnnouncementLoader: ObservableObject {
     private init() {}
     let publicRecord = CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase
     @Published var announcements: [Announcement] = []
+    @Published var canCreateAnnouncementButton = false
     
     func applicationDidReceive(_ ckQueryNotification: CKQueryNotification, completion: @escaping(Bool) -> Void) {
         guard let checkTitle = ckQueryNotification.recordFields?["title"] as? String,
@@ -35,7 +38,7 @@ class AnnouncementLoader: ObservableObject {
             completion(false)
             return
         }
-        let announcementCreater = Announcement(title: checkTitle, body: checkBody)
+        let announcementCreater = Announcement(id: ckQueryNotification.recordID, title: checkTitle, body: checkBody)
         DispatchQueue.main.async{
             withAnimation{
                 print(announcementCreater)
@@ -53,6 +56,19 @@ class AnnouncementLoader: ObservableObject {
             DispatchQueue.main.async {
                 self?.announcements = records?.map { Announcement(record: $0) } ?? []
                 completion(error)
+            }
+        }
+    }
+    
+    func saveSecurityAccess() {
+        let newRecord = CKRecord(recordType: .SecurityAccess)
+        newRecord.setValue("\(Date().timeIntervalSinceReferenceDate)", forKey: .useless)
+        publicRecord.save(newRecord) { [weak self] (_, error) in
+            if let possibleError = error {
+                print(possibleError)
+                self?.canCreateAnnouncementButton = false
+            } else {
+                self?.canCreateAnnouncementButton = true
             }
         }
     }

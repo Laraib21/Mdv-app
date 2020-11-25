@@ -22,7 +22,7 @@ struct NewAnnouncementView: View {
     @State private var isEditing = false
     @State private var isValid = true
     func saveAnnouncement () {
-        let createAnnouncement = Announcement(title: title, body: description)
+        let createAnnouncement = Announcement(id: nil, title: title, body: description)
         self.dismiss?(createAnnouncement)
     }
     func invalidEntryView(_ isValid: Binding<Bool>, colour: Color = .red) -> some View {

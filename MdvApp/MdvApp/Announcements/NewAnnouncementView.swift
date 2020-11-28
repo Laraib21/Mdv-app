@@ -12,6 +12,7 @@ struct NewAnnouncementView: View {
     @State var description = ""
     @State var isTitleValid = true
     @State var isDescriptionValid = true
+    @State var endDate = Date()
     var dismiss: ((Announcement) -> Void)?
     var saveButton: some View {
         Button(action: saveAnnouncement) {
@@ -22,7 +23,7 @@ struct NewAnnouncementView: View {
     @State private var isEditing = false
     @State private var isValid = true
     func saveAnnouncement () {
-        let createAnnouncement = Announcement(id: nil, title: title, body: description)
+        let createAnnouncement = Announcement(id: nil, title: title, body: description, endDate: endDate)
         self.dismiss?(createAnnouncement)
     }
     func invalidEntryView(_ isValid: Binding<Bool>, colour: Color = .red) -> some View {
@@ -48,6 +49,9 @@ struct NewAnnouncementView: View {
                 Section {
                     TextField("Announcement Title", text: $title)
                         .overlay(invalidEntryView($isTitleValid))
+                    DatePicker(selection: $endDate, displayedComponents: [.date, .hourAndMinute]) {
+                        Text("Announcement Expiry Date: ").layoutPriority(1)
+                    }
                     ZStack(alignment: .leading){
                         TextEditor(text: $description)
                             .frame(minHeight: 240)

@@ -46,7 +46,7 @@ struct SchoolMapView: UIViewControllerRepresentable {
 
 struct ContentView: View {
     @State var isShowingSplashView = true
-    @Environment(\.announcementloader) var announcementLoader
+    @EnvironmentObject var announcementLoader: AnnouncementLoader
 
     var announcementsTab: some View {
         AnnouncementsTableView()
@@ -56,6 +56,10 @@ struct ContentView: View {
                 Text("Announcements")
             }
             .environmentObject(announcementLoader)
+            .onAppear {
+                NotificationManager.shared.getUserPermission(success: print("Success"),
+                                                             failure: { print("Failed") })
+            }
     }
 
     var calendarTab: some View {
@@ -104,7 +108,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @State private static var announcementLoader = AnnouncementLoader()
     static var previews: some View {
         ContentView()
+            .environmentObject(announcementLoader)
     }
 }

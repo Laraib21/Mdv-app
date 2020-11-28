@@ -10,12 +10,11 @@
 		3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */; };
 		3F62F35A2513C772007CDD17 /* NewAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F62F3592513C771007CDD17 /* NewAnnouncementView.swift */; };
 		3F6B598624981BB000B9C90D /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B598524981BB000B9C90D /* Announcement.swift */; };
-		3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */; };
-		3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* announcementsLoader.swift */; };
-		3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */; };
+		3F7A26E724AE89A10067A37B /* AnnouncementsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7A26E624AE89A10067A37B /* AnnouncementsLoader.swift */; };
+		3F7F321824DCB7BA0004F3F2 /* Date+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F321724DCB7BA0004F3F2 /* Date+Convenience.swift */; };
 		3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F869CDD24C6457F004A2252 /* EventPopup.swift */; };
 		3FA53B8A2527F4F60098E230 /* URL + Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA53B892527F4F60098E230 /* URL + Convenience.swift */; };
-		3FAB4CD42510195E0068F402 /* loadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB4CD32510195E0068F402 /* loadingScreenView.swift */; };
+		3FAB4CD42510195E0068F402 /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAB4CD32510195E0068F402 /* LoadingScreenView.swift */; };
 		3FADD4C7248EDD4300E62366 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4C5248EDD4300E62366 /* Main.storyboard */; };
 		3FADD4C9248EDD4C00E62366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FADD4C8248EDD4C00E62366 /* Assets.xcassets */; };
 		3FBCE62525098ADF009B56D8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBCE62425098ADF009B56D8 /* CloudKit.framework */; };
@@ -43,13 +42,12 @@
 		3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailsView.swift; sourceTree = "<group>"; };
 		3F62F3592513C771007CDD17 /* NewAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAnnouncementView.swift; sourceTree = "<group>"; };
 		3F6B598524981BB000B9C90D /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
-		3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementTableViewCell.swift; sourceTree = "<group>"; };
 		3F7A26DF24A4029E0067A37B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		3F7A26E624AE89A10067A37B /* announcementsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = announcementsLoader.swift; sourceTree = "<group>"; };
-		3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateExtensions.swift; sourceTree = "<group>"; };
+		3F7A26E624AE89A10067A37B /* AnnouncementsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsLoader.swift; sourceTree = "<group>"; };
+		3F7F321724DCB7BA0004F3F2 /* Date+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Convenience.swift"; sourceTree = "<group>"; };
 		3F869CDD24C6457F004A2252 /* EventPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPopup.swift; sourceTree = "<group>"; };
 		3FA53B892527F4F60098E230 /* URL + Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Convenience.swift"; sourceTree = "<group>"; };
-		3FAB4CD32510195E0068F402 /* loadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadingScreenView.swift; sourceTree = "<group>"; };
+		3FAB4CD32510195E0068F402 /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
 		3FADD4BC248EDD4300E62366 /* MdvApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MdvApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FADD4C6248EDD4300E62366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FADD4C8248EDD4C00E62366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,21 +124,19 @@
 		3FADD4BE248EDD4300E62366 /* MdvApp */ = {
 			isa = PBXGroup;
 			children = (
+				FB0A05342572BF4B005A5282 /* Student ID */,
 				FB0ED82F251950F7002C906B /* Utilities */,
 				FB0ED82C251950D0002C906B /* Calendar */,
 				FB0ED829251950B3002C906B /* Announcements */,
 				3F6985D22525127900088993 /* School Map */,
 				3FBCE62325098ADB009B56D8 /* MdvApp.entitlements */,
-				3FAB4CD32510195E0068F402 /* loadingScreenView.swift */,
 				3FADD4C5248EDD4300E62366 /* Main.storyboard */,
 				3FADD4C8248EDD4C00E62366 /* Assets.xcassets */,
 				3FADD4CD248EDD4C00E62366 /* Info.plist */,
-				BF4C9B02253A5AB0006B846A /* NotificationManager.swift */,
-				FBEA32D32540E171004D5248 /* ContentView.swift */,
-				BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */,
-				BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */,
-				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
 				BF1720FF2547760B0056525D /* MdvApp.swift */,
+				3FAB4CD32510195E0068F402 /* LoadingScreenView.swift */,
+				FBEA32D32540E171004D5248 /* ContentView.swift */,
+				BF4C9B02253A5AB0006B846A /* NotificationManager.swift */,
 			);
 			path = MdvApp;
 			sourceTree = "<group>";
@@ -154,15 +150,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FB0A05342572BF4B005A5282 /* Student ID */ = {
+			isa = PBXGroup;
+			children = (
+				BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */,
+				BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */,
+				FB81972D24E470DD00765A27 /* StudentIDViewController.swift */,
+			);
+			path = "Student ID";
+			sourceTree = "<group>";
+		};
 		FB0ED829251950B3002C906B /* Announcements */ = {
 			isa = PBXGroup;
 			children = (
 				3F62F3592513C771007CDD17 /* NewAnnouncementView.swift */,
 				3F6B598524981BB000B9C90D /* Announcement.swift */,
 				FB183603255CB8760083B05C /* AnnouncementsTableView.swift */,
-				3F6B59872498247A00B9C90D /* announcementTableViewCell.swift */,
 				3F5EF1B9249C168B0076EEEE /* AnnouncementDetailsView.swift */,
-				3F7A26E624AE89A10067A37B /* announcementsLoader.swift */,
+				3F7A26E624AE89A10067A37B /* AnnouncementsLoader.swift */,
 			);
 			path = Announcements;
 			sourceTree = "<group>";
@@ -182,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				FB1CDF872502E51D00942E60 /* UIColor+Hex.swift */,
-				3F7F321724DCB7BA0004F3F2 /* dateExtensions.swift */,
+				3F7F321724DCB7BA0004F3F2 /* Date+Convenience.swift */,
 				FB81972F24E486E600765A27 /* UIImage+Convenience.swift */,
 				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
 				3FA53B892527F4F60098E230 /* URL + Convenience.swift */,
@@ -305,16 +310,15 @@
 			files = (
 				FB183604255CB8760083B05C /* AnnouncementsTableView.swift in Sources */,
 				3FDDD87C24BFBC9000346768 /* CalendarViewController.swift in Sources */,
-				3F7F321824DCB7BA0004F3F2 /* dateExtensions.swift in Sources */,
+				3F7F321824DCB7BA0004F3F2 /* Date+Convenience.swift in Sources */,
 				3FA53B8A2527F4F60098E230 /* URL + Convenience.swift in Sources */,
 				FB0A1B362526114A008033CD /* SchoolMapViewController.swift in Sources */,
 				3FDDD88224BFCBB600346768 /* EventsDirectory.swift in Sources */,
 				BFEF71F5254B7A9200E17430 /* BarcodeScanningViewController.swift in Sources */,
 				BF4C9B03253A5AB0006B846A /* NotificationManager.swift in Sources */,
 				FB81972E24E470DD00765A27 /* StudentIDViewController.swift in Sources */,
-				3F6B59882498247A00B9C90D /* announcementTableViewCell.swift in Sources */,
 				3F62F35A2513C772007CDD17 /* NewAnnouncementView.swift in Sources */,
-				3FAB4CD42510195E0068F402 /* loadingScreenView.swift in Sources */,
+				3FAB4CD42510195E0068F402 /* LoadingScreenView.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Announcement.swift in Sources */,
 				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
@@ -325,7 +329,7 @@
 				FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */,
 				3FDDD88024BFC3EB00346768 /* CalendarDetailView.swift in Sources */,
 				FB81973024E486E600765A27 /* UIImage+Convenience.swift in Sources */,
-				3F7A26E724AE89A10067A37B /* announcementsLoader.swift in Sources */,
+				3F7A26E724AE89A10067A37B /* AnnouncementsLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

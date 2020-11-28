@@ -23,9 +23,9 @@ extension RecordKey {
     static let useless = "useless"
 }
 
-class AnnouncementLoader: ObservableObject {
-    static let shared = AnnouncementLoader()
-    private init() {}
+final class AnnouncementLoader: ObservableObject {
+    init() {}
+
     let publicRecord = CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase
     @Published var announcements: [Announcement] = []
     @Published var canCreateAnnouncementButton = false
@@ -63,12 +63,12 @@ class AnnouncementLoader: ObservableObject {
     func saveSecurityAccess() {
         let newRecord = CKRecord(recordType: .SecurityAccess)
         newRecord.setValue("\(Date().timeIntervalSinceReferenceDate)", forKey: .useless)
-        publicRecord.save(newRecord) { [weak self] (_, error) in
+        publicRecord.save(newRecord) { [weak self] _, error in
             if let possibleError = error {
                 print(possibleError)
-                self?.canCreateAnnouncementButton = false
+                DispatchQueue.main.async { self?.canCreateAnnouncementButton = false }
             } else {
-                self?.canCreateAnnouncementButton = true
+                DispatchQueue.main.async { self?.canCreateAnnouncementButton = true }
             }
         }
     }
@@ -116,8 +116,6 @@ class AnnouncementLoader: ObservableObject {
         let subscription = CKQuerySubscription(recordType: .announcement, predicate: predicate, options: .firesOnRecordCreation)
         
         let notification = CKSubscription.NotificationInfo()
-        //notification.alertBody = "show up."
-        // notification.soundName = "default"
         notification.shouldSendContentAvailable = true
         notification.desiredKeys = ["title", "body"]
         
@@ -131,14 +129,4 @@ class AnnouncementLoader: ObservableObject {
         
     }
     
-}
-
-struct AnnouncementLoaderKey: EnvironmentKey {
-    static let defaultValue = AnnouncementLoader.shared
-}
-extension EnvironmentValues {
-    var announcementloader: AnnouncementLoader {
-        get { self[AnnouncementLoaderKey.self] }
-        set { self[AnnouncementLoaderKey.self] = newValue }
-    }
 }

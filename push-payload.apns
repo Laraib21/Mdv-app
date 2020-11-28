@@ -1,0 +1,24 @@
+{
+    "ck": {
+        "ckuserid": "_b5cec76afbce9515866a8b7e7a08482a",
+        "ce": 2,
+        "nid": "19afdb06-72cc-4286-85ee-b6b837353928",
+        "cid": "iCloud.meadowvaleApp",
+        "qry": {
+            "dbs": 2,
+            "zid": "_defaultZone",
+            "zoid": "_defaultOwner",
+            "rid": "93B69669-AF9B-4400-AE69-290A12083C5A",
+            "sid": "0FE54158-6974-4CFF-ACF5-1A06557337BA",
+            "fo": 1,
+            "af": {
+                "title": "November 25 (3)",
+                "body": "Testing 123"
+            }
+        }
+    },
+    "aps": {
+        "content-available": 1
+    },
+    "Simulator Target Bundle": "ca.laraibenterprises.MdvApp"
+}

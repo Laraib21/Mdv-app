@@ -13,10 +13,10 @@ import os.log
 // 2. Display announcement body and tags
 // 3. Add announcement button action / view
 
-private let gradient = Gradient(colors: [Color(#colorLiteral(red: 0.003449816722, green: 0.0759826526, blue: 0.4911656976, alpha: 1)), Color(#colorLiteral(red: 0.008099403232, green: 0.1319192946, blue: 0.7244079709, alpha: 1))])
 struct AnnouncementsTableView: View {
     @EnvironmentObject var announcementsLoader: AnnouncementLoader
     @State private var isShowingNewAnnouncement = false
+    private let gradient = Gradient(colors: [Color(#colorLiteral(red: 0.003449816722, green: 0.0759826526, blue: 0.4911656976, alpha: 1)), Color(#colorLiteral(red: 0.008099403232, green: 0.1319192946, blue: 0.7244079709, alpha: 1))])
     
     var addNewAnnouncementButton: some View {
         VStack{
@@ -74,6 +74,11 @@ struct AnnouncementsTableView: View {
                 print("Encountered error saving announcement: \(error)")
             } else {
                 isShowingNewAnnouncement = false
+                // TODO: (TL) Uncomment this as a last resort.
+//                announcementsLoader.fetchAnnouncements { possibleError in
+//                    guard let error = possibleError else { return }
+//                    os_log("Encountered error while fetching announcements: %{public}@", log: .default, type: .error, error.localizedDescription)
+//                }
             }
         }
     }

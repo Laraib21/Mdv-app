@@ -19,7 +19,7 @@ extension RecordKey {
     static let creationDate = "creationDate"
     static let title = "title"
     static let body = "body"
-    static let tags = "tags"
+    static let endDate = "endDate"
     static let useless = "useless"
 }
 
@@ -38,7 +38,7 @@ final class AnnouncementLoader: ObservableObject {
             completion(false)
             return
         }
-        let announcementCreater = Announcement(id: ckQueryNotification.recordID, title: checkTitle, body: checkBody)
+        let announcementCreater = Announcement(id: ckQueryNotification.recordID, title: checkTitle, body: checkBody, endDate: Date())
         DispatchQueue.main.async{
             withAnimation{
                 print(announcementCreater)
@@ -77,7 +77,8 @@ final class AnnouncementLoader: ObservableObject {
     // MARK: - gets announcements from the internet
     
     func fetchAnnouncements(completion: @escaping (Swift.Error?) -> Void) {
-        let query = CKQuery(recordType: .announcement, predicate: NSPredicate(value: true))
+        let predicate = NSPredicate(format: "endDate > %@", NSDate())
+        let query = CKQuery(recordType: .announcement, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: RecordKey.creationDate, ascending: false)]
         publicRecord.perform(query, inZoneWith: .default) { [weak self] records, error in
             DispatchQueue.main.async {
@@ -105,7 +106,7 @@ final class AnnouncementLoader: ObservableObject {
         let newRecord = CKRecord(recordType: .announcement)
         newRecord.setValue(announcement.title, forKey: .title)
         newRecord.setValue(announcement.body, forKey: .body)
-        newRecord.setValue(announcement.tags.flatMap { $0.name }, forKey: .tags)
+        newRecord.setValue(announcement.endDate, forKey: .endDate)
         publicRecord.save(newRecord) { record, error in
             print("Saved \(String(describing: record))")
             DispatchQueue.main.async { completion(error) }

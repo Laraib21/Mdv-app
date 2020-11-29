@@ -13,13 +13,12 @@ struct Announcement: Identifiable {
     let id: CKRecord.ID?
     var title: String
     var body: String
-    var tags: [Tag] = []
+    let endDate: Date
 }
 extension Announcement {
     init(record: CKRecord) {
         self.init(id: record.recordID ,title: record["title"] as! String,
-                  body: record["body"] as! String,
-                  tags:[])
+                  body: record["body"] as! String, endDate: Date())
     }
 }
 struct Tag: Codable, Equatable, Hashable {

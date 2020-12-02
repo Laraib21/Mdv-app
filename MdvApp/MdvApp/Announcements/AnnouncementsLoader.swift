@@ -47,6 +47,33 @@ final class AnnouncementLoader: ObservableObject {
         }
         completion(true)
     }
+
+    func applicationDidFakeAnnouncement() {
+        let fakeNotification = CKQueryNotification(fromRemoteNotificationDictionary: [
+            "ck": [
+                "ckuserid": "_b5cec76afbce9515866a8b7e7a08482a",
+                "ce": 2,
+                "nid": "19afdb06-72cc-4286-85ee-b6b837353928",
+                "cid": "iCloud.meadowvaleApp",
+                "qry": [
+                    "dbs": 2,
+                    "zid": "_defaultZone",
+                    "zoid": "_defaultOwner",
+                    "rid": "93B69669-AF9B-4400-AE69-290A12083C5A",
+                    "sid": "0FE54158-6974-4CFF-ACF5-1A06557337BA",
+                    "fo": 1,
+                    "af": [
+                        "title": "November 28 (3)",
+                        "body": "Testing 123"
+                    ]
+                ]
+            ],
+            "aps": [
+                "content-available": 1
+            ]
+        ])!
+        applicationDidReceive(fakeNotification, completion: { _ in })
+    }
     
     // MARK: - gets announcements from the internet
     
@@ -94,8 +121,8 @@ final class AnnouncementLoader: ObservableObject {
                 print(possibleError)
                 return
             }
-            
-            
+
+
             subscriptions?.forEach {
                 self?.publicRecord.delete(withSubscriptionID: $0.subscriptionID) { possibleResult, possibleError in
                     if let error = possibleError {
@@ -116,13 +143,13 @@ final class AnnouncementLoader: ObservableObject {
     func subscribeToAnnouncements() {
         let predicate = NSPredicate(value: true)
         let subscription = CKQuerySubscription(recordType: .announcement, predicate: predicate, options: .firesOnRecordCreation)
-        
+
         let notification = CKSubscription.NotificationInfo()
         notification.shouldSendContentAvailable = true
         notification.desiredKeys = ["title", "body", "endDate"]
         
         subscription.notificationInfo = notification
-        
+
         publicRecord.save(subscription) { _ , error in
             if let error = error {
                 print(error.localizedDescription)

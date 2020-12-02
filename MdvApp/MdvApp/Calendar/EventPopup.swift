@@ -112,7 +112,7 @@ struct EventPopup: View {
                     }
                 }
             }
-            .navigationBarTitle("New Event")
+            .navigationBarTitle(event.title.isEmpty ? "New Event" : "Edit Event")
             .navigationBarItems(trailing: saveButton)
         }
     }

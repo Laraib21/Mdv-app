@@ -25,24 +25,25 @@ extension RecordKey {
 
 final class AnnouncementLoader: ObservableObject {
     init() {}
-
+    
     let publicRecord = CKContainer(identifier: "iCloud.meadowvaleApp").publicCloudDatabase
     @Published var announcements: [Announcement] = []
     @Published var canCreateAnnouncementButton = false
     
     func applicationDidReceive(_ ckQueryNotification: CKQueryNotification, completion: @escaping(Bool) -> Void) {
         guard let checkTitle = ckQueryNotification.recordFields?["title"] as? String,
-              let checkBody = ckQueryNotification.recordFields?["body"] as? String
+              let checkBody = ckQueryNotification.recordFields?["body"] as? String,
+              let checkEndDate = ckQueryNotification.recordFields?["endDate"] as? Int
         else {
             print("failed")
             completion(false)
             return
         }
-        let announcementCreater = Announcement(id: ckQueryNotification.recordID, title: checkTitle, body: checkBody, endDate: Date())
-        DispatchQueue.main.async{
+        let announcementCreater = Announcement(id: ckQueryNotification.recordID, title: checkTitle, body: checkBody, endDate: Date(timeIntervalSinceReferenceDate: TimeInterval(checkEndDate)))
+        DispatchQueue.main.async{ [weak self] in
             withAnimation{
                 print(announcementCreater)
-                self.announcements.append(announcementCreater) }
+                self?.announcements.append(announcementCreater) }
         }
         completion(true)
     }
@@ -118,7 +119,7 @@ final class AnnouncementLoader: ObservableObject {
         
         let notification = CKSubscription.NotificationInfo()
         notification.shouldSendContentAvailable = true
-        notification.desiredKeys = ["title", "body"]
+        notification.desiredKeys = ["title", "body", "endDate"]
         
         subscription.notificationInfo = notification
         

@@ -10,21 +10,23 @@ import SwiftUI
 @main
 struct MdvApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    @ObservedObject var announcementLoader = AnnouncementLoader()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(appDelegate.announcementLoader)
+                .environmentObject(announcementLoader)
+                .onAppear{
+                    appDelegate.announcementLoader = announcementLoader
+                    announcementLoader.saveSecurityAccess()
+                }
         }
     }
 }
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
-    @ObservedObject var announcementLoader = AnnouncementLoader()
-
+    weak var announcementLoader: AnnouncementLoader!
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        announcementLoader.saveSecurityAccess()
-
         return true
     }
 

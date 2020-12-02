@@ -45,7 +45,11 @@ final class Event: Hashable, Codable, ObservableObject {
     }
     let identifier = UUID()
     var spanMultipleDays: Bool {
-        return true
+        if endDate.timeIntervalSince(startDate) > 24*60*60 {
+            return true
+        } else {
+            return false
+        }
     }
 
     init(title: String = "",

@@ -47,7 +47,7 @@ final class AnnouncementLoader: ObservableObject {
         }
         completion(true)
     }
-
+    
     func applicationDidFakeAnnouncement() {
         let fakeNotification = CKQueryNotification(fromRemoteNotificationDictionary: [
             "ck": [
@@ -95,9 +95,17 @@ final class AnnouncementLoader: ObservableObject {
         publicRecord.save(newRecord) { [weak self] _, error in
             if let possibleError = error {
                 print(possibleError)
-                DispatchQueue.main.async { self?.canCreateAnnouncementButton = false }
-            } else {
-                DispatchQueue.main.async { self?.canCreateAnnouncementButton = true }
+                
+                return
+            }
+            let query = CKQuery(recordType: .SecurityAccess, predicate: NSPredicate(value: true))
+            self?.publicRecord.perform(query, inZoneWith: .default) { [weak self] records, error in
+                if let maybeError = error{
+                    print(maybeError)
+                    DispatchQueue.main.async { self?.canCreateAnnouncementButton = false }
+                } else {
+                    DispatchQueue.main.async { self?.canCreateAnnouncementButton = true }
+                }
             }
         }
     }
@@ -110,7 +118,15 @@ final class AnnouncementLoader: ObservableObject {
         newRecord.setValue(announcement.endDate, forKey: .endDate)
         publicRecord.save(newRecord) { record, error in
             print("Saved \(String(describing: record))")
-            DispatchQueue.main.async { completion(error) }
+            DispatchQueue.main.async { [weak self] in
+                if let Error = error {
+                    print("Encountered error saving: \(Error)")
+                } else {
+                    self?.announcements.append(announcement)
+                }
+                completion(error)
+                
+            }
         }
     }
     
@@ -121,8 +137,8 @@ final class AnnouncementLoader: ObservableObject {
                 print(possibleError)
                 return
             }
-
-
+            
+            
             subscriptions?.forEach {
                 self?.publicRecord.delete(withSubscriptionID: $0.subscriptionID) { possibleResult, possibleError in
                     if let error = possibleError {
@@ -143,13 +159,13 @@ final class AnnouncementLoader: ObservableObject {
     func subscribeToAnnouncements() {
         let predicate = NSPredicate(value: true)
         let subscription = CKQuerySubscription(recordType: .announcement, predicate: predicate, options: .firesOnRecordCreation)
-
+        
         let notification = CKSubscription.NotificationInfo()
         notification.shouldSendContentAvailable = true
         notification.desiredKeys = ["title", "body", "endDate"]
         
         subscription.notificationInfo = notification
-
+        
         publicRecord.save(subscription) { _ , error in
             if let error = error {
                 print(error.localizedDescription)

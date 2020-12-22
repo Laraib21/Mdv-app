@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct MdvApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
-    @ObservedObject var announcementLoader = AnnouncementLoader()
+    @StateObject var announcementLoader = AnnouncementLoader()
 
     var body: some Scene {
         WindowGroup {

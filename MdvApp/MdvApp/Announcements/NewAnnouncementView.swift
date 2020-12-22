@@ -47,10 +47,10 @@ struct NewAnnouncementView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Announcement Title", text: $title)
+                    TextField("Title", text: $title)
                         .overlay(invalidEntryView($isTitleValid))
                     DatePicker(selection: $endDate, displayedComponents: [.date, .hourAndMinute]) {
-                        Text("Announcement Expiry Date: ").layoutPriority(1)
+                        Text("Expiry: ").layoutPriority(1)
                     }
                     ZStack(alignment: .leading){
                         TextEditor(text: $description)

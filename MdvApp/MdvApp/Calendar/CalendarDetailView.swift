@@ -94,6 +94,7 @@ struct CalendarEventDetailView: View {
                 .foregroundColor(Color(UIColor.systemGroupedBackground))
                 .frame(height: 2)
         }.tabItem { Text("Calendar") }
+        .navigationTitle(event.title)
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
             EventPopup(event: event, dismiss:saveDismiss)

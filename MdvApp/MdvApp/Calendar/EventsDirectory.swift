@@ -12,10 +12,14 @@ import SwiftUI
 
 final class Event: Hashable, Codable, ObservableObject {
     enum CodingKeys: String, CodingKey {
-        case title, body, startDate, selection, endDate
+        case title, body, startDate, selection, endDate, allDay
     }
     static func == (lhs: Event, rhs: Event) -> Bool {
-        return lhs.title == rhs.title && lhs.body == rhs.body && lhs.startDate.timeIntervalSince1970 == rhs.startDate.timeIntervalSince1970 && lhs.endDate.timeIntervalSince1970 == rhs.endDate.timeIntervalSince1970
+        return lhs.title == rhs.title &&
+            lhs.body == rhs.body &&
+            lhs.startDate.timeIntervalSince1970 == rhs.startDate.timeIntervalSince1970 &&
+            lhs.endDate.timeIntervalSince1970 == rhs.endDate.timeIntervalSince1970 &&
+            lhs.allDay == rhs.allDay
     }
     
     @Published var title: String
@@ -23,6 +27,7 @@ final class Event: Hashable, Codable, ObservableObject {
     @Published var  startDate : Date
     @Published var selection: Int
     @Published var endDate: Date
+    @Published var allDay: Bool
     var alertDate: Date?{
         switch selection {
         case .atTimeOfEvent:
@@ -56,12 +61,14 @@ final class Event: Hashable, Codable, ObservableObject {
          body: String = "",
          startDate: Date = Date(),
          endDate: Date = Date(timeIntervalSinceNow: 1*60*60),
-         selection: Int = 0) {
+         selection: Int = 0,
+         allDay: Bool = false) {
         self.title = title
         self.body = body
         self.startDate = startDate
         self.endDate = endDate
         self.selection = selection
+        self.allDay = allDay
     }
 }
 
@@ -73,12 +80,14 @@ extension Event{
         let startDate = try container.decode(Date.self, forKey: .startDate)
         let endDate = try container.decode(Date.self, forKey: .endDate)
         let selection = try container.decode(Int.self, forKey: .selection)
+        let allDay = try container.decodeIfPresent(Bool.self, forKey: .allDay)
 
         self.init(title: title,
                   body: body,
                   startDate: startDate,
                   endDate: endDate,
-                  selection: selection)
+                  selection: selection,
+                  allDay: allDay ?? false)
     }
 }
 
@@ -90,6 +99,7 @@ extension Event {
         try container.encode(startDate, forKey: .startDate)
         try container.encode(endDate, forKey: .endDate)
         try container.encode(selection, forKey: .selection)
+        try container.encode(allDay, forKey: .allDay)
     }
 }
 
@@ -100,6 +110,7 @@ extension Event {
         hasher.combine(startDate)
         hasher.combine(endDate)
         hasher.combine(selection)
+        hasher.combine(allDay)
     }
 }
 // MARK: - shows events body, start and end date

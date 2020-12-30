@@ -25,6 +25,7 @@
 		3FF8202C2509543800756B5B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F7A26DF24A4029E0067A37B /* WebKit.framework */; };
 		BF1721002547760B0056525D /* MdvApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1720FF2547760B0056525D /* MdvApp.swift */; };
 		BF4C9B03253A5AB0006B846A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C9B02253A5AB0006B846A /* NotificationManager.swift */; };
+		BF508B15259BF02700F7C12A /* newMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF508B14259BF02700F7C12A /* newMap.swift */; };
 		BFEF71F5254B7A9200E17430 /* BarcodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */; };
 		BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */; };
 		FB0A1B362526114A008033CD /* SchoolMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A1B352526114A008033CD /* SchoolMapViewController.swift */; };
@@ -60,6 +61,7 @@
 		9067BE96001B6EC02CD1EC37 /* Pods-MdvApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MdvApp.debug.xcconfig"; path = "Target Support Files/Pods-MdvApp/Pods-MdvApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BF1720FF2547760B0056525D /* MdvApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MdvApp.swift; sourceTree = "<group>"; };
 		BF4C9B02253A5AB0006B846A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		BF508B14259BF02700F7C12A /* newMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newMap.swift; sourceTree = "<group>"; };
 		BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanningViewController.swift; sourceTree = "<group>"; };
 		BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDBarcodeViewController.swift; sourceTree = "<group>"; };
 		FB0A1B352526114A008033CD /* SchoolMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMapViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				FB0A1B352526114A008033CD /* SchoolMapViewController.swift */,
+				BF508B14259BF02700F7C12A /* newMap.swift */,
 			);
 			path = "School Map";
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
 				BF1721002547760B0056525D /* MdvApp.swift in Sources */,
 				BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */,
+				BF508B15259BF02700F7C12A /* newMap.swift in Sources */,
 				3F869CDE24C6457F004A2252 /* EventPopup.swift in Sources */,
 				FBEA32D42540E171004D5248 /* ContentView.swift in Sources */,
 				FB81973224E4960600765A27 /* UIViewController+Convenience.swift in Sources */,

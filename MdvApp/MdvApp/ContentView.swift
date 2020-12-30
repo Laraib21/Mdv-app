@@ -88,6 +88,15 @@ struct ContentView: View {
                 Text("School Map")
             }
     }
+    
+    var newSchoolMapTab: some View {
+        newMap()
+            .tabItem {
+                Image(systemName: "map")
+                    .imageScale(.large)
+                Text("New School Map")
+            }
+    }
 
     var body: some View {
         VStack {
@@ -99,6 +108,7 @@ struct ContentView: View {
                     calendarTab
                     studentIdTab
                     schoolMapTab
+                    newSchoolMapTab
                 }
                 //.animation(Animation.easeInOut.speed(0.5))
                 //.transition(.move(edge: .bottom))

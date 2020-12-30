@@ -29,7 +29,7 @@ struct EventPopup: View {
     @State var isDescriptionValid = true
     @State var endDateValid = true
     @State var alertDateValid = true
-    @State var isShowing = false
+
             
     
     var dismiss: ((Event) -> Void)?
@@ -68,17 +68,17 @@ struct EventPopup: View {
                 DatePicker(selection: $event.startDate, displayedComponents: [.date, .hourAndMinute]) {
                     Text("Start").layoutPriority(1)
                 }
-                .disabled(isShowing)
+                .disabled(event.allDay)
                 DatePicker(selection: $event.endDate, displayedComponents: [.date, .hourAndMinute]) {
                     Text("End").layoutPriority(1)
                 }
                 .overlay(invalidEntryView($endDateValid))
-                .disabled(isShowing)
+                .disabled(event.allDay)
                 
-                Toggle(isOn: $isShowing) {
+                Toggle(isOn: $event.allDay) {
                     Text("All Day")
                 }
-                .onChange(of: isShowing) { (value) in
+                .onChange(of: event.allDay) { (value) in
                     if value == true {
                         event.startDate = Calendar.autoupdatingCurrent.startOfDay(for: event.startDate)
                         event.endDate = Calendar.autoupdatingCurrent.date(bySettingHour: 23, minute: 59, second: 59, of: event.startDate) ?? event.startDate

@@ -26,6 +26,8 @@
 		BF1721002547760B0056525D /* MdvApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1720FF2547760B0056525D /* MdvApp.swift */; };
 		BF4C9B03253A5AB0006B846A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C9B02253A5AB0006B846A /* NotificationManager.swift */; };
 		BF508B15259BF02700F7C12A /* newMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF508B14259BF02700F7C12A /* newMap.swift */; };
+		BFC358F625A10F6900F68F2F /* SchoolMap3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC358F525A10F6900F68F2F /* SchoolMap3DViewController.swift */; };
+		BFC358F925A1244100F68F2F /* UIView+IBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC358F825A1244100F68F2F /* UIView+IBDesignable.swift */; };
 		BFEF71F5254B7A9200E17430 /* BarcodeScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */; };
 		BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */; };
 		FB0A1B362526114A008033CD /* SchoolMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A1B352526114A008033CD /* SchoolMapViewController.swift */; };
@@ -62,6 +64,8 @@
 		BF1720FF2547760B0056525D /* MdvApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MdvApp.swift; sourceTree = "<group>"; };
 		BF4C9B02253A5AB0006B846A /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		BF508B14259BF02700F7C12A /* newMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newMap.swift; sourceTree = "<group>"; };
+		BFC358F525A10F6900F68F2F /* SchoolMap3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMap3DViewController.swift; sourceTree = "<group>"; };
+		BFC358F825A1244100F68F2F /* UIView+IBDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IBDesignable.swift"; sourceTree = "<group>"; };
 		BFEF71F4254B7A9200E17430 /* BarcodeScanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScanningViewController.swift; sourceTree = "<group>"; };
 		BFEF71F7254CB8BF00E17430 /* StudentIDBarcodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIDBarcodeViewController.swift; sourceTree = "<group>"; };
 		FB0A1B352526114A008033CD /* SchoolMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolMapViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			children = (
 				FB0A1B352526114A008033CD /* SchoolMapViewController.swift */,
 				BF508B14259BF02700F7C12A /* newMap.swift */,
+				BFC358F525A10F6900F68F2F /* SchoolMap3DViewController.swift */,
 			);
 			path = "School Map";
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				FB81972F24E486E600765A27 /* UIImage+Convenience.swift */,
 				FB81973124E4960600765A27 /* UIViewController+Convenience.swift */,
 				3FA53B892527F4F60098E230 /* URL + Convenience.swift */,
+				BFC358F825A1244100F68F2F /* UIView+IBDesignable.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -323,8 +329,10 @@
 				3F62F35A2513C772007CDD17 /* NewAnnouncementView.swift in Sources */,
 				3FAB4CD42510195E0068F402 /* LoadingScreenView.swift in Sources */,
 				3F5EF1BA249C168B0076EEEE /* AnnouncementDetailsView.swift in Sources */,
+				BFC358F925A1244100F68F2F /* UIView+IBDesignable.swift in Sources */,
 				3F6B598624981BB000B9C90D /* Announcement.swift in Sources */,
 				FB1CDF882502E51E00942E60 /* UIColor+Hex.swift in Sources */,
+				BFC358F625A10F6900F68F2F /* SchoolMap3DViewController.swift in Sources */,
 				BF1721002547760B0056525D /* MdvApp.swift in Sources */,
 				BFEF71F8254CB8C000E17430 /* StudentIDBarcodeViewController.swift in Sources */,
 				BF508B15259BF02700F7C12A /* newMap.swift in Sources */,
@@ -474,7 +482,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MdvApp/MdvApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6373KCPL45;
 				INFOPLIST_FILE = MdvApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,11 +490,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = " 1.6";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.laraibenterprises.MdvApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -497,7 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MdvApp/MdvApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 6373KCPL45;
 				INFOPLIST_FILE = MdvApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -505,11 +513,11 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = " 1.6";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.laraibenterprises.MdvApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

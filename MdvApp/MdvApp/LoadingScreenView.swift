@@ -13,6 +13,7 @@ struct LoadingScreenView: View {
     @State private var isShowingFalcons = false
     @State private var isShowingLogo = false
     @State private var isShowingWelcome = false
+    @State private var isShowingAppSignature = false
     
     @Binding var isShowing: Bool
     var welcomeOverlayView: some View{
@@ -64,28 +65,31 @@ struct LoadingScreenView: View {
             } else {
                 Spacer().frame(width: 10, height: 82)
             }
+            if isShowingAppSignature{
+                Text("A Laraib Iqbal App")
+                    .foregroundColor(.white)
+                    .font(.caption2)
+            } else {
+                Spacer().frame(width: 10, height: 22)
+            }
+            
         }
         
         
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation { self.isShowingLets = true }
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                withAnimation { self.isShowingGO = true }
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation { self.isShowingFalcons = true }
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                withAnimation { self.isShowingLogo = true }
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                withAnimation { self.isShowingWelcome = true }
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                withAnimation { self.isShowing = false }
-            }
+            animationDispatch(deadline: .now() + 0.5, action: self.isShowingLets = true)
+            
+            animationDispatch(deadline: .now() + 1.0, action: self.isShowingGO = true)
+            
+            animationDispatch(deadline: .now() + 1.5, action: self.isShowingFalcons = true)
+            
+            animationDispatch(deadline: .now() + 2.0, action: self.isShowingLogo = true)
+            
+            animationDispatch(deadline: .now() + 2.5, action: self.isShowingWelcome = true)
+            
+            animationDispatch(deadline: .now() + 3.2, action: self.isShowingAppSignature = true)
+            
+            animationDispatch(deadline: .now() + 3.5, action: self.isShowing = false)
             
         }
     }
@@ -98,6 +102,12 @@ struct LoadingScreenView: View {
                        endRadius: 500)
             .edgesIgnoringSafeArea(.all)
             .overlay(overlayView)
+    }
+    func animationDispatch(deadline: DispatchTime, action: @escaping @autoclosure () -> Void ){
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            withAnimation { action() }
+        }
+
     }
 }
 

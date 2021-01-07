@@ -29,6 +29,7 @@ struct EventPopup: View {
     @State var isDescriptionValid = true
     @State var endDateValid = true
     @State var alertDateValid = true
+    let isEditing: Bool
 
             
     
@@ -39,7 +40,6 @@ struct EventPopup: View {
         }
     }
     
-    @State private var isEditing = false
     @State private var isValid = true
     
     func invalidEntryView(_ isValid: Binding<Bool>, colour: Color = .red) -> some View {
@@ -112,7 +112,7 @@ struct EventPopup: View {
                     }
                 }
             }
-            .navigationBarTitle(event.title.isEmpty ? "New Event" : "Edit Event")
+            .navigationBarTitle(isEditing ? "Edit Event" : "New Event")
             .navigationBarItems(trailing: saveButton)
         }
     }
@@ -144,7 +144,7 @@ struct EventPopup: View {
 struct EventPopup_Previews: PreviewProvider {
     @ObservedObject static var event = Event()
     static var previews: some View {
-        EventPopup(event: event)
+        EventPopup(event: event, isEditing: true)
     }
 }
 

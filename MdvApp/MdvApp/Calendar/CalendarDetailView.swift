@@ -97,7 +97,7 @@ struct CalendarEventDetailView: View {
         .navigationTitle(event.title)
         .navigationBarItems(trailing: editButton)
         .sheet(isPresented: $showingDetail){
-            EventPopup(event: event, dismiss:saveDismiss)
+            EventPopup(event: event, isEditing: true, dismiss:saveDismiss)
         }
         .alert(isPresented: $showingDeleteAlert) {
             Alert(title: Text("Delete Event?"), primaryButton: .destructive(Text("Yes"), action: {deleteDismiss? (event)}), secondaryButton: .cancel())
